@@ -1,0 +1,177 @@
+.hero {
+    position: relative;
+
+    @include mq($until: small) {
+        margin-bottom: em($gutter-width-sm * 2);
+    }
+
+    @include mq($from: small) {
+        margin-bottom: em($gutter-width * 3);
+    }
+
+    &--small {
+        @include mq($until: small) {
+            margin-bottom: em($gutter-width-sm * 2);
+        }
+
+        @include mq($from: small) {
+            margin-bottom: em($gutter-width * 2);
+        }
+    }
+
+    &__content {
+        position: absolute;
+        top: auto;
+        right: 0;
+        left: 0;
+        z-index: $z-index__hero__content;
+        text-align: center;
+        color: #fff;
+
+        @include mq($until: medium) {
+            bottom: em($gutter-width);
+        }
+
+        @include mq($from: medium) {
+            bottom: em($gutter-width * 2);
+        }
+    }
+
+    &__heading {
+        margin: 0 auto;
+        padding: 0 $gutter-width-half;
+        max-width: 1140px;
+        font-family: $font__brand__bold;
+        font-weight: 400;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+
+        @include mq($until: small) {
+            font-size: 28px;
+            line-height: 34px;
+            margin: 0 auto em(5px, 28px);
+        }
+
+        @include mq($from: small, $until: medium) {
+            font-size: 48px;
+            line-height: 54px;
+            margin: 0 auto em(5px, 48px);
+        }
+
+        @include mq($from: medium) {
+            margin: 0 auto em($gutter-width-half, 64px);
+            font-size: 64px;
+            line-height: 70px;
+            letter-spacing: 1px;
+        }
+    }
+
+    &__sub-heading {
+        font-family: $font__brand__light;
+        font-weight: 400;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+
+        @include mq($until: small) {
+            font-size: 14px;
+            line-height: 20px;
+            margin: 0 auto em(5px, 14px);
+        }
+
+        @include mq($from: small, $until: medium) {
+            font-size: 16px;
+            line-height: 22px;
+            margin: 0 auto em(5px, 16px);
+        }
+
+        @include mq($from: medium) {
+            font-size: 24px;
+            line-height: 30px;
+            margin: 0 auto em(10px, 24px);
+        }
+    }
+
+    &__text {
+        font-family: $font__brand__light;
+        font-weight: 400;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+
+        @include mq($until: small) {
+            font-size: 14px;
+            line-height: 20px;
+            margin: 0 auto em($gutter-width-half-sm * 1.5, 14px);
+            padding: 0 em($gutter-width-sm);
+        }
+
+        @include mq($from: small, $until: medium) {
+            font-size: 18px;
+            line-height: 24px;
+            margin: 0 auto em($gutter-width-half-sm * 1.5, 18px);
+            padding: 0 em($gutter-width-sm);
+        }
+
+        @include mq($from: medium) {
+            font-size: 24px;
+            line-height: 30px;
+            margin: 0 auto em($gutter-width-half * 1.5, 24px);
+            padding: 0 em($gutter-width);
+            max-width: em(960px, 24px);
+        }
+    }
+
+    &__image {
+        display: block;
+        margin: 0;
+        padding: 0;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        z-index: $z-index__hero__image;
+
+        @include mq($until: small) {
+            padding-bottom: percentage(9/10);
+        }
+
+        @include mq($from: small, $until: large) {
+            padding-bottom: percentage(9/16);
+        }
+
+        @include mq($from: large) {
+            padding-bottom: percentage(9/21);
+        }
+
+        &:after {
+            display: block;
+            content: ' ';
+            position: absolute;
+            right: 0;
+            left: 0;
+        }
+
+        &:after {
+            top: 40%;
+            bottom: 0;
+            background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+
+            @include mq($from: small) {
+                top: 45%;
+            }
+        }
+    }
+
+    &--small &__image {
+        @include mq($until: medium) {
+            padding-bottom: percentage(1/3);
+        }
+
+        @include mq($from: medium) {
+            padding-bottom: percentage(1/5);
+        }
+    }
+
+    .button {
+        @include mq($from: medium) {
+            min-width: 250px;
+        }
+    }
+}

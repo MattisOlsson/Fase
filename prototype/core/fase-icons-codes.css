@@ -1,0 +1,10 @@
+.icon--calendar:before { content: '\e800'; }
+.icon--facebook:before { content: '\e80b'; }
+.icon--facebook-1:before { content: '\e80c'; }
+.icon--twitter-1:before { content: '\e80d'; }
+.icon--youtube:before { content: '\e80e'; }
+.icon--linkedin:before { content: '\e80f'; }
+.icon--googleplus:before { content: '\e810'; }
+.icon--clock:before { content: '\e817'; }
+.icon--twitter:before { content: '\f099'; }
+.icon--instagram:before { content: '\f16d'; }

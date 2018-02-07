@@ -1,0 +1,52 @@
+.button {
+    display: inline-block;
+    appearance: none;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    border: 2px solid #000;
+    font-family: $font__brand__light;
+    transition: background-color ease-in-out 0.4s;
+    background-color: white;
+
+    &:hover {
+        background-color: darken(white, 10%);
+    }
+
+    @include mq($until: small) {
+        font-size: 16px;
+        line-height: 22px;
+        padding: em(7px, 16px) em($gutter-width, 16px) em(6px, 16px);
+        border-radius: em(33px, 16px);
+    }
+
+    @include mq($from: small) {
+        font-size: 24px;
+        line-height: 32px;
+        padding: em(12px, 24px) em($gutter-width * 2, 24px) em(11px, 24px);
+        border-radius: em(60px, 24px);
+        min-width: em(200px, 24px);
+    }
+
+    &--invert {
+        background-color: rgba(0, 0, 0, 0.25);
+        border-color: #fff;
+        color: #fff;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    &--primary {
+        border-color: $color__brand;
+        background-color: $color__brand;
+        color: #fff;
+        font-family: $font__brand__bold;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: darken($color__brand, 15%);
+        }
+    }
+}

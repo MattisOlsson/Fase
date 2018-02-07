@@ -1,0 +1,5 @@
+.profile {
+    &__list {
+        @include reset__list;
+    }
+}

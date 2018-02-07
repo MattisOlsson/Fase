@@ -1,0 +1,158 @@
+.navigation {
+    position: relative;
+
+    @include mq($from: medium) {
+        float: right;
+        padding-right: 10px;
+    }
+
+    &__toggle {
+        z-index: $z-index__navigation__toggle;
+
+        @include mq($until: medium) {
+            display: block;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: em($gutter-width-half);
+            right: 0;
+            text-indent: -5000px;
+            appearance: none;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: em($nav__toggle__size);
+            width: em($nav__toggle__size);
+            height: em($nav__toggle__size);
+            outline: none;
+
+            &:before,
+            &:after {
+                content: '';
+                background-color: #fff;
+                position: absolute;
+                height: em(2px);
+                line-height: em(2px);
+                overflow: hidden;
+                right: em(5px);
+                left: em(5px);
+                transition: all 0.4s ease;
+                transform-origin: 50% 50% 0;
+            }
+
+            &:before {
+                top: 32%;
+                bottom: auto;
+            }
+
+            &:after {
+                top: auto;
+                bottom: 32%;
+            }
+        }
+
+        @include mq($from: medium) {
+            display: none;
+        }
+    }
+
+    &--active &__toggle {
+        @include mq($until: medium) {
+            &:before,
+            &:after {
+                background-color: $color__brand;
+                top: 50%;
+                margin-top: -1px;
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &__menu {
+        @include reset__list;
+        z-index: $z-index__navigation__menu;
+        transition: transform ease-in-out 0.4s;
+        font-family: $font__brand__bold;
+        font-weight: 400;
+
+        @include mq($until: medium) {
+            display: block;
+            position: fixed;
+            padding-top: em($header__height__small + 10px);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(101%);
+            background-color: #000;
+        }
+
+        @include mq($from: medium) {
+            display: inline-block;
+        }
+    }
+
+    &--active &__menu {
+        @include mq($until: medium) {
+            transform: translateX(0);
+        }
+    }
+
+    &__item {
+        text-transform: uppercase;
+
+        @include mq($until: medium) {
+            display: block;
+            margin: 0 em($gutter-width-half) 0 auto;
+            text-align: right;
+            max-width: em(320px);
+        }
+
+        @include mq($from: medium) {
+            display: inline-block;
+        }
+    }
+
+    &__link {
+        display: block;
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+
+        @include mq($until: medium) {
+            padding: 10px 0;
+            margin: 5px 0;
+        }
+
+        @include mq($from: medium, $until: large) {
+            font-size: 17px;
+            line-height: 24px;
+            padding: em(42px, 17px) em($gutter-width-sm, 17px) em(40px, 17px);
+        }
+
+        @include mq($from: large) {
+            font-size: 18px;
+            line-height: 24px;
+            padding: em(42px, 18px) em($gutter-width-sm, 18px) em(40px, 18px);
+        }
+
+        &--active,
+        &:hover {
+            @include mq($from: medium) {
+                background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+                background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+            }
+        }
+
+        &--active {
+            color: $color__brand;
+        }
+    }
+}

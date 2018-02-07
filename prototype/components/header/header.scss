@@ -1,0 +1,65 @@
+.header {
+    display: block;
+    position: fixed;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: $z-index__header;
+
+    @include mq($until: medium) {
+        top: 0;
+        right: 0;
+        left: 0;
+        min-height: $header__height__small;
+    }
+
+    @include mq($from: medium) {
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    &__container {
+        @extend .container;
+
+        @include mq($from: medium) {
+            @include clearfix;
+            padding: 0;
+        }
+    }
+
+    &__home {
+        display: block;
+        z-index: $z-index__header__home;
+
+        @include mq($until: medium) {
+            position: absolute;
+            top: 0;
+            right: em($gutter-width + $nav__toggle__size);
+            left: $gutter-width-half;
+            text-align: center;
+            height: $header__height__small;
+            padding: em($gutter-width-half) 0;
+        }
+
+        @include mq($from: medium) {
+            float: left;
+            padding: em($gutter-width) em($gutter-width) em($gutter-width + 10px);
+        }
+    }
+
+    &__logo {
+        display: block;
+
+        @include mq($until: medium) {
+            height: em(36px);
+            width: auto;
+        }
+
+        @include mq($from: medium) {
+            margin: 0 auto;
+            width: auto;
+            height: em(46px);
+        }
+    }
+}

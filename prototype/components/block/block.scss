@@ -1,0 +1,12 @@
+.block {
+    display: flex;
+    flex-flow: column wrap;
+
+    @include mq($from: medium) {
+        padding: em($gutter-width-half);
+    }
+
+    &--full {
+        width: 100%;
+    }
+}

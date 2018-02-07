@@ -1,0 +1,44 @@
+// Project settings
+$base-font-size: 16px;
+
+$mq-breakpoints: (
+    xsmall: 480px,
+    small: 740px,
+    medium: 980px,
+    large: 1280px,
+    xlarge: 1369px
+);
+
+$media-small-max-width: 480px; // 0 to 480
+$media-medium-max-width: 960px; // 480 to 960
+$max-width: 1460px;
+
+$grid-columns: 12;
+$gutter-width: 30px;
+$gutter-width-sm: 20px;
+$gutter-width-half: $gutter-width * 0.5;
+$gutter-width-half-sm: $gutter-width-sm * 0.5;
+
+// Z-index
+$z-index__main: 100;
+$z-index__header: 1000;
+$z-index__header__home: 1001;
+$z-index__navigation__toggle: 1002;
+$z-index__navigation__menu: 1000;
+$z-index__hero__image: 100;
+$z-index__hero__content: 101;
+
+// Colors
+$color__brand: #00a8ec;
+$color__grey: #999;
+$color__grey__light: #f0f0f0;
+$color__grey__dark: #333;
+$color__grey__medium: #666;
+
+// Fonts
+$font__brand__bold: 'Nexa Bold', Helvetica, Arial;
+$font__brand__light: 'Nexa Light', Helvetica, Arial;
+
+// Header
+$header__height__small: 66px;
+$nav__toggle__size: 38px;

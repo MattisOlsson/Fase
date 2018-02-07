@@ -1,0 +1,42 @@
+$form__input__height: 52px;
+$form__input__line-height: 24px;
+$form__input__padding: ($form__input__height - $form__input__line-height) * 0.5;
+
+.form {
+    @include mq($from: medium) {
+        margin: -em($gutter-width-half) auto;
+    }
+
+    &__row {
+        display: block;
+        flex: none;
+        padding: em($gutter-width-half) 0;
+    }
+
+    &__input,
+    &__textarea {
+        display: inline-block;
+        appearance: none;
+        outline: none;
+        border: 2px solid #000;
+    }
+
+    &__input {
+        padding: em($form__input__padding) em(20px);
+        border-radius: em($form__input__height);
+        height: em($form__input__height);
+        line-height: em(24px);
+    }
+
+    &__textarea {
+        padding: em($gutter-width-half) em(20px);
+        height: em($form__input__height * 2);
+        border-radius: em($form__input__height * 0.5);
+    }
+
+    &__row &__input,
+    &__row &__textarea {
+        display: block;
+        width: 100%;
+    }
+}

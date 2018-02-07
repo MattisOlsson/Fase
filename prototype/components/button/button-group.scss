@@ -1,0 +1,13 @@
+.button-group {
+    text-align: center;
+
+    .button {
+        @include mq($until: medium) {
+            margin: 0 em(5px);
+        }
+
+        @include mq($from: medium) {
+            margin: 0 em(12px);
+        }
+    }
+}
