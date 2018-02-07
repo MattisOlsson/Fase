@@ -1,3 +1,4 @@
 prototype/public/
 prototype/node_modules/
 prototype/.idea/
+prototype/*.html
