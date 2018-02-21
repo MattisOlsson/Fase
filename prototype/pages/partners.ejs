@@ -1,2 +1,11 @@
-<%- include('layouts/layout', {render: 'top'}) %>
-<%- include('layouts/layout', {render: 'bottom'}) %>
+<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'partners'}) %>
+<section class="hero hero--small" style="background-image: url('/static/the_sea.jpg')">
+    <div class="hero__content">
+        <h1 class="hero__heading">Våra partners</h1>
+    </div>
+</section>
+
+<div class="page partners">
+    <%- include('../components/partners-block/partners-block', { showHeading: false }) %>
+</div>
+<%- include('layouts/layout', {render: 'bottom', selectedMenuItem: 'partners'}) %>

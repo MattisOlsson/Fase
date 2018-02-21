@@ -27,6 +27,7 @@ $z-index__navigation__toggle: 1002;
 $z-index__navigation__menu: 1000;
 $z-index__hero__image: 100;
 $z-index__hero__content: 101;
+$z-index__loader: 2000;
 
 // Colors
 $color__brand: #00a8ec;
@@ -41,4 +42,6 @@ $font__brand__light: 'Nexa Light', Helvetica, Arial;
 
 // Header
 $header__height__small: 66px;
+$header__height__medium: 86px;
+$header__height__large: 86px;
 $nav__toggle__size: 38px;

@@ -23,6 +23,6 @@ module.exports = function(gulp){
         gulp.src('./pages/*.ejs')
             .pipe(ejs(models).on('error', gutil.log))
             .pipe(rename({extname: '.html'}))
-            .pipe(gulp.dest('./'));
+            .pipe(gulp.dest('../src/Fase.Web/'));
     };
 };

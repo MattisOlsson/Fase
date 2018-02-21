@@ -3,14 +3,17 @@
 @import "./settings";
 @import "core/mixins/reset";
 @import "core/mixins/layout";
+@import "core/mixins/loader";
 @import "core/core";
 @import "core/fonts";
 @import "core/fase-icons";
 @import "core/grid";
 @import "core/main";
+@import "components/anchor/anchor";
 @import "components/form/form";
 @import "components/header/header";
 @import "components/navigation/navigation";
+@import "components/social-links/social-links";
 @import "components/footer/footer";
 @import "components/page/page";
 @import "components/block/block";
@@ -22,3 +25,6 @@
 @import "components/article/article";
 @import "components/events/events";
 @import "components/banner/banner";
+@import "components/profile/profile";
+@import "components/about-us/about-us";
+@import "components/loader/loader";

@@ -1,3 +1,28 @@
 .article {
     text-align: center;
+
+    &__header {
+        margin-bottom: em($gutter-width);
+
+        @include mq(small) {
+            margin-bottom: em($gutter-width * 2);
+        }
+
+        .events__item__date {
+            display: block;
+            margin-bottom: em($gutter-width-half);
+
+            @include mq(small) {
+                margin-bottom: em($gutter-width);
+            }
+        }
+    }
+
+    &__footer {
+        margin-bottom: em($gutter-width-sm * 2.5);
+
+        @include mq(small) {
+            margin-bottom: em($gutter-width * 3);
+        }
+    }
 }

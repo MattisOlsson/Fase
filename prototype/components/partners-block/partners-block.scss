@@ -4,6 +4,7 @@
         color: white;
         margin: 0;
         position: relative;
+        text-align: center;
 
         @include mq($until: small) {
             margin-bottom: em($gutter-width, 24px);
@@ -53,17 +54,17 @@
         margin: 0;
 
         @include mq($until: small) {
-            flex: 0 0 25%;
+            flex: 0 0 percentage(1/3);
             padding: $gutter-width-half;
         }
 
         @include mq($from: small, $until: large) {
-            flex: 0 0 15%;
+            flex: 0 0 20%;
             padding: $gutter-width-half;
         }
 
         @include mq($from: large) {
-            flex: 0 0 percentage(1/8);
+            flex: 0 0 percentage(1/6);
             padding: $gutter-width-half;
         }
     }

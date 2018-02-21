@@ -1,72 +1,223 @@
-<%- include('layouts/layout', {render: 'top'}) %>
-<section class="hero hero--small">
-    <figure class="hero__image" style="background-image: url('/static/hero-image.jpg')"></figure>
+<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'events'}) %>
+<section class="hero hero--static" style="background-image: url('/static/the_sea.jpg')">
+    <div class="hero__content">
+        <img class="hero__logo" src="/static/dryckeskultur.png" alt="Dryckeskultur 2018 logo">
+    </div>
 </section>
-
 <div class="article">
-    <article class="text-block__content">
+    <header class="article__header">
+        <p class="events__item__intro">Specialkryssning på M/S Viking Cinderella</p>
         <h1 class="page__heading article__heading"><i class="icon--calendar"></i> Dryckeskultur 2018</h1>
+        <span class="events__item__date"><i class="icon--clock"></i> 16 september 2018 kl. 18:00</span>
 
-        <p>
-            Äntligen kommer en mer renodlad Dryckesmässa för främst till krögare, branschfolk och andra dryckesintresserade.
-        </p>
-        <p>
-            Själva dryckesmässan på däck 7 är 330kvm stor och kommer presentera många trevliga upcoming brands (viktigt för oss att kunna ge plats åt mindre brands som vill nå krogar runt om i landet) och även flera bekanta ansikten.
-        </p>
-        <p>
-            Utanför mässan kommer det även finnas andra utställare som har allt ifrån barutrustning och arbetskläder. Konferansen på däck 9 kommer att erbjuda masterclasses inom öl, gin, rom och whisky. Bitterskolning, premium-barskolning, föreläsningar. Begränsat antal platser.
-        </p>
-    </article>
+        <nav class="button-group">
+            <%- include('../components/links/dryckeskultur', { cssClass: 'button--primary'}) %>
+        </nav>
+    </header>
 
-    <h2 class="page__heading2">Inspiration</h2>
-    <article class="banner">
-        <figure class="banner__image" style="background-image: url('/static/hero-image.jpg')"></figure>
-        <div class="banner__content">
+    <article class="text-block">
+        <div class="text-block__content">
             <p>
-                Flera Premium-skolningar inom barkulturen kommer att hållas på kvällen och även på hemresan, passar även dem främsta som här kan få inspiration för kommande säsong. Våra duktiga skolare från bland annat Zigges Garage Halmstad. Skånska Spritfabriken gör en egen workshop med en presentation och provning av deras vinnar gin 2017. Ett mer utförligt program finns på första sidan.
+                <strong>Äntligen kommer en mer renodlad dryckesmässa främst riktad till krögare, branschfolk och andra dryckesintresserade.</strong>
+            </p>
+            <p>
+                Själva dryckesmässan på däck 7 är 330kvm stor och kommer presentera flera kända leverantörer med deras brands och även många trevliga upcoming brands (viktigt för oss att kunna ge plats åt mindre brands som vill nå krogar runt om i landet) och även flera bekanta ansikten.
+            </p>
+            <p>
+                Konferansen på däck 9 kommer att erbjuda masterclasses inom öl, gin, rom och whisky. Bitterskolning, premium-barskolning, föreläsningar. Begränsat antal platser.
             </p>
         </div>
     </article>
 
-    <h2 class="page__heading2">Kunskap</h2>
-    <article class="banner banner--mirrored">
-        <figure class="banner__image" style="background-image: url('/static/hero-image.jpg')"></figure>
-        <div class="banner__content">
+    <article class="text-block text-block--grey">
+        <h2 class="text-block__heading">Inspiration</h2>
+        <div class="text-block__content">
             <p>
-                En djupdykning i dryckeskulturen med föreläsningar inom gin, rom och barteknik. Flera kända brands kommer att hålla i olika masterclasses, Ålands stolthet Stallhagen med deras förste bryggare Jonas Backlund presenterar en bred masterclass inom öl. Joakim Lobelius, sommelier med gedigen erfarenhet och kunskap från branschen kommer att hålla i Solera Cava/Prosecco provning. Ett mer utförligt program finns på första sidan.
+                Flera Premium-skolningar inom barkulturen kommer att hållas på kvällen och även på hemresan. Passar även de främsta som här kan
+                få inspiration för kommande säsong. Våra duktiga skolare kommer från bland annat Zigges Garage Halmstad. Skånska Spritfabriken
+                gör en egen workshop med en presentation och provning av deras vinnargin 2017.
+            </p>
+            <p>
+                <a href="/skolningar-workshops-masterclasses.html">Läs mer om våra skolningar och workshops <i class="icon--right-big"></i></a>
+
+                <img src="/static/workshop.jpg" alt="Workshop">
             </p>
         </div>
     </article>
 
-    <h2 class="page__heading2">Umgänge</h2>
-    <article class="banner">
-        <figure class="banner__image" style="background-image: url('/static/hero-image.jpg')"></figure>
-        <div class="banner__content">
+    <article class="text-block">
+        <h2 class="text-block__heading">Kunskap</h2>
+        <div class="text-block__content">
             <p>
-                Efter mässan och alla skolningar, finns det äntligen lite tid att få hänga lite med sina kollegor. Ät en god middag och promenera sedan till Östersjön största nattklubb Etage på däck 8. 2017 genomförde M/S Viking Cinderella stora renoveringar, det har blivit snyggare och fräschare med nya möbler och stor scen som garanterar en skön stämning. Gillar ni poker? Anmäl er då till våran Poker Run och utmana era kamrater i kända Texas Hold 'em. Se nedan för anmälan.
+                En djupdykning i dryckeskulturen med flera kända brands som kommer att hålla i olika
+                masterclasses. Ålands stolthet Stallhagen med deras förste bryggare Jonas Backlund presenterar en bred masterclass inom öl.
+                Joakim Lobelius, sommelier med gedigen erfarenhet och kunskap från branschen kommer att hålla i Solera Cava/Prosecco provning.
+            </p>
+            <p>
+                Rom, Rum, Rhum - Lär dig vad som är vad. Tillsammans med Thomas Sundblom, VD på Clydesdale, provar vi ett antal sorter och lär oss om historien, ursprungen, tillverkningen, lagringen och givetvis smaken.
+            </p>
+            <p>
+                <a href="/skolningar-workshops-masterclasses.html">Läs mer om våra masterclasses <i class="icon--right-big"></i></a>
+
+                <img src="/static/masterclasses.jpg" alt="Master classes">
             </p>
         </div>
     </article>
 
-    <h2 class="page__heading2">Nöje</h2>
-
-    <article class="banner banner--mirrored">
-        <figure class="banner__image" style="background-image: url('/static/hero-image.jpg')"></figure>
-        <div class="banner__content">
+    <article class="text-block text-block--grey">
+        <h2 class="text-block__heading">Umgänge</h2>
+        <div class="text-block__content">
             <p>
-                Vi på Fair and Square Event gillar mässor men de tenderar alltid att bli lite sega och långtråkiga mot slutet. Man vill hitta på någonting efteråt och därför har vi valt att satsa stort på underhållning som sällan skådats på Östersjön. Denna afton får dansbanden stanna hemma för att ge plats åt inte mindre än livebandet De Sotos, Alexandra Jardvall samt 4 st DJ´s. Två stora namn från Summerburst och Tomorrowland, <strong>Albin Meyers</strong> och <strong>John Dahlbäck</strong>, blir kvällens main event. Loungebaren, som är en premiumdryckbar, är öppen för den som gillar det lilla extra med lite lägre volym.
+                Efter mässan och alla skolningar finns det äntligen lite tid att hänga med sina vänner och kollegor.
+                Ät en god middag och promenera sedan till Östersjöns största nattklubb Etage på däck 8. Besök loungebaren som är en premiumdryckbar för den som gillar det lilla extra och lite lägre volym.
+                2017 genomförde M/S Viking Cinderella stora renoveringar.
+            </p>
+            <blockquote>
+                – Det är riktigt roligt att kunna inleda kryssningsåret 2017 med att presentera flera fina nyheter på Cinderella. Taxfreebutiken är nu helt omgjord från golv till tak och dessutom 25 procent större till ytan än tidigare. Därtill storsatsar vi på en total omgörning av sviterna och ännu fler och snyggare hytter i Lyx- och Comfortkategorierna. Totalt har Cinderella uppgraderats för ett värde av cirka 35 miljoner kronor, säger Tapani Kauhanen, vd och marknadsdirektör Viking Line Skandinavien.
+            </blockquote>
+            <p>
+                Det har blivit snyggare och fräschare
+                med nya möbler och en stor scen som garanterar en skön stämning. Gillar ni poker?
+                Anmäl er då till våran <strong>Poker Run</strong> och utmana era kamrater i kända Texas Hold 'em.
+            </p>
+            <p>
+                <a href="#poker-run-subscription">Anmäl dig längre ned på sidan <i class="icon--down-big"></i></a>
+
+                <img src="/static/poker-run.jpg" alt="Poker Run">
             </p>
         </div>
     </article>
 
-    <article class="banner">
-        <figure class="banner__image" style="background-image: url('/static/hero-image.jpg')"></figure>
-        <div class="banner__content">
-            <h2 class="page__heading2">Bartender Battle</h2>
+    <article class="text-block">
+        <h2 class="text-block__heading">Nöje</h2>
+
+        <div class="text-block__content">
             <p>
-                På hemresan får ni inte missa när landets bartenders gör upp i Bartender Battle! I juryn sitter grabbarna från "Zigges Garage", som är en erkänd cocktailbar i Halmstad. För anmälan se nedan.
+                Underhållningen är en viktig del av vårat koncept och därför har vi valt att satsa stort på underhållning som sällan skådats på Östersjön.
+                Denna afton får dansbanden stanna hemma för att ge plats åt inte mindre än livebandet <strong>De Sotos</strong> och 4 st DJ´s.
+                Med stora namn namn från <strong>Summerburst</strong> och <strong>Tomorrowland</strong>, <strong>Albin Meyers</strong> och
+                <strong>John Dahlbäck</strong> som kommer att köra ett unikt ”back to back” i stora nattklubben Etagé. <strong>DJ Chris</strong> är med som Fair and square events alltid återkommande ”House-DJ/Hus-DJ", som kommer att hålla igång både före och efter hans kollegor har slutat lira. <strong>DJ Cesar</strong> står för lite softare loungemusik på mässan.
+            </p>
+            <p>
+                <a href="/artister.html">Läs mer om artisterna <i class="icon--right-big"></i></a>
+            </p>
+
+            <ul class="profile--medium profile__list">
+                <li class="profile__item">
+                    <img class="profile__image" src="/static/albin-myers-new.jpg">
+                    <h3 class="profile__name">Albin Myers</h3>
+                </li>
+                <li class="profile__item">
+                    <img class="profile__image" src="/static/john-dahlback-new.jpg">
+                    <h3 class="profile__name">John Dahlbäck</h3>
+                </li>
+                <li class="profile__item">
+                    <img class="profile__image" src="/static/desotos-grupp-02.jpg">
+                    <h3 class="profile__name">De Sotos</h3>
+                </li>
+                <li class="profile__item">
+                    <img class="profile__image" src="/static/dj-chris.jpg">
+                    <h3 class="profile__name">DJ Chris</h3>
+                </li>
+                <li class="profile__item">
+                    <img class="profile__image" src="/static/dj-cesar.jpg">
+                    <h3 class="profile__name">DJ Cesar</h3>
+                </li>
+            </ul>
+        </div>
+    </article>
+
+    <article class="text-block text-block--grey">
+        <h2 class="text-block__heading">Bartender Battle</h2>
+        <div class="text-block__content">
+            <p>
+                På hemresan får ni inte missa när landets bartenders gör upp i Bartender Battle! I juryn sitter grabbarna från "Zigges Garage", som är en erkänd cocktailbar i Halmstad.
+            </p>
+            <p>
+                <a href="#bartender-battle-subscription">Anmäl dig nedan <i class="icon--down-big"></i></a>
+                <img class="image image--small" src="/static/bartender-battle.png" alt="Bartender Battle">
             </p>
         </div>
     </article>
+
+    <div class="container container--narrow">
+        <div class="row">
+            <div class="block block--half">
+                <span id="poker-run-subscription" class="anchor" aria-hidden="true"></span>
+                <article class="text-block">
+                    <h2 class="text-block__heading2">Anmälan Poker Run</h2>
+                    <form action="/email/send/" method="post" class="form" data-form>
+                        <div class="form__row">
+                            <input class="form__input" type="text" name="Name" placeholder="Namn">
+                        </div>
+
+                        <div class="form__row">
+                            <input class="form__input" type="email" name="Email" placeholder="E-post">
+                        </div>
+
+                        <div class="form__row">
+                            <input class="form__input" type="text" name="Phone" placeholder="Telefon">
+                        </div>
+
+                        <div class="form__row">
+                            <button class="button button--primary" type="submit">Skicka anmälan</button>
+                        </div>
+
+                        <input type="hidden" name="ReturnUrl" value="/tack-for-din-anmalan.html">
+                        <input type="hidden" name="Heading" value="Anmälan till Poker Run">
+                        <input type="hidden" name="Subject" value="Anmälan till Poker Run">
+                    </form>
+                </article>
+            </div>
+
+            <div class="block block--half">
+                <span id="bartender-battle-subscription" class="anchor" aria-hidden="true"></span>
+                <article class="text-block">
+                    <h2 class="text-block__heading2">Anmälan Bartender Battle</h2>
+                    <form action="/email/send/" method="post" class="form" data-form>
+                        <div class="form__row">
+                            <input class="form__input" type="text" name="Name" placeholder="Namn">
+                        </div>
+
+                        <div class="form__row">
+                            <input class="form__input" type="text" name="Company" placeholder="Bar/krog">
+                        </div>
+
+                        <div class="form__row">
+                            <input class="form__input" type="email" name="Email" placeholder="E-post">
+                        </div>
+
+                        <div class="form__row">
+                            <input class="form__input" type="text" name="Phone" placeholder="Telefon">
+                        </div>
+
+                        <div class="form__row">
+                            <button class="button button--primary" type="submit">Skicka anmälan</button>
+                        </div>
+
+                        <input type="hidden" name="ReturnUrl" value="/tack-for-din-anmalan.html">
+                        <input type="hidden" name="Heading" value="Anmälan till Bartender Battle">
+                        <input type="hidden" name="Subject" value="Anmälan till Bartender Battle">
+                    </form>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <span id="program" class="anchor" aria-hidden="true"></span>
+    <article class="text-block">
+        <h2 class="text-block__heading">Program</h2>
+        <div class="text-block__content">
+            <p>To Be Announced</p>
+        </div>
+    </article>
+
+    <%- include('../components/partners-block/partners-block', { showHeading: true }) %>
+
+    <footer class="article__footer">
+        <nav class="button-group">
+            <%- include('../components/links/dryckeskultur', { cssClass: 'button--primary'}) %>
+        </nav>
+    </footer>
 </div>
-<%- include('layouts/layout', {render: 'bottom'}) %>
+<%- include('layouts/layout', {render: 'bottom', selectedMenuItem: 'events'}) %>

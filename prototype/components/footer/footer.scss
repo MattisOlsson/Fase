@@ -3,6 +3,11 @@
     color: #fff;
     padding: em($gutter-width) 0;
 
+    &__container {
+        margin: 0 auto;
+        max-width: em(960px);
+    }
+
     &__row {
         justify-content: center;
 
@@ -56,10 +61,10 @@
                 margin-top: em(10px, 20px);
             }
         }
-    }
 
-    a {
-        color: $color__brand;
-        text-decoration: none;
+        > p > a {
+            color: $color__brand;
+            text-decoration: none;
+        }
     }
 }

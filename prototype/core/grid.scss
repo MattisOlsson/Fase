@@ -9,6 +9,10 @@
     @include mq($from: medium) {
         padding: 0 em($gutter-width);
     }
+
+    &--narrow {
+        max-width: em(960px);
+    }
 }
 
 .row {

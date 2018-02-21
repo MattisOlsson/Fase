@@ -3,9 +3,7 @@ $form__input__line-height: 24px;
 $form__input__padding: ($form__input__height - $form__input__line-height) * 0.5;
 
 .form {
-    @include mq($from: medium) {
-        margin: -em($gutter-width-half) auto;
-    }
+    margin: 0 auto;
 
     &__row {
         display: block;
@@ -38,5 +36,35 @@ $form__input__padding: ($form__input__height - $form__input__line-height) * 0.5;
     &__row &__textarea {
         display: block;
         width: 100%;
+    }
+
+    &__error {
+        display: block;
+        position: absolute;
+        background-color: black;
+        font-size: 12px;
+        line-height: 16px;
+        border-radius: em(30px, 14px);
+        padding: em(4px, 14px) em(10px, 14px);
+        color: white;
+
+        &:after {
+            @include arrow('down', black, 7px);
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            margin-left: -5px;
+        }
+    }
+
+    &--invert &__error {
+        background-color: white;
+        color: #b00;
+
+        &:after {
+            border: none;
+
+            @include arrow('down', white, 7px);
+        }
     }
 }

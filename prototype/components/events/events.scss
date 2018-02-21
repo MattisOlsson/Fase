@@ -11,6 +11,11 @@
         padding: 0 0 em($gutter-width * 2);
         text-align: center;
 
+        &__image {
+            max-width: em(200px);
+            margin-bottom: em(10px);
+        }
+
         &__intro {
             font-family: $font__brand__light;
             margin: 0;
@@ -21,6 +26,19 @@
 
             @include mq($from: small) {
                 font-size: 20px;
+            }
+        }
+
+        &__disclaimer {
+            font-family: Roboto;
+            font-style: italic;
+
+            @include mq($until: small) {
+                font-size: 14px !important;
+            }
+
+            @include mq($from: small) {
+                font-size: 17px !important;
             }
         }
 
@@ -37,7 +55,17 @@
         }
 
         &__date {
+            font-family: $font__brand__bold;
+            font-size: 16px;
             color: $color__brand;
+
+            @include mq(small) {
+                font-size: 18px;
+            }
+
+            > i {
+                color: black;
+            }
         }
     }
 }

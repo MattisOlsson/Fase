@@ -1,2 +1,69 @@
-<%- include('layouts/layout', {render: 'top'}) %>
-<%- include('layouts/layout', {render: 'bottom'}) %>
+<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'about-us'}) %>
+<section class="hero hero--small" style="background-image: url('/static/the_sea.jpg')">
+    <div class="hero__content">
+        <h1 class="hero__heading">Varför välja oss?</h1>
+    </div>
+</section>
+
+<div class="about-us">
+    <article class="text-block">
+        <h2 class="text-block__heading">Inspiration</h2>
+        <div class="text-block__content">
+            <p>
+                Vi inspireras av allt och alla, stora som små. Därför vill vi även inspirera alla som söker sig till oss. Inget uppdrag är för stort, ingen idé är omöjlig.
+            </p>
+        </div>
+    </article>
+
+    <article class="text-block text-block--grey">
+        <h2 class="text-block__heading">Motivation</h2>
+        <div class="text-block__content">
+            <p>
+                Vi motiverar inte bara andra med inspirationer, utan även varandra. Därför tappar vi aldrig motivationen, vi sprider den bara vidare och hämtar drivkraft av varandra.
+            </p>
+        </div>
+    </article>
+
+    <article class="text-block">
+        <h2 class="text-block__heading">Kunskap</h2>
+        <div class="text-block__content">
+            <p>
+                Kunskap är A och O för oss. Man kan aldrig bli fullärd. Därför nöjer vi oss inte bara med att ta in kunskap, utan vi kommer alltid vilja förmedla den till alla intresserade.
+            </p>
+        </div>
+    </article>
+
+    <article class="text-block text-block--grey">
+        <h2 class="text-block__heading">Nöje</h2>
+        <div class="text-block__content">
+            <p>
+                Man ska alltid ha roligt. Oavsett om man är där för nöje eller affärer. Därför tillsätter vi nöje och humor i allt vi gör. Vi driver fram en affärsplan på en seriös nivå, men med en lättare touch, vilket gör vår publik avslappnade nog för att ta emot kunskapen vi vill förmedla.
+            </p>
+        </div>
+    </article>
+
+    <span id="kontakt" class="anchor"></span>
+    <h2 class="text-block__heading partners-block__heading">Kontakta oss</h2>
+
+    <div class="text-block profile--medium">
+        <ul class="profile__list">
+            <li class="profile__item">
+                <img class="profile__image" src="/static/lasse.jpg">
+                <h3 class="profile__name">Lasse</h3>
+                <p class="profile__text">
+                    <a href="mailto:l.koskelainen@fase-ab.se"><i class="icon--mail icon--lg"></i> l.koskelainen@fase-ab.se</a>
+                    <a href="tel:+46706271187"><i class="icon--phone icon--lg"></i> +46 (0)70-627 11 87</a>
+                </p>
+            </li>
+            <li class="profile__item">
+                <img class="profile__image" src="/static/janne.jpg">
+                <h3 class="profile__name">Janne</h3>
+                <p class="profile__text">
+                    <a href="mailto:jk.forslund@fase-ab.se"><i class="icon--mail icon--lg"></i> jk.forslund@fase-ab.se</a>
+                    <a href="tel:+46706271187"><i class="icon--phone icon--lg"></i> +46 (0)70-627 11 87</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+<%- include('layouts/layout', {render: 'bottom', selectedMenuItem: 'about-us'}) %>

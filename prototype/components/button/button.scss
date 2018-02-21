@@ -3,14 +3,17 @@
     appearance: none;
     text-decoration: none;
     text-align: center;
-    color: #000;
+    color: black;
     border: 2px solid #000;
     font-family: $font__brand__light;
-    transition: background-color ease-in-out 0.4s;
+    transition: background-color ease-in-out 0.4s, color ease-in-out 0.4s, border-color ease-in-out 0.4s;
     background-color: white;
 
-    &:hover {
-        background-color: darken(white, 10%);
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: black;
+        color: white;
     }
 
     @include mq($until: small) {
@@ -20,7 +23,15 @@
         border-radius: em(33px, 16px);
     }
 
-    @include mq($from: small) {
+    @include mq(small, medium) {
+        font-size: 20px;
+        line-height: 28px;
+        padding: em(12px, 20px) em($gutter-width * 2, 20px) em(11px, 20px);
+        border-radius: em(60px, 20px);
+        min-width: em(200px, 20px);
+    }
+
+    @include mq(medium) {
         font-size: 24px;
         line-height: 32px;
         padding: em(12px, 24px) em($gutter-width * 2, 24px) em(11px, 24px);
@@ -33,20 +44,36 @@
         border-color: #fff;
         color: #fff;
 
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.5);
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: white;
+            color: black;
         }
     }
 
     &--primary {
         border-color: $color__brand;
         background-color: $color__brand;
-        color: #fff;
+        color: white;
         font-family: $font__brand__bold;
         text-transform: uppercase;
 
-        &:hover {
-            background-color: darken($color__brand, 15%);
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: black;
+            background-color: black;
+        }
+    }
+
+    &--primary-invert {
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: white;
+            background-color: white;
+            color: black;
         }
     }
 }

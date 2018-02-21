@@ -6,7 +6,7 @@ const paths = {
     jsSrc: ['./components/**/*.{js,jsx}', './core/**/*.{js,jsx}', './index.js'],
     scssSrc: ['./components/**/*.scss', './core/**/*.scss', './*.scss'],
     cssSrc: ['./components/**/*.css', './core/**/*.css'],
-    ejsSrc: ['./pages/*.ejs', './components/**/*.ejs']
+    ejsSrc: ['./pages/*.ejs', './pages/**/*.ejs', './components/**/*.ejs']
 };
 
 //== ESLint
@@ -28,7 +28,7 @@ gulp.task('watch', function () {
 gulp.task('css:dev', require('./gulp-tasks/css')(gulp, {
     env: 'development',
     src: './index.scss',
-    dest: 'public',
+    dest: '../src/Fase.Web/public',
     filename: 'index.css'
 }));
 
@@ -36,14 +36,14 @@ gulp.task('css', require('./gulp-tasks/css')(gulp, {
     env: 'production',
     src: './index.scss',
     outputStyle: 'compressed',
-    dest: 'public',
+    dest: '../src/Fase.Web/public',
     filename: 'index.css'
 }));
 
 gulp.task('js:dev', require('./gulp-tasks/js')(gulp, {
     env: 'development',
     src: './index.js',
-    dest: 'public',
+    dest: '../src/Fase.Web/public',
     filename: 'index.js'
 }));
 
@@ -51,7 +51,7 @@ gulp.task('js', require('./gulp-tasks/js')(gulp, {
     env: 'production',
     uglify: true,
     src: './index.js',
-    dest: 'public',
+    dest: '../src/Fase.Web/public',
     filename: 'index.js'
 }));
 

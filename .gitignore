@@ -5,3 +5,6 @@ prototype/*.html
 [Bb]in/
 [Dd]ebug/
 packages/
+.vs/
+.idea/
+design/

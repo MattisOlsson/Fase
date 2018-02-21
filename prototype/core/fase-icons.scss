@@ -30,5 +30,11 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon--lg {
+    font-size: 1.33333em;
+    line-height: 0.75em;
+    vertical-align: -0.0667em;
+}
+
 @import "fase-icons-codes";
 @import "animation";
