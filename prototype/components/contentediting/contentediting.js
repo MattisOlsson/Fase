@@ -15,7 +15,6 @@ export default class ContentEditing {
 
     onSaved(event) {
         let detail = event.detail();
-        let passive = detail.passive;
         let regions = detail.regions;
 
         this.editor.busy(true);

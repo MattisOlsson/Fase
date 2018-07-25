@@ -31,13 +31,13 @@
     @if ($direction == 'down') {
         border-left: $size solid transparent;
         border-right: $size solid transparent;
-        border-top: $size solid $color;
+        border-top: $size - 10px solid $color;
     }
 
     @if ($direction == 'up') {
         border-left: $size solid transparent;
         border-right: $size solid transparent;
-        border-bottom: $size solid $color;
+        border-bottom: $size - 10px solid $color;
     }
 
     @if ($direction == 'left') {

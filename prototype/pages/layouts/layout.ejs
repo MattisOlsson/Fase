@@ -2,9 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Fair And Square Event - A new kind of event</title>
+    <title><%= pageTitle %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/index.css?v=17">
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NS6QPN2');
+    </script>
+    <link rel="stylesheet" href="/public/index.css?v=27">
     <link href="https://fonts.googleapis.com/css?family=Arizonia|Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -15,6 +22,9 @@
     <meta property="og:image" content="http://www.dryckeskultur.com/static/dryckeskultur.jpg">
 </head>
 <body>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS6QPN2" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <%- include('../../components/header/header', { selectedMenuItem }) %>
 
     <main class="main" role="main">
@@ -24,7 +34,7 @@
 
     <%- include('../../components/footer/footer') %>
 
-    <script src="/public/index.js?v=17"></script>
+    <script src="/public/index.js?v=27"></script>
 </body>
 </html>
 <% } %>

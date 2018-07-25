@@ -1,4 +1,4 @@
-<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'events'}) %>
+<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'events', pageTitle: 'Artister Dryckeskultur 2018 - FASE: A new kind of event'}) %>
 <section class="hero hero--static" style="background-image: url('/static/the_sea.jpg')">
     <div class="hero__content">
         <img class="hero__logo" src="/static/dryckeskultur.png" alt="Dryckeskultur 2018 logo">
@@ -47,30 +47,13 @@
 
                 <li class="profile__item">
                     <div class="profile__image-wrapper">
-                        <img class="profile__image" src="/static/dj-chris.jpg" alt="DJ Chris profilbild">
+                        <img class="profile__image" src="/static/dj-chris.jpg" alt="Chris profilbild">
                     </div>
                     <div class="profile__description">
-                        <h2 class="profile__name profile__name--large">DJ Chris</h2>
+                        <h2 class="profile__name profile__name--large">Chris</h2>
                         <p>
                             Chris har spelat sedan 2003, runt om i hela Sverige och även internationellt i
                             samband med världskända DJ:s som Albin Myers, Dennis Koyu, John Dalbäck, Sebjak med flera.
-                        </p>
-                        <p>
-                            <a href="https://www.facebook.com/DjChrisofficiell/">https://www.facebook.com/DjChrisofficiell/</a>
-                        </p>
-                    </div>
-                </li>
-
-                <li class="profile__item">
-                    <div class="profile__image-wrapper">
-                        <img class="profile__image" src="/static/dj-cesar.jpg" alt="DJ Cesar profilbild">
-                    </div>
-                    <div class="profile__description">
-                        <h2 class="profile__name profile__name--large">DJ Cesar</h2>
-                        <p>
-                            Cesar startade sin karriär vid 16 års ålder och arbetade på några mindre nattklubbar i södra
-                            Sverige. Dj Cesar har rockat dansgolv i de bästa klubbarna över hela Sverige, Storbritannien, Spanien
-                            och övriga norden.
                         </p>
                     </div>
                 </li>
@@ -85,12 +68,30 @@
                             De Sotos är ett av de mest etablerade och välkända livebanden i Sverige.
                         </p>
                         <p>
-                            Både som show och kompband har De Sotos närmare 30 års erfarenhet av företagsevent, TV-underhållning, turnéer, After Ski och, framför allt, nattklubbsspelningar.
+                            Både som show- och kompband har De Sotos närmare 30 års erfarenhet av företagsevent, TV-underhållning, turnéer, After Ski och, framför allt, nattklubbsspelningar.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="profile__item">
+                    <div class="profile__image-wrapper">
+                        <img class="profile__image" src="/static/johnny-matte.jpg" alt="Johnny&amp;Matte profilbild">
+                    </div>
+                    <div class="profile__description">
+                        <h2 class="profile__name profile__name--large">Johnny &amp; Matte</h2>
+                        <p>
+                            När två av Sveriges mest välrenommerade trubadurer ses tillsammans är det oftast som frontfigurerna i partybandet PartyPistolerna. I 20 år har de underhållit på alla tänkbara tillställningar runt om i Sverige, Europa och USA. Underhållning i toppklass. Med olika stilar men med en fantastisk samspelthet spelar de här som duo. Ett koncept Ni inte vill missa.
                         </p>
                     </div>
                 </li>
             </ul>
         </div>
     </article>
+
+    <footer class="article__footer">
+        <nav class="button-group">
+            <%- include('../components/links/dryckeskultur', { cssClass: 'button--primary'}) %>
+        </nav>
+    </footer>
 </div>
 <%- include('layouts/layout', {render: 'bottom', selectedMenuItem: 'events'}) %>

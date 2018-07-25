@@ -140,6 +140,31 @@
             }
         }
 
+        > ol {
+            list-style: none;
+            padding: 0;
+
+            > li {
+                padding: 0;
+
+                @include mq($until: small) {
+                    margin-bottom: em(22px, 16px);
+                }
+
+                @include mq($from: small, $until: medium) {
+                    margin-bottom: em(30px, 18px);
+                }
+
+                @include mq($from: medium) {
+                    margin-bottom: em(35px, 20px);
+                }
+
+                > p {
+                    margin-top: 0;
+                }
+            }
+        }
+
         > blockquote {
             position: relative;
             font-size: 0.9em;

@@ -1,4 +1,4 @@
-<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'events'}) %>
+<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'events', pageTitle: 'Skolningar Workshops Masterclasses Dryckeskultur 2018'}) %>
 <section class="hero hero--static" style="background-image: url('/static/the_sea.jpg')">
     <div class="hero__content">
         <img class="hero__logo" src="/static/dryckeskultur.png" alt="Dryckeskultur 2018 logo">
@@ -70,6 +70,39 @@
                 </p>
             </div>
         </li>
+        <li class="events__item">
+            <p class="events__item__intro">
+                <img class="events__item__image" src="/static/logo_solera.png" alt="Solera">
+            </p>
+            <h2 class="events__item__heading"><i class="icon--calendar"></i> Bubbel-workshop</h2>
+            <span class="events__item__date"><i class="icon--clock"></i> To Be Announced</span>
+            <div class="text-block__content">
+                <p>
+                    Joakim Lobelius från Solera är en sommelier med gedigen erfarenhet från branschen som kommer att hålla i ett par workshops inom 'bubbel'. Missa inte detta!
+                </p>
+            </div>
+        </li>
+        <li class="events__item">
+            <ul class="profile--medium profile__list">
+                <li class="profile__item">
+                    <img class="profile__image" src="/static/carl-skoglund-square.png">
+                    <h3 class="profile__name">Carl Skoglund</h3>
+                </li>
+            </ul>
+            <h2 class="events__item__heading"><i class="icon--calendar"></i> Champagne och Akvavit</h2>
+            <span class="events__item__date"><i class="icon--clock"></i> To Be Announced</span>
+            <div class="text-block__content">
+                <p>
+                    Carl Skoglund arbetat i närmare 30 år i allt från Peking via London till Ålandshav, och nu senast i Norge. Carl har hållt föreläsningar om vin och olika drycker de senaste 10 åren, nu senast lär han tyskarna att dricka norsk akvavit. Carl gör en spännande workshop om champagne vid två tillfällen och om akvavit vid ett. Exakt tid och rum annonseras på hemsidan senare. Missa inte!
+                </p>
+            </div>
+        </li>
     </ol>
+    
+    <footer class="article__footer">
+        <nav class="button-group">
+            <%- include('../components/links/dryckeskultur', { cssClass: 'button--primary'}) %>
+        </nav>
+    </footer>
 </div>
 <%- include('layouts/layout', {render: 'bottom', selectedMenuItem: 'events'}) %>

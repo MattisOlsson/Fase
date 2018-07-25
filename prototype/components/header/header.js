@@ -7,6 +7,12 @@ export default class Header {
         this.element = $(element);
         this.body = $('body');
         this.hero = $('.hero');
+
+        if (this.hero.length === 0) {
+            this.element.removeClass('header--transparent');
+            return;
+        }
+
         $(document).on('scroll.header', () => this.onScroll());
 
         // Set state on load

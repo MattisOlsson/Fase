@@ -27,13 +27,13 @@
             transform: translateX(-50%);
 
             @include mq($until: medium) {
-                @include arrow('down', $color__brand, 15px);
-                bottom: -14px;
+                @include arrow('down', $color__brand, 30px);
+                bottom: -19px;
             }
 
             @include mq($from: medium) {
-                @include arrow('down', $color__brand, 20px);
-                bottom: -19px;
+                @include arrow('down', $color__brand, 40px);
+                bottom: -29px;
             }
         }
     }
@@ -52,20 +52,32 @@
         display: flex;
         flex-direction: column;
         margin: 0;
+        padding: $gutter-width-half;
 
         @include mq($until: small) {
             flex: 0 0 percentage(1/3);
-            padding: $gutter-width-half;
         }
 
         @include mq($from: small, $until: large) {
-            flex: 0 0 20%;
-            padding: $gutter-width-half;
+            flex: 0 0 25%;
         }
 
         @include mq($from: large) {
             flex: 0 0 percentage(1/6);
-            padding: $gutter-width-half;
+        }
+
+        &--double {
+            @include mq($until: small) {
+                flex: 0 0 percentage(2/3);
+            }
+
+            @include mq($from: small, $until: large) {
+                flex: 0 0 50%;
+            }
+
+            @include mq($from: large) {
+                flex: 0 0 percentage(2/6);
+            }
         }
     }
 
