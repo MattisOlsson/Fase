@@ -1,0 +1,57 @@
+<%- include('layouts/layout', {render: 'top', selectedMenuItem: 'events', pageTitle: 'Dryckeskultur 2018 - FASE: A new kind of event'}) %>
+<section class="hero hero--small" style="background-image: url('/static/the_sea.jpg')">
+    <div class="hero__content">
+        <h1 class="hero__heading">Poker Run</h1>
+    </div>
+</section>
+
+<div class="page rules">
+    <article class="text-block">
+        <div class="text-block__content">
+            <p><img src="/static/poker-run.jpg" alt="Poker Run"></p>
+            <p>
+                Bartender Battle är precis som det låter, bartenders kommer att köra ett eller flera race emot olika kollegor i branschen men också emot klockan. Det kommer att blandas, skiktas, skakas, silas och röras 3-14 klassiska cocktails. Tävlingen består av olika ”heat”. Om man vinner sitt ”heat” går man vidare till nästa, förhoppningsvis ända till grande finale. Hela tävlingen körs på ca 3 timmar. Juryn består av Zigges Garage/Il grillo och Sveriges Bartenders Gille-SBG. De kommer att bedöma efter utförande, tid och kunskap. Recepten går efter SBG/IBA standard.
+            </p>
+
+            <p>
+                Känner du att detta är något för dig eller en kollega så tveka inte att anmäla er till Dryckeskulturs Bartender Battle söndagen den 23/9 på M/S Silja Galaxy. Det finns bara ett begränsat antal platser till denna tävling så skynda på.
+            </p>
+
+            <p>
+                Anmälan skickas in via formuläret nedan eller genom att skicka ett mail till <a href="mailto:info@fase-ab.se">info@fase-ab.se</a>. Du måste vara inbokad på eventet för att kunna deltaga.
+            </p>
+        </div>
+    </article>
+
+    <div class="container container--narrow">
+        <article class="text-block">
+            <h2 class="text-block__heading2">Anmälan Bartender Battle</h2>
+            <form action="/email/send/" method="post" class="form" data-form>
+                <div class="form__row">
+                    <input class="form__input" type="text" name="Name" placeholder="Namn">
+                </div>
+
+                <div class="form__row">
+                    <input class="form__input" type="text" name="Company" placeholder="Bar/krog">
+                </div>
+
+                <div class="form__row">
+                    <input class="form__input" type="email" name="Email" placeholder="E-post">
+                </div>
+
+                <div class="form__row">
+                    <input class="form__input" type="text" name="Phone" placeholder="Telefon">
+                </div>
+
+                <div class="form__row">
+                    <button class="button button--primary" type="submit">Skicka anmälan</button>
+                </div>
+
+                <input type="hidden" name="ReturnUrl" value="/tack-for-din-anmalan.html">
+                <input type="hidden" name="Heading" value="Anmälan till Bartender Battle">
+                <input type="hidden" name="Subject" value="Anmälan till Bartender Battle">
+            </form>
+        </article>
+    </div>
+</div>
+<%- include('layouts/layout', {render: 'bottom', selectedMenuItem: 'events'}) %>

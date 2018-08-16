@@ -8,6 +8,12 @@
         <p class="events__item__intro">Specialkryssning</p>
         <h1 class="page__heading article__heading"><i class="icon--calendar"></i> Dryckeskultur 2018</h1>
         <span class="events__item__date"><i class="icon--clock"></i> 23 september 2018 kl. 19:30</span>
+        <div class="text-block__content">
+            <p>
+                <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
+                boka med bokningskoden <strong>25 H PEOPLE</strong>
+            </p>
+        </div>
         <nav class="button-group">
             <%- include('../components/links/dryckeskultur', { cssClass: 'button--primary'}) %>
         </nav>
@@ -126,7 +132,7 @@
                 En bartendertävling med precision och tidsram. Bl.a. 3 st klassiska cocktails ska göras och kanske nån Hotshot. Anmälan finnes längst ner på sidan. 16 platser finns och det är först till kvarn. OBS! Endast en deltagare per bar/krog. <strong>Vinnaren får en svit på nästa års Dryckeskultur samt en vandringspokal</strong>. Good luck!
             </p>
             <p>
-                <a href="#bartender-battle-subscription">Anmäl dig nedan <i class="icon--down-big"></i></a>
+                <a href="/bartender-battle.html">Läs mer och anmäl dig <i class="icon--right-big"></i></a>
                 <img class="image image--small" src="/static/bartender-battle.png" alt="Bartender Battle">
             </p>
         </div>
@@ -163,7 +169,6 @@
             </div>
 
             <div class="block block--half">
-                <span id="bartender-battle-subscription" class="anchor" aria-hidden="true"></span>
                 <article class="text-block">
                     <h2 class="text-block__heading2">Anmälan Bartender Battle</h2>
                     <form action="/email/send/" method="post" class="form" data-form>
@@ -207,6 +212,12 @@
     <%- include('../components/partners-block/partners-block', { showHeading: true }) %>
 
     <footer class="article__footer">
+        <div class="text-block__content">
+            <p>
+                <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
+                boka med bokningskoden <strong>25 H PEOPLE</strong>
+            </p>
+        </div>
         <nav class="button-group">
             <%- include('../components/links/dryckeskultur', { cssClass: 'button--primary'}) %>
         </nav>

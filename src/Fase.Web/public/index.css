@@ -517,6 +517,12 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Nexa Bold', Helvetica, Arial; font-weight
 
 @media (min-width: 61.25em) { .hero__text { font-size: 1.5rem; line-height: 1.875rem; margin: 0 auto 0.9375em; padding: 0 1.875em; max-width: 40em; } }
 
+@media (max-width: 46.24em) { .hero__text--small { font-size: 0.75rem; line-height: 1.125rem; margin: 0 auto 1.25em; } }
+
+@media (min-width: 46.25em) { .hero__text--small { font-size: 1rem; line-height: 1.375rem; margin: 0 auto 0.9375em; padding: 0 1.25em; } }
+
+@media (min-width: 61.25em) { .hero__text--small { padding: 0 1.875em; max-width: 40em; } }
+
 .hero__text > strong { font-family: "Nexa Bold", Helvetica, Arial; }
 
 .hero__logo { display: block; margin: 0 auto; max-height: 17.5em; }

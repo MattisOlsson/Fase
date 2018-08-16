@@ -158,6 +158,26 @@
             max-width: em(960px, 24px);
         }
 
+        &--small {
+            @include mq($until: small) {
+                font-size: 12px;
+                line-height: 18px;
+                margin: 0 auto em($gutter-width-half-sm * 1.5, 12px);
+            }
+
+            @include mq($from: small) {
+                font-size: 16px;
+                line-height: 22px;
+                margin: 0 auto em($gutter-width-half-sm * 1.5, 16px);
+                padding: 0 em($gutter-width-sm, 16px);
+            }
+
+            @include mq($from: medium) {
+                padding: 0 em($gutter-width, 16px);
+                max-width: em(640px, 16px);
+            }
+        }
+
         > strong {
             font-family: $font__brand__bold;
         }
