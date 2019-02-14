@@ -11,7 +11,7 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NS6QPN2');
     </script>
-    <link rel="stylesheet" href="/public/index.css?v=28">
+    <link rel="stylesheet" href="/public/index.css?v=29">
     <link href="https://fonts.googleapis.com/css?family=Arizonia|Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -71,21 +71,28 @@
     <main class="main" role="main">
 
 
-<section class="hero hero--static" style="background-image: url('/static/the_sea.jpg')">
+<section class="hero hero--static" style="background-image: url('/static/the_sea.jpg')" data-hero>
+    <div class="hero__video">
+        <video class="hero__video__player" id="start-video" muted="muted" autoplay="autoplay" preload="metadata">
+            <source src="/static/stock-footage-glass-with-whisky-with-ice-cube-inside-on-dj-controller-at-nightclub-dj-console-with-club-drink-at-2.webm" type="video/mp4" data-src="/static/stock-footage-dj-turns-the-records-at-the-club-back-view-in-modern-nightclub.webm">
+        </video>
+    </div>
     <article class="hero__content">
-        <img class="hero__logo" src="/static/dryckeskultur.png" alt="Dryckeskultur 2018 logo">
-        <h2 class="hero__sub-heading">Specialkryssning på M/S Galaxy 23/9</h2>
-        <p class="hero__text">
-            Fair and Square Event presenterar premiären för Dryckeskultur <strong>den 23 september 2018 kl 19:30</strong>. En mer renodlad dryckesmässa som riktar sig främst till krögare, branschfolk och andra dryckesintresserade.
-        </p>
-        <p class="hero__text hero__text--small">
-            <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
-            boka med bokningskoden <strong>25 H PEOPLE</strong>
-        </p>
-        <nav class="button-group">
-            <a class="button button--invert" href="/dryckeskultur-2018.html">Läs mer</a>
-            <a class="button button--primary button--primary-invert" href="https://www.tallinksilja.se/dryckeskultur" target="_blank">Boka nu</a>
-        </nav>
+        <div class="hero__content__inner">
+            <img class="hero__logo" src="/static/dryckeskultur.png" alt="Dryckeskultur 2018 logo">
+            <h2 class="hero__sub-heading">Specialkryssning på M/S Birka Stockholm 23/9</h2>
+            <p class="hero__text">
+                Fair and Square Event presenterar 2019 års upplaga av  Dryckeskultur <strong>den 23 september 2019 kl 19:30</strong>. En mer renodlad dryckesmässa som riktar sig främst till krögare, branschfolk och andra dryckesintresserade.
+            </p>
+            <p class="hero__text hero__text--small">
+                <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
+                boka med bokningskoden <strong>25 H PEOPLE</strong>
+            </p>
+            <nav class="button-group">
+                <a class="button button--invert" href="/dryckeskultur-2018.html">Läs mer</a>
+                <a class="button button--primary button--primary-invert" href="https://www.tallinksilja.se/dryckeskultur" target="_blank">Boka nu</a>
+            </nav>
+        </div>
     </article>
 </section>
 
@@ -208,6 +215,6 @@
     </div>
 </footer>
 
-    <script src="/public/index.js?v=28"></script>
+    <script src="/public/index.js?v=29"></script>
 </body>
 </html>
