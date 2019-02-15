@@ -43,6 +43,8 @@
     "gulp-stylelint": "^3.9.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "in-view": "^0.6.1",
+    "in-viewport": "^3.6.0",
     "into-stream": "^3.1.0",
     "jquery": "^3.1.1",
     "modularized-normalize-scss": "^4.0.0",
@@ -55,7 +57,8 @@
     "through2": "^2.0.3",
     "uri-js": "^3.0.2",
     "vinyl-buffer": "1.0.0",
-    "vinyl-source-stream": "1.1.0"
+    "vinyl-source-stream": "1.1.0",
+    "withinviewport": "^2.1.0"
   },
   "devDependencies": {
     "sitemap-generator": "^8.2.2"

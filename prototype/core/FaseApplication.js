@@ -4,7 +4,7 @@ import AnchorLink from '../components/anchor/anchor-link.js';
 import Header from '../components/header/header.js';
 import Navigation from '../components/navigation/navigation.js';
 import Form from '../components/form/form.js';
-import Hero from '../components/hero/hero.js';
+import Animate from '../components/animate/animate.js';
 
 export default class FaseApplication {
     constructor() {
@@ -23,6 +23,6 @@ export default class FaseApplication {
     }
 
     load() {
-        initElements('[data-hero]', Hero);
+        initElements('[data-animate]', Animate);
     }
 }

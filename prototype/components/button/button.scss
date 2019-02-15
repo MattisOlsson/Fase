@@ -1,3 +1,17 @@
+@keyframes primarybuttonanimation {
+    0% {
+        border-color: $color__brand;
+    }
+
+    50% {
+        border-color: $color__white;
+    }
+
+    100% {
+        border-color: $color__brand;
+    }
+}
+
 .button {
     display: inline-block;
     appearance: none;

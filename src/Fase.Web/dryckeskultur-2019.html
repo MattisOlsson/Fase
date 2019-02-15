@@ -9,9 +9,9 @@
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-NS6QPN2');
+        })(window, document, 'script', 'dataLayer', 'GTM-NS6QPN2');
     </script>
-    <link rel="stylesheet" href="/public/index.css?v=29">
+    <link rel="stylesheet" href="/public/index.css?v=41">
     <link href="https://fonts.googleapis.com/css?family=Arizonia|Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -71,55 +71,62 @@
     <main class="main" role="main">
 
 
-<section class="hero hero--video" style="background-image: url('/static/the_sea.jpg')" data-hero>
+<section class="hero hero--video" data-hero>
     <div class="hero__video">
-        <video class="hero__video__player" id="start-video" muted="muted" autoplay="autoplay" preload="metadata">
-            <source src="/static/stock-footage-glass-with-whisky-with-ice-cube-inside-on-dj-controller-at-nightclub-dj-console-with-club-drink-at-2.mp4" type="video/mp4" data-src="/static/stock-footage-dj-turns-the-records-at-the-club-back-view-in-modern-nightclub.mp4">
-            <source src="/static/stock-footage-glass-with-whisky-with-ice-cube-inside-on-dj-controller-at-nightclub-dj-console-with-club-drink-at-2.webm" type="video/webm" data-src="/static/stock-footage-dj-turns-the-records-at-the-club-back-view-in-modern-nightclub.webm">
+        <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="metadata">
+            <source src="/static/stock-footage-glass-with-whisky-with-ice-cube-inside-on-dj-controller-at-nightclub-dj-console-with-club-drink-at-2.webm" type="video/webm" data-src="/static/stock-footage-glass-with-whisky-with-ice-cube-inside-on-dj-controller-at-nightclub-dj-console-with-club-drink-at-2.webm">
+            <source src="/static/stock-footage-glass-with-whisky-with-ice-cube-inside-on-dj-controller-at-nightclub-dj-console-with-club-drink-at-2.mp4" type="video/mp4" data-src="/static/stock-footage-glass-with-whisky-with-ice-cube-inside-on-dj-controller-at-nightclub-dj-console-with-club-drink-at-2.mp4">
         </video>
     </div>
     <article class="hero__content">
-        <div class="hero__content__inner">
-            <img class="hero__logo" src="/static/dryckeskultur.png" alt="Dryckeskultur 2018 logo">
-            <h2 class="hero__sub-heading">Specialkryssning på M/S Birka Stockholm 23/9</h2>
-            <p class="hero__text">
-                Fair and Square Event presenterar 2019 års upplaga av  Dryckeskultur <strong>den 23 september 2019 kl 19:30</strong>. En mer renodlad dryckesmässa som riktar sig främst till krögare, branschfolk och andra dryckesintresserade.
-            </p>
-            <p class="hero__text hero__text--small">
-                <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
-                boka med bokningskoden <strong>25 H PEOPLE</strong>
-            </p>
-            <nav class="button-group">
-                <a class="button button--invert" href="/dryckeskultur-2018.html">Läs mer</a>
-                <a class="button button--primary button--primary-invert" href="https://www.tallinksilja.se/dryckeskultur" target="_blank">Boka nu</a>
-            </nav>
+        <div class="hero__content__inner animate animate--onload" data-animate='{ "mode": "onload" }'>
+            <div class="animate__group">
+                <img class="hero__logo" src="/static/dryckeskultur.png" alt="Dryckeskultur 2018 logo">
+                <h2 class="hero__sub-heading">Specialkryssning på M/S Birka Stockholm 23/9</h2>
+                <p class="hero__text">
+                    Fair and Square Event presenterar 2019 års upplaga av  Dryckeskultur <strong>den 23 september 2019 kl 19:30</strong>. En mer renodlad dryckesmässa som riktar sig främst till krögare, branschfolk och andra dryckesintresserade.
+                </p>
+                <!-- 
+                <p class="hero__text hero__text--small">
+                    <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
+                    boka med bokningskoden <strong>25 H PEOPLE</strong>
+                </p>
+                -->
+            </div>
+            <div class="animate__group">
+                <nav class="button-group">
+                    <a class="button button--invert" href="/dryckeskultur-2018.html">Läs mer</a>
+                    <a class="button button--primary button--primary-invert" href="https://www.tallinksilja.se/dryckeskultur" target="_blank">Boka nu</a>
+                </nav>
+            </div>
         </div>
     </article>
 </section>
 
-<article class="text-block">
-    <h2 class="text-block__heading">
-        <span>FASE</span>
-        A new kind of <strong>event</strong>
-    </h2>
-    <div class="text-block__content" data-editable data-name="about-text">
-        <!-- editable about-text -->
-        <p>
-            Fair and Square Event är precis som det låter, ett rättvist event. Vårat mål är att fullfölja våra klienters idéer, besökares förväntningar och tillsammans med er skapa unika och minnesvärda events. I slutändan ska alla känna att de fick en fair deal. Arbetet för en hållbar utveckling är något vi hela tiden strävar efter och är en naturlig del hos oss på fair and square event.
-        </p>
+<article class="text-block animate" data-animate>
+    <div class="animate__group">
+        <h2 class="text-block__heading">
+            <span>FASE</span>
+            A new kind of <strong>event</strong>
+        </h2>
+        <div class="text-block__content" data-editable data-name="about-text">
+            <p>
+                Fair and Square Event är precis som det låter, ett rättvist event. Vårat mål är att fullfölja våra klienters idéer, besökares förväntningar och tillsammans med er skapa unika och minnesvärda events. I slutändan ska alla känna att de fick en fair deal. Arbetet för en hållbar utveckling är något vi hela tiden strävar efter och är en naturlig del hos oss på fair and square event.
+            </p>
 
-        <p>
-            Vi kan alla göra skillnad på olika sätt och vi väljer därför att på varje event försöka samarbeta med en transparent välgörenhetsorganisation vi kan känna oss trygga med och vet att dessa står för samma värderingar som vi inom FASE.
-        </p>
-        <!-- endeditable about-text -->
+            <p>
+                Vi kan alla göra skillnad på olika sätt och vi väljer därför att på varje event försöka samarbeta med en transparent välgörenhetsorganisation vi kan känna oss trygga med och vet att dessa står för samma värderingar som vi inom FASE.
+            </p>
+        </div>
+        <nav class="button-group">
+            <a href="/om-oss.html" class="button">Mer om oss </a>
+        </nav>
     </div>
-
-    <nav class="button-group">
-        <a href="/om-oss.html" class="button">Mer om oss </a>
-    </nav>
 </article>
 
-<article class="text-block partners-block">
+<div class="animate" data-animate>
+    <div class="animate__group">
+        <article class="text-block partners-block">
     
     <h2 class="text-block__heading partners-block__heading">Våra partners</h2>
     
@@ -156,7 +163,7 @@
         </li>
     </ul>
 </article>
-
+        
 
     </main>
 
@@ -216,6 +223,9 @@
     </div>
 </footer>
 
-    <script src="/public/index.js?v=29"></script>
+    <script src="/public/index.js?v=34"></script>
 </body>
 </html>
+
+    </div>
+</div>

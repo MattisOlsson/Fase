@@ -50,7 +50,84 @@ var AnchorLink = function () {
 
 exports.default = AnchorLink;
 
-},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":83}],2:[function(require,module,exports){
+},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":84}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _inViewport = require('in-viewport');
+
+var _inViewport2 = _interopRequireDefault(_inViewport);
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var Animate = function () {
+    (0, _createClass3.default)(Animate, null, [{
+        key: 'defaults',
+        get: function get() {
+            return {
+                mode: 'in-viewport'
+            };
+        }
+    }]);
+
+    function Animate(element, options) {
+        var _this = this;
+
+        (0, _classCallCheck3.default)(this, Animate);
+
+        this.element = (0, _jquery2.default)(element);
+        this.groups = this.element.children().addClass('animate__group');
+        this.options = _jquery2.default.extend({}, this.constructor.defaults, options);
+
+        if (this.options.mode === 'in-viewport') {
+            this.groups.each(function (_, group) {
+                return _this.initGroup(group);
+            });
+        } else if (this.options.mode === 'onload') {
+            window.setTimeout(function () {
+                return _this.groups.addClass('animate__group--active');
+            }, 250);
+        }
+    }
+
+    (0, _createClass3.default)(Animate, [{
+        key: 'initGroup',
+        value: function initGroup(group) {
+            var _this2 = this;
+
+            (0, _inViewport2.default)(group, { offset: -100 }, function () {
+                return _this2.onIsInViewport(group);
+            });
+        }
+    }, {
+        key: 'onIsInViewport',
+        value: function onIsInViewport(group) {
+            (0, _jquery2.default)(group).addClass('animate__group--active');
+        }
+    }]);
+    return Animate;
+}();
+
+exports.default = Animate;
+
+},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"in-viewport":83,"jquery":84}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -169,7 +246,7 @@ var Form = function () {
 
 exports.default = Form;
 
-},{"../loader/loader.js":5,"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":83}],3:[function(require,module,exports){
+},{"../loader/loader.js":5,"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":84}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -243,39 +320,7 @@ var Header = function () {
 
 exports.default = Header;
 
-},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":83}],4:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-}
-
-var Hero = function Hero(element) {
-    var _this = this;
-
-    (0, _classCallCheck3.default)(this, Hero);
-
-    this.element = (0, _jquery2.default)(element);
-    window.setTimeout(function () {
-        return _this.element.addClass('hero--animate');
-    }, 250);
-};
-
-exports.default = Hero;
-
-},{"babel-runtime/helpers/classCallCheck":13,"jquery":83}],5:[function(require,module,exports){
+},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":84}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -319,7 +364,7 @@ var Loader = function () {
 
 exports.default = Loader;
 
-},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"jquery":83}],6:[function(require,module,exports){
+},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"jquery":84}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -380,7 +425,7 @@ var Navigation = function () {
 
 exports.default = Navigation;
 
-},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":83}],7:[function(require,module,exports){
+},{"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"extend":82,"jquery":84}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -419,9 +464,9 @@ var _form = require('../components/form/form.js');
 
 var _form2 = _interopRequireDefault(_form);
 
-var _hero = require('../components/hero/hero.js');
+var _animate = require('../components/animate/animate.js');
 
-var _hero2 = _interopRequireDefault(_hero);
+var _animate2 = _interopRequireDefault(_animate);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -455,7 +500,7 @@ var FaseApplication = function () {
     }, {
         key: 'load',
         value: function load() {
-            (0, _initElements2.default)('[data-hero]', _hero2.default);
+            (0, _initElements2.default)('[data-animate]', _animate2.default);
         }
     }]);
     return FaseApplication;
@@ -463,7 +508,7 @@ var FaseApplication = function () {
 
 exports.default = FaseApplication;
 
-},{"../components/anchor/anchor-link.js":1,"../components/form/form.js":2,"../components/header/header.js":3,"../components/hero/hero.js":4,"../components/navigation/navigation.js":6,"./utils/init-elements.js":8,"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"jquery":83}],8:[function(require,module,exports){
+},{"../components/anchor/anchor-link.js":1,"../components/animate/animate.js":2,"../components/form/form.js":3,"../components/header/header.js":4,"../components/navigation/navigation.js":6,"./utils/init-elements.js":8,"babel-runtime/helpers/classCallCheck":13,"babel-runtime/helpers/createClass":14,"jquery":84}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -528,7 +573,7 @@ exports.default = function (selector, Class) {
     });
 };
 
-},{"babel-runtime/helpers/typeof":15,"jquery":83}],9:[function(require,module,exports){
+},{"babel-runtime/helpers/typeof":15,"jquery":84}],9:[function(require,module,exports){
 'use strict';
 
 var _FaseApplication = require('./core/FaseApplication.js');
@@ -1754,6 +1799,291 @@ module.exports = function extend() {
 };
 
 },{}],83:[function(require,module,exports){
+(function (global){
+module.exports = inViewport;
+
+var instances = [];
+var supportsMutationObserver = typeof global.MutationObserver === 'function';
+
+function inViewport(elt, params, cb) {
+  var opts = {
+    container: global.document.body,
+    offset: 0,
+    debounce: 15,
+    failsafe: 150
+  };
+
+  if (params === undefined || typeof params === 'function') {
+    cb = params;
+    params = {};
+  }
+
+  var container = opts.container = params.container || opts.container;
+  var offset = opts.offset = params.offset || opts.offset;
+  var debounceValue = opts.debounce = params.debounce || opts.debounce;
+  var failsafe = opts.failsafe = params.failsafe || opts.failsafe;
+
+  // ensure backward compatibility with failsafe as boolean
+  if (failsafe === true) {
+    failsafe = 150;
+  } else if(failsafe === false) {
+    failsafe = 0;
+  }
+
+  // failsafe check always needs to be higher than debounceValue
+  if (failsafe > 0 && failsafe < debounceValue) {
+      failsafe = debounceValue + 50;
+  }
+
+  for (var i = 0; i < instances.length; i++) {
+    if (
+      instances[i].container === container &&
+      instances[i]._debounce === debounceValue &&
+      instances[i]._failsafe === failsafe
+    ) {
+      return instances[i].isInViewport(elt, offset, cb);
+    }
+  }
+
+  return instances[
+    instances.push(createInViewport(container, debounceValue, failsafe)) - 1
+  ].isInViewport(elt, offset, cb);
+}
+
+function addEvent(el, type, fn) {
+  if (el.attachEvent) {
+    el.attachEvent('on' + type, fn);
+  } else {
+    el.addEventListener(type, fn, false);
+  }
+}
+
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this, args = arguments;
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+
+    function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    }
+  };
+}
+
+// https://github.com/jquery/sizzle/blob/3136f48b90e3edc84cbaaa6f6f7734ef03775a07/sizzle.js#L708
+var contains = function() {
+  if (!global.document) {
+    return true;
+  }
+  return global.document.documentElement.compareDocumentPosition ?
+    function (a, b) {
+      return !!(a.compareDocumentPosition(b) & 16);
+    } :
+    global.document.documentElement.contains ?
+      function (a, b) {
+        return a !== b && ( a.contains ? a.contains(b) : false );
+      } :
+      function (a, b) {
+        while (b = b.parentNode) {
+          if (b === a) {
+            return true;
+          }
+        }
+        return false;
+      };
+}
+
+function createInViewport(container, debounceValue, failsafe) {
+  var watches = createWatches();
+
+  var scrollContainer = container === global.document.body ? global : container;
+  var debouncedCheck = debounce(watches.checkAll(watchInViewport), debounceValue);
+
+  addEvent(scrollContainer, 'scroll', debouncedCheck);
+
+  if (scrollContainer === global) {
+    addEvent(global, 'resize', debouncedCheck);
+  }
+
+  if (supportsMutationObserver) {
+    observeDOM(watches, container, debouncedCheck);
+  }
+
+  // failsafe check, every X we check for visible images
+  // usecase: a hidden parent containing eleements
+  // when the parent becomes visible, we have no event that the children
+  // became visible
+  if (failsafe > 0) {
+    setInterval(debouncedCheck, failsafe);
+  }
+
+  function isInViewport(elt, offset, cb) {
+    if (!cb) {
+      return isVisible(elt, offset);
+    }
+
+    var remote = createRemote(elt, offset, cb);
+    remote.watch();
+    return remote;
+  }
+
+  function createRemote(elt, offset, cb) {
+    function watch() {
+      watches.add(elt, offset, cb);
+    }
+
+    function dispose() {
+      watches.remove(elt);
+    }
+
+    return {
+      watch: watch,
+      dispose: dispose
+    };
+  }
+
+  function watchInViewport(elt, offset, cb) {
+    if (isVisible(elt, offset)) {
+      watches.remove(elt);
+      cb(elt);
+    }
+  }
+
+  function isVisible(elt, offset) {
+    if (!elt) {
+      return false;
+    }
+
+    if (!contains(global.document.documentElement, elt) || !contains(global.document.documentElement, container)) {
+      return false;
+    }
+
+    // Check if the element is visible
+    // https://github.com/jquery/jquery/blob/740e190223d19a114d5373758127285d14d6b71e/src/css/hiddenVisibleSelectors.js
+    if (!elt.offsetWidth || !elt.offsetHeight) {
+      return false;
+    }
+
+    var eltRect = elt.getBoundingClientRect();
+    var viewport = {};
+
+    if (container === global.document.body) {
+      viewport = {
+        top: -offset,
+        left: -offset,
+        right: global.document.documentElement.clientWidth + offset,
+        bottom: global.window.innerHeight + offset
+      };
+    } else {
+      var containerRect = container.getBoundingClientRect();
+      viewport = {
+        top: containerRect.top - offset,
+        left: containerRect.left - offset,
+        right: containerRect.right + offset,
+        bottom: containerRect.bottom + offset
+      };
+    }
+
+    // The element must overlap with the visible part of the viewport
+    var visible =
+      (
+        eltRect.right >= viewport.left &&
+        eltRect.left <= viewport.right &&
+        eltRect.bottom >= viewport.top &&
+        eltRect.top <= viewport.bottom
+      );
+
+    return visible;
+  }
+
+  return {
+    container: container,
+    isInViewport: isInViewport,
+    _debounce: debounceValue,
+    _failsafe: failsafe
+  };
+}
+
+function createWatches() {
+  var watches = [];
+
+  function add(elt, offset, cb) {
+    if (!isWatched(elt)) {
+      watches.push([elt, offset, cb]);
+    }
+  }
+
+  function remove(elt) {
+    var pos = indexOf(elt);
+    if (pos !== -1) {
+      watches.splice(pos, 1);
+    }
+  }
+
+  function indexOf(elt) {
+    for (var i = watches.length - 1; i >= 0; i--) {
+      if (watches[i][0] === elt) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  function isWatched(elt) {
+    return indexOf(elt) !== -1;
+  }
+
+  function checkAll(cb) {
+    return function () {
+      for (var i = watches.length - 1; i >= 0; i--) {
+        cb.apply(this, watches[i]);
+      }
+    };
+  }
+
+  return {
+    add: add,
+    remove: remove,
+    isWatched: isWatched,
+    checkAll: checkAll
+  };
+}
+
+function observeDOM(watches, container, cb) {
+  var observer = new MutationObserver(watch);
+  var filter = Array.prototype.filter;
+  var concat = Array.prototype.concat;
+
+  observer.observe(container, {
+    childList: true,
+    subtree: true,
+    // changes like style/width/height/display will be catched
+    attributes: true
+  });
+
+  function watch(mutations) {
+    // some new DOM nodes where previously watched
+    // we should check their positions
+    if (mutations.some(knownNodes) === true) {
+      setTimeout(cb, 0);
+    }
+  }
+
+  function knownNodes(mutation) {
+    var nodes = concat.call([],
+      Array.prototype.slice.call(mutation.addedNodes),
+      mutation.target
+    );
+    return filter.call(nodes, watches.isWatched).length > 0;
+  }
+}
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],84:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
