@@ -43,13 +43,17 @@
         }
 
         &__heading {
+            color: black;
+
             @include mq($until: small) {
                 font-size: 24px;
+                line-height: 32px;
                 margin: em(5px, 24px) 0;
             }
 
             @include mq($from: small) {
                 font-size: 32px;
+                line-height: 38px;
                 margin: em($gutter-width-half, 32px) 0;
             }
         }
@@ -63,7 +67,7 @@
                 font-size: 18px;
             }
 
-            > i {
+            i {
                 color: black;
             }
         }

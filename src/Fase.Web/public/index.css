@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Nexa Bold', Helvetica, Arial; font-weight
 
 @font-face { font-family: 'Nexa Light'; src: url("/fonts/nexa_light-webfont.woff2") format("woff2"), url("/fonts/nexa_light-webfont.woff") format("woff"), url("/fonts/nexa_light-webfont.ttf") format("truetype"), url("/fonts/nexa_light-webfont.svg#nexa_lightregular") format("svg"); font-weight: normal; font-style: normal; }
 
-@font-face { font-family: 'fase-icons'; src: url("/fonts/fase-icons.eot?62155748"); src: url("/fonts/fase-icons.eot?62155748#iefix") format("embedded-opentype"), url("/fonts/fase-icons.woff2?62155748") format("woff2"), url("/fonts/fase-icons.woff?62155748") format("woff"), url("/fonts/fase-icons.ttf?62155748") format("truetype"), url("/fonts/fase-icons.svg?62155748#fase-icons") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'fase-icons'; src: url("/fonts/fase-icons.eot?54160618"); src: url("/fonts/fase-icons.eot?54160618#iefix") format("embedded-opentype"), url("/fonts/fase-icons.woff2?54160618") format("woff2"), url("/fonts/fase-icons.woff?54160618") format("woff"), url("/fonts/fase-icons.ttf?54160618") format("truetype"), url("/fonts/fase-icons.svg?54160618#fase-icons") format("svg"); font-weight: normal; font-style: normal; }
 
 [class^="icon--"]:before, [class*=" icon--"]:before { font-family: "fase-icons"; font-style: normal; font-weight: normal; speak: none; display: inline-block; text-decoration: inherit; width: 1em; margin-right: 0.2em; text-align: center; font-variant: normal; text-transform: none; line-height: 1em; margin-left: 0.2em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
@@ -224,6 +224,8 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Nexa Bold', Helvetica, Arial; font-weight
 .icon--instagram:before { content: '\f16d'; }
 
 /* '' */
+.icon--location:before { content: '\e807'; }
+
 .animate-spin { -webkit-animation: spin 2s infinite linear; animation: spin 2s infinite linear; display: inline-block; }
 
 @-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
@@ -720,15 +722,17 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Nexa Bold', Helvetica, Arial; font-weight
 
 @media (min-width: 46.25em) { .events__item__disclaimer { font-size: 1.0625rem !important; } }
 
-@media (max-width: 46.24em) { .events__item__heading { font-size: 1.5rem; margin: 0.208333em 0; } }
+.events__item__heading { color: black; }
 
-@media (min-width: 46.25em) { .events__item__heading { font-size: 2rem; margin: 0.46875em 0; } }
+@media (max-width: 46.24em) { .events__item__heading { font-size: 1.5rem; line-height: 2rem; margin: 0.208333em 0; } }
+
+@media (min-width: 46.25em) { .events__item__heading { font-size: 2rem; line-height: 2.375rem; margin: 0.46875em 0; } }
 
 .events__item__date { font-family: "Nexa Bold", Helvetica, Arial; font-size: 1rem; color: #00a8ec; }
 
 @media (min-width: 46.25em) { .events__item__date { font-size: 1.125rem; } }
 
-.events__item__date > i { color: black; }
+.events__item__date i { color: black; }
 
 .banner { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; margin: 1.875em 0 3.75em; }
 

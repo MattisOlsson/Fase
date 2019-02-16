@@ -75,14 +75,6 @@
                 Efter mässan och alla skolningar finns det äntligen lite tid att hänga med sina vänner och kollegor.
                 Ät en god middag och promenera sedan till Östersjöns största nattklubb.
             </p>
-            <p>
-                Gillar ni poker? Anmäl er då till våran <strong>Poker Run</strong> och utmana era kamrater i kända Texas Hold 'em.
-            </p>
-            <p>
-                <a href="#poker-run-subscription">Anmäl dig längre ned på sidan <i class="icon--down-big"></i></a>
-
-                <img src="/static/poker-run.jpg" alt="Poker Run">
-            </p>
         </div>
     </article>
 
@@ -139,35 +131,7 @@
     </article>
 
     <div class="container container--narrow">
-        <div class="row">
-            <div class="block block--half">
-                <span id="poker-run-subscription" class="anchor" aria-hidden="true"></span>
-                <article class="text-block">
-                    <h2 class="text-block__heading2">Anmälan Poker Run</h2>
-                    <form action="/email/send/" method="post" class="form" data-form>
-                        <div class="form__row">
-                            <input class="form__input" type="text" name="Name" placeholder="Namn">
-                        </div>
-
-                        <div class="form__row">
-                            <input class="form__input" type="email" name="Email" placeholder="E-post">
-                        </div>
-
-                        <div class="form__row">
-                            <input class="form__input" type="text" name="Phone" placeholder="Telefon">
-                        </div>
-
-                        <div class="form__row">
-                            <button class="button button--primary" type="submit">Skicka anmälan</button>
-                        </div>
-
-                        <input type="hidden" name="ReturnUrl" value="/tack-for-din-anmalan.html">
-                        <input type="hidden" name="Heading" value="Anmälan till Poker Run">
-                        <input type="hidden" name="Subject" value="Anmälan till Poker Run">
-                    </form>
-                </article>
-            </div>
-
+        <div class="row" style="justify-content: center">
             <div class="block block--half">
                 <article class="text-block">
                     <h2 class="text-block__heading2">Anmälan Bartender Battle</h2>
@@ -202,12 +166,7 @@
     </div>
 
     <span id="program" class="anchor" aria-hidden="true"></span>
-    <article class="text-block">
-        <h2 class="text-block__heading">Program</h2>
-        <div class="text-block__content">
-            <p>To Be Announced</p>
-        </div>
-    </article>
+    <%- include('../components/program/program') %>
 
     <%- include('../components/partners-block/partners-block', { showHeading: true }) %>
 
