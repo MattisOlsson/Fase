@@ -49,6 +49,11 @@ namespace Fase.Web
             // Configure cache level
             App.CacheLevel = Piranha.Cache.CacheLevel.Basic;
 
+            // Add support for webm
+            App.MediaTypes.Videos.Add(".webm", "video/webm");
+
+            App.Fields.RegisterSelect<Models.ButtonCssClass>();
+
             // Build content types
             var pageTypeBuilder = new Piranha.AttributeBuilder.PageTypeBuilder(api)
                 .AddType(typeof(Models.BlogArchive))
@@ -75,7 +80,7 @@ namespace Fase.Web
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=home}/{action=index}/{id?}");
-            });
+            }); 
         }
     }
 }

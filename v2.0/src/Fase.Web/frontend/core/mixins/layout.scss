@@ -1,0 +1,54 @@
+@function em($pixels, $context: $base-font-size) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return $pixels / $context * 1em;
+}
+
+@mixin clearfix() {
+    &:after {
+        content: '';
+        display: table;
+        width: 100%;
+        height: 0;
+        line-height: 0;
+        clear: both;
+        overflow: hidden;
+    }
+}
+
+@mixin arrow($direction: 'right', $color: black, $size: 15px) {
+    content: '';
+    width: 0;
+    height: 0;
+    line-height: 0;
+
+    @if ($direction == 'down') {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size - 10px solid $color;
+    }
+
+    @if ($direction == 'up') {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size - 10px solid $color;
+    }
+
+    @if ($direction == 'left') {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+    }
+
+    @if ($direction == 'right') {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+    }
+}

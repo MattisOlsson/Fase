@@ -1,0 +1,75 @@
+.header {
+    display: block;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: $z-index__header;
+
+    &--transparent {
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    @include mq($until: medium) {
+        top: 0;
+        right: 0;
+        left: 0;
+        min-height: $header__height__small;
+    }
+
+    @include mq(medium) {
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    &__container {
+        @extend .container;
+        padding: 0;
+
+        @include mq(small) {
+            @include clearfix;
+        }
+    }
+
+    &__home {
+        position: relative;
+        display: block;
+        z-index: $z-index__header__home;
+
+        @include mq($until: small) {
+            position: absolute;
+            top: 0;
+            right: em($gutter-width + $nav__toggle__size);
+            left: $gutter-width-half;
+            text-align: center;
+            height: $header__height__small;
+            padding: em($gutter-width-half) 0;
+        }
+
+        @include mq(small, medium) {
+            float: left;
+            padding: em($gutter-width-sm);
+        }
+
+        @include mq(medium) {
+            float: left;
+            padding: em($gutter-width-sm) em($gutter-width);
+        }
+    }
+
+    &__logo {
+        display: block;
+
+        @include mq($until: small) {
+            height: em(36px);
+            width: auto;
+        }
+
+        @include mq(small) {
+            margin: 0 auto;
+            width: auto;
+            height: em(46px);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.container {
+    max-width: em($max-width);
+    margin: 0 auto;
+
+    @include mq($until: medium) {
+        padding: 0 em($gutter-width-half);
+    }
+
+    @include mq($from: medium) {
+        padding: 0 em($gutter-width);
+    }
+
+    &--narrow {
+        max-width: em(960px);
+    }
+}
+
+.row {
+    @include clearfix;
+    display: flex;
+    flex-flow: row wrap;
+
+    @include mq($from: medium) {
+        margin: 0 -em($gutter-width-half);
+    }
+}

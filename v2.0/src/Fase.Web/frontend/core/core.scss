@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: $base-font-size;
+    font-family: 'Roboto', Arial;
+    font-weight: 400;
+}
+
+a {
+    color: $color__brand;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Nexa Bold', Helvetica, Arial;
+    font-weight: 400;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+
+    &--small {
+        width: em(300px);
+    }
+}

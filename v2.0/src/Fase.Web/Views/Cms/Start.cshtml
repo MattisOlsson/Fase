@@ -2,76 +2,108 @@
 @inject Piranha.IApi Api
 @{
     ViewBag.Title = Model.Title;
-    ViewBag.HasImage = Model.Heading.PrimaryImage.HasValue;
-
-    string PrimaryImage() {
-        if (Model.Heading.PrimaryImage.HasValue) {
-            return $"style=background-image:url({Url.Content(Model.Heading.PrimaryImage)})";
-        }
-        return "";
-    }
 }
-
-<header class="page-header" @PrimaryImage()>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9">
-                <h1>@Model.Title</h1>
-                <p class="lead">
-                    @Html.Raw(Model.Heading.Ingress)
-                </p>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="main">
-    <div class="container">
-        @if (Model.Teasers.Count > 0) {
-            var pos = 0;
-            var size = 4;
-
-            while (pos < Model.Teasers.Count) {
-                var rest = Model.Teasers.Count - pos;
-                var cols = 0;
-                
-                if (rest == 1) {
-                    size = 8;
-                    cols = 1;
-                } else if (rest <= 4 && rest % 3 != 0 && rest % 2 == 0) {
-                    size = 6;
-                    cols = 2;
-                } else {
-                    size = 4;
-                    cols = 3;
-                }
-
-                <div class="row justify-content-center teasers">
-                    @for (var n = 0; n < cols; n++) {
-                        var teaser = Model.Teasers[pos + n];
-
-                        <div class="col-sm-6 col-md-@size teaser">
-                            <div class="teaser-body">
-                                <span class="teaser-subtitle">@teaser.SubTitle</span>
-                                <h3>@teaser.Title</h3>
-                                @Html.Raw(teaser.Body)
-                                @if (teaser.PageLink.HasValue) {
-                                    <p><a href="@teaser.PageLink.Page.Permalink">Read more..</a></p>
-                                } else if (teaser.PostLink.HasValue) {
-                                    <p><a href="@teaser.PostLink.Post.Permalink">Read more..</a></p>                                
-                                }
-                            </div>
-                        </div>                        
-                    }
-                </div>
-                pos += cols;
+<section class="hero hero--video" data-hero>
+    <div class="hero__video">
+        <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="metadata">
+            @foreach (var video in Model.Videos)
+            {
+                <source src="@Url.Content(video.VideoFile)" type="@video.VideoFile.Media.ContentType" data-src="@Url.Content(video.VideoFile)">
             }
-        }
-
-        <div class="row justify-content-center">
-            <div class="col-sm-10 page-body">
-                @Html.DisplayFor(m => m.Blocks)
+        </video>
+    </div>
+    <article class="hero__content">
+        <div class="hero__content__inner animate animate--onload" data-animate='{ "mode": "onload" }'>
+            <div class="animate__group">
+                @if (Model.HeroContent.Logo.HasValue)
+                {
+                    <img class="hero__logo" src="@Url.Content(Model.HeroContent.Logo)" alt="Dryckeskultur 2018 logo">
+                }
+                <h2 class="hero__sub-heading">@Model.HeroContent.Heading</h2>
+                <div class="hero__wysiwyg">
+                    @Html.Raw(Model.HeroContent.Text)
+                </div>
+                <!--
+                <p class="hero__text hero__text--small">
+                    <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
+                    boka med bokningskoden <strong>25 H PEOPLE</strong>
+                </p>
+                -->
+            </div>
+            <div class="animate__group">
+                <nav class="button-group">
+                    @foreach (var button in Model.Buttons)
+                    {
+                        <a class="@button.GetCssClass()" href="@button.GetLinkUrl()">@button.LinkText</a>
+                    }
+                </nav>
             </div>
         </div>
+    </article>
+</section>
+
+<article class="text-block animate" data-animate>
+    <div class="animate__group">
+        <h2 class="text-block__heading">
+            <span>FASE</span>
+            A new kind of <strong>event</strong>
+        </h2>
+        <div class="text-block__content" data-editable data-name="about-text">
+            <p>
+                Fair and Square Event är precis som det låter, ett rättvist event. Vårat mål är att fullfölja våra klienters idéer, besökares förväntningar och tillsammans med er skapa unika och minnesvärda events. I slutändan ska alla känna att de fick en fair deal. Arbetet för en hållbar utveckling är något vi hela tiden strävar efter och är en naturlig del hos oss på fair and square event.
+            </p>
+
+            <p>
+                Vi kan alla göra skillnad på olika sätt och vi väljer därför att på varje event försöka samarbeta med en transparent välgörenhetsorganisation vi kan känna oss trygga med och vet att dessa står för samma värderingar som vi inom FASE.
+            </p>
+        </div>
+        <nav class="button-group">
+            <a href="/om-oss.html" class="button">Mer om oss </a>
+        </nav>
+    </div>
+</article>
+
+<div class="animate" data-animate>
+    <div class="animate__group">
+        <article class="text-block partners-block">
+
+            <h2 class="text-block__heading partners-block__heading">Våra partners</h2>
+
+            <ul class="partners-block__list">
+                <li class="partners-block__item partners-block__item--double">
+                    <a href="https://www.tallinksilja.se/" class="partners-block__link" target="_blank"><img src="/static/tallink-silja-line.png" alt="Tallink Silja logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="http://www.sbg.nu/" class="partners-block__link" target="_blank"><img src="/static/logo-sbg.jpg" alt="Swedish Bartenders Guild logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="http://spritfabriken.com/" class="partners-block__link" target="_blank"><img src="/static/logo_skanska-spritfabriken.png" alt="Skånska Spritfabriken logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="https://www.solera.se/" class="partners-block__link" target="_blank"><img src="/static/logo_solera.png" alt="Solera logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="http://ziggesgarage.se/" class="partners-block__link" target="_blank"><img src="/static/logo_zigges.png" alt="Zigges Garage logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="http://www.hven.com/" class="partners-block__link" target="_blank"><img src="/static/spirit-of-hven.gif" alt="Spirit of Hven logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="http://jonasbroncksspirit.com/" class="partners-block__link" target="_blank"><img src="/static/jonasbronck-logo.jpg" alt="Jonas Bronck's Spirit logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="http://www.hopsiedaisy.com/" class="partners-block__link" target="_blank"><img src="/static/hopsiedaisy-logo.jpg" alt="Hopsie Daisy Brewing Company logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="https://www.facebook.com/SpiritbyMe/" class="partners-block__link" target="_blank"><img src="/static/spirit-by-me-logo.png" alt="Spirit by Me logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="http://organicsmash.se/" class="partners-block__link" target="_blank"><img src="/static/organic-smash-logo.png" alt="Organic Smash Brewery logo"></a>
+                </li>
+                <li class="partners-block__item">
+                    <a href="https://aliassmith.se/" class="partners-block__link" target="_blank"><img src="/static/logo_alias-smith.png" alt="Alias Smith logo"></a>
+                </li>
+            </ul>
+        </article>
     </div>
 </div>

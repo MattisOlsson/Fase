@@ -1976,7 +1976,7 @@ function createInViewport(container, debounceValue, failsafe) {
         top: -offset,
         left: -offset,
         right: global.document.documentElement.clientWidth + offset,
-        bottom: global.window.innerHeight + offset
+        bottom: global.document.documentElement.clientHeight + offset
       };
     } else {
       var containerRect = container.getBoundingClientRect();
