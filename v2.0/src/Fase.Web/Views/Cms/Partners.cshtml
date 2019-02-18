@@ -1,10 +1,6 @@
 ﻿@model Fase.Web.Models.PartnersPage
 
-<section class="hero hero--small" style="background-image: url('/static/the_sea.jpg')">
-    <div class="hero__content">
-        <h1 class="hero__heading">@(!string.IsNullOrEmpty(Model.Hero.Heading) ? Model.Hero.Heading.Value : Model.Title)</h1>
-    </div>
-</section>
+@Html.DisplayFor(m => m.Hero)
 
 <div class="text-block partners-block">
     <ul class="partners-block__list">

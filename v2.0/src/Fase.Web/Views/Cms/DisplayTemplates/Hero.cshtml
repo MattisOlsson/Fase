@@ -1,0 +1,31 @@
+﻿@model Fase.Web.Models.Regions.Hero
+@{
+    string BackgroundImage()
+    {
+        if (Model.BackgroundImage.HasValue)
+        {
+            return $"style=background-image:url({Url.Content(Model.BackgroundImage)})";
+        }
+        return "";
+    }
+}
+<section class="@Model.GetCssClass()" @BackgroundImage() data-hero>
+    <article class="hero__content">
+        @if (Model.Logo.HasValue)
+        {
+            <img class="hero__logo" src="@Url.Content(Model.Logo)" alt="">
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Heading))
+        {
+            <h1 class="hero__heading">@Model.Heading</h1>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Text))
+        {
+            <div class="hero__wysiwyg">
+                @Html.Raw(Model.Text)
+            </div>
+        }
+    </article>
+</section>

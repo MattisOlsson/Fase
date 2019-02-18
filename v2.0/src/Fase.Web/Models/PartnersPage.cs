@@ -12,11 +12,11 @@ namespace Fase.Web.Models
         public PartnersPage()
         {
             Partners = new List<Partner>();
-            Hero = new SimpleHero();
+            Hero = new Hero();
         }
 
         [Region]
-        public SimpleHero Hero { get; set; }
+        public Hero Hero { get; set; }
 
         [Region(ListTitle = "Name", Title = "Partners")]
         public IList<Partner> Partners { get; set; }

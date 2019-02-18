@@ -2,6 +2,7 @@ using Piranha.AttributeBuilder;
 using Piranha.Extend.Fields;
 using Piranha.Models;
 using System.Collections.Generic;
+using Fase.Web.Models.Regions;
 
 namespace Fase.Web.Models
 {
@@ -14,26 +15,33 @@ namespace Fase.Web.Models
         /// </summary>
         public StartPage()
         {
-            Videos = new List<Regions.Video>();
-            Buttons = new List<Regions.LinkButton>();
+            Videos = new List<Video>();
+            Buttons = new List<LinkButton>();
+            HeroContent = new Hero
+            {
+                CssClass = new SelectField<HeroCssClass>
+                {
+                    Value = HeroCssClass.Video
+                }
+            };
         }
 
         /// <summary>
         /// Gets/sets the page heading.
         /// </summary>
         [Region(Title = "Hero content")]
-        public Regions.Hero HeroContent { get; set; }
+        public Hero HeroContent { get; set; }
 
         /// <summary>
         /// Gets/sets the page heading.
         /// </summary>
         [Region(ListTitle = "Title", Title = "Hero videos")]
-        public IList<Regions.Video> Videos { get; set; }
+        public IList<Video> Videos { get; set; }
 
         /// <summary>
         /// Gets/sets the page heading.
         /// </summary>
         [Region(ListTitle = "LinkText", Title = "Hero link buttons")]
-        public IList<Regions.LinkButton> Buttons { get; set; }
+        public IList<LinkButton> Buttons { get; set; }
     }
 }

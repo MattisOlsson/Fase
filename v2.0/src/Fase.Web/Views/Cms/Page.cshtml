@@ -3,10 +3,5 @@
     ViewBag.Title = Model.Title;
 }
 
-<section class="hero hero--small" style="background-image: url('/static/the_sea.jpg')">
-    <div class="hero__content">
-        <h1 class="hero__heading">@(!string.IsNullOrEmpty(Model.Hero.Heading) ? Model.Hero.Heading.Value : Model.Title)</h1>
-    </div>
-</section>
-
+@Html.DisplayFor(m => m.Hero)
 @Html.DisplayFor(m => m.Blocks)

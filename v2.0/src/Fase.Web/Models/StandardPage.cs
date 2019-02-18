@@ -1,5 +1,6 @@
 using Fase.Web.Models.Regions;
 using Piranha.AttributeBuilder;
+using Piranha.Extend.Fields;
 using Piranha.Models;
 
 namespace Fase.Web.Models
@@ -9,10 +10,16 @@ namespace Fase.Web.Models
     {
         public StandardPage()
         {
-            Hero = new SimpleHero();
+            Hero = new Hero
+            {
+                CssClass = new SelectField<HeroCssClass>
+                {
+                    Value = HeroCssClass.Small
+                }
+            };
         }
 
-        [Region]
-        public SimpleHero Hero { get; set; }
+        [Region(Title = "Hero")]
+        public Hero Hero { get; set; }
     }
 }

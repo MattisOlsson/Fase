@@ -49,6 +49,7 @@ namespace Fase.Web
             // Register select fields
             App.Fields.RegisterSelect<Models.ButtonCssClass>();
             App.Fields.RegisterSelect<Models.TextBlockCssClass>();
+            App.Fields.RegisterSelect<Models.HeroCssClass>();
 
             // Register custom blocks
             App.Blocks.Register<Models.Blocks.TextAndImageBlock>();

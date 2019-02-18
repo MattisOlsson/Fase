@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = Model.Title;
 }
-<section class="hero hero--video" data-hero>
+<section class="@Model.HeroContent.GetCssClass()" data-hero>
     <div class="hero__video">
         <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="metadata">
             @foreach (var video in Model.Videos)
