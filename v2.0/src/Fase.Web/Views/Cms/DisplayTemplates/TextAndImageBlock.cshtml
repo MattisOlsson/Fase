@@ -1,0 +1,26 @@
+@model Fase.Web.Models.Blocks.TextAndImageBlock
+@inject Piranha.IApi Api
+
+<article class="@Model.GetCssClass() animate" data-animate>
+    <div class="animate__group">
+        <h2 class="text-block__heading">
+            @if (!string.IsNullOrEmpty(Model.SubHeading.Value))
+            {
+                <span>@Model.SubHeading</span>
+            }
+
+            @Html.Raw(Model.Heading)
+        </h2>
+
+        <div class="text-block__content">
+            @Html.Raw(Model.Text)
+
+            @if (Model.Image.HasValue)
+            {
+                <p>
+                    <img src="@Url.Content(Model.Image.Resize(Api, 960))" alt="">
+                </p>
+            }
+        </div>
+    </div>
+</article>

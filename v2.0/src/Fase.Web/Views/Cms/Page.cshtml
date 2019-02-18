@@ -3,14 +3,8 @@
     ViewBag.Title = Model.Title;
 }
 
-<div class="main">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-10 page-body">
-                <h1>@Model.Title</h1>
+<section class="hero hero--small">
+    &nbsp;
+</section>
 
-                @Html.DisplayFor(m => m.Blocks)
-            </div>
-        </div>
-    </div>
-</div>
+@Html.DisplayFor(m => m.Blocks)

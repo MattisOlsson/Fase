@@ -36,7 +36,7 @@ export default (selector, Class, options = {}) => {
         selector = selector.trim();
         elements = $(selector);
     } else {
-        elements = selector;
+        elements = $(selector);
     }
 
     return elements

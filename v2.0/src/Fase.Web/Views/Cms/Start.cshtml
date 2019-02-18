@@ -8,7 +8,7 @@
         <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="metadata">
             @foreach (var video in Model.Videos)
             {
-                <source src="@Url.Content(video.VideoFile)" type="@video.VideoFile.Media.ContentType" data-src="@Url.Content(video.VideoFile)">
+                <source src="@Url.Content(video.VideoFile.Media.PublicUrl)" type="@video.VideoFile.Media.ContentType" data-src="@Url.Content(video.VideoFile.Media.PublicUrl)">
             }
         </video>
     </div>
@@ -20,6 +20,7 @@
                     <img class="hero__logo" src="@Url.Content(Model.HeroContent.Logo)" alt="Dryckeskultur 2018 logo">
                 }
                 <h2 class="hero__sub-heading">@Model.HeroContent.Heading</h2>
+
                 <div class="hero__wysiwyg">
                     @Html.Raw(Model.HeroContent.Text)
                 </div>
@@ -30,80 +31,61 @@
                 </p>
                 -->
             </div>
-            <div class="animate__group">
-                <nav class="button-group">
-                    @foreach (var button in Model.Buttons)
-                    {
-                        <a class="@button.GetCssClass()" href="@button.GetLinkUrl()">@button.LinkText</a>
-                    }
-                </nav>
-            </div>
+            @if (Model.Buttons.Count > 0)
+            {
+                <div class="animate__group">
+                    <nav class="button-group">
+                        @foreach (var button in Model.Buttons)
+                        {
+                            <a class="@button.GetCssClass()" href="@button.GetLinkUrl()">@button.LinkText</a>
+                        }
+                    </nav>
+                </div>
+            }
         </div>
     </article>
 </section>
 
-<article class="text-block animate" data-animate>
-    <div class="animate__group">
-        <h2 class="text-block__heading">
-            <span>FASE</span>
-            A new kind of <strong>event</strong>
-        </h2>
-        <div class="text-block__content" data-editable data-name="about-text">
-            <p>
-                Fair and Square Event är precis som det låter, ett rättvist event. Vårat mål är att fullfölja våra klienters idéer, besökares förväntningar och tillsammans med er skapa unika och minnesvärda events. I slutändan ska alla känna att de fick en fair deal. Arbetet för en hållbar utveckling är något vi hela tiden strävar efter och är en naturlig del hos oss på fair and square event.
-            </p>
+@Html.DisplayFor(m => m.Blocks)
 
-            <p>
-                Vi kan alla göra skillnad på olika sätt och vi väljer därför att på varje event försöka samarbeta med en transparent välgörenhetsorganisation vi kan känna oss trygga med och vet att dessa står för samma värderingar som vi inom FASE.
-            </p>
-        </div>
-        <nav class="button-group">
-            <a href="/om-oss.html" class="button">Mer om oss </a>
-        </nav>
+<article class="text-block partners-block animate" data-animate>
+    <div class="animate__group">
+        <h2 class="text-block__heading partners-block__heading">Våra partners</h2>
+
+        <ul class="partners-block__list">
+            <li class="partners-block__item partners-block__item--double">
+                <a href="https://www.tallinksilja.se/" class="partners-block__link" target="_blank"><img src="/static/tallink-silja-line.png" alt="Tallink Silja logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="http://www.sbg.nu/" class="partners-block__link" target="_blank"><img src="/static/logo-sbg.jpg" alt="Swedish Bartenders Guild logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="http://spritfabriken.com/" class="partners-block__link" target="_blank"><img src="/static/logo_skanska-spritfabriken.png" alt="Skånska Spritfabriken logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="https://www.solera.se/" class="partners-block__link" target="_blank"><img src="/static/logo_solera.png" alt="Solera logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="http://ziggesgarage.se/" class="partners-block__link" target="_blank"><img src="/static/logo_zigges.png" alt="Zigges Garage logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="http://www.hven.com/" class="partners-block__link" target="_blank"><img src="/static/spirit-of-hven.gif" alt="Spirit of Hven logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="http://jonasbroncksspirit.com/" class="partners-block__link" target="_blank"><img src="/static/jonasbronck-logo.jpg" alt="Jonas Bronck's Spirit logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="http://www.hopsiedaisy.com/" class="partners-block__link" target="_blank"><img src="/static/hopsiedaisy-logo.jpg" alt="Hopsie Daisy Brewing Company logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="https://www.facebook.com/SpiritbyMe/" class="partners-block__link" target="_blank"><img src="/static/spirit-by-me-logo.png" alt="Spirit by Me logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="http://organicsmash.se/" class="partners-block__link" target="_blank"><img src="/static/organic-smash-logo.png" alt="Organic Smash Brewery logo"></a>
+            </li>
+            <li class="partners-block__item">
+                <a href="https://aliassmith.se/" class="partners-block__link" target="_blank"><img src="/static/logo_alias-smith.png" alt="Alias Smith logo"></a>
+            </li>
+        </ul>
     </div>
 </article>
-
-<div class="animate" data-animate>
-    <div class="animate__group">
-        <article class="text-block partners-block">
-
-            <h2 class="text-block__heading partners-block__heading">Våra partners</h2>
-
-            <ul class="partners-block__list">
-                <li class="partners-block__item partners-block__item--double">
-                    <a href="https://www.tallinksilja.se/" class="partners-block__link" target="_blank"><img src="/static/tallink-silja-line.png" alt="Tallink Silja logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="http://www.sbg.nu/" class="partners-block__link" target="_blank"><img src="/static/logo-sbg.jpg" alt="Swedish Bartenders Guild logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="http://spritfabriken.com/" class="partners-block__link" target="_blank"><img src="/static/logo_skanska-spritfabriken.png" alt="Skånska Spritfabriken logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="https://www.solera.se/" class="partners-block__link" target="_blank"><img src="/static/logo_solera.png" alt="Solera logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="http://ziggesgarage.se/" class="partners-block__link" target="_blank"><img src="/static/logo_zigges.png" alt="Zigges Garage logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="http://www.hven.com/" class="partners-block__link" target="_blank"><img src="/static/spirit-of-hven.gif" alt="Spirit of Hven logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="http://jonasbroncksspirit.com/" class="partners-block__link" target="_blank"><img src="/static/jonasbronck-logo.jpg" alt="Jonas Bronck's Spirit logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="http://www.hopsiedaisy.com/" class="partners-block__link" target="_blank"><img src="/static/hopsiedaisy-logo.jpg" alt="Hopsie Daisy Brewing Company logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="https://www.facebook.com/SpiritbyMe/" class="partners-block__link" target="_blank"><img src="/static/spirit-by-me-logo.png" alt="Spirit by Me logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="http://organicsmash.se/" class="partners-block__link" target="_blank"><img src="/static/organic-smash-logo.png" alt="Organic Smash Brewery logo"></a>
-                </li>
-                <li class="partners-block__item">
-                    <a href="https://aliassmith.se/" class="partners-block__link" target="_blank"><img src="/static/logo_alias-smith.png" alt="Alias Smith logo"></a>
-                </li>
-            </ul>
-        </article>
-    </div>
-</div>

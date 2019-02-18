@@ -1,7 +1,9 @@
 @model Piranha.Extend.Blocks.HtmlBlock
 
-<div class="row">
-    <div class="col-sm-12">
-        @Html.Raw(Model.Body)
+<article class="text-block animate" data-animate>
+    <div class="animate__group">
+        <div class="text-block__content">
+            @Html.Raw(Model.Body)
+        </div>
     </div>
-</div>
+</article>

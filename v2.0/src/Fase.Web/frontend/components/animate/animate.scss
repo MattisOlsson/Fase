@@ -23,6 +23,8 @@
     }
 
     &__group {
+        opacity: 0;
+
         &--active {
             bottom: 0 !important;
             opacity: 1;

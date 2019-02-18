@@ -1,0 +1,26 @@
+@mixin manager-block() {
+    border: 1px solid transparent;
+    position: relative;
+    display: block;
+
+    &__label {
+        display: none !important;
+        font-size: 16px;
+        line-height: 16px;
+        position: absolute;
+        height: 20px;
+        padding: 3px;
+        top: -20px;
+        right: -1px;
+        background-color: $color__grey;
+        color: $color__white;
+    }
+
+    &--hover {
+        border: 1px solid $color__grey;
+    }
+
+    &--hover &__label {
+        display: block !important;
+    }
+}
