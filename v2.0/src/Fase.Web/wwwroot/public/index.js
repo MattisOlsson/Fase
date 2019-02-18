@@ -112,7 +112,7 @@ var Animate = function () {
         value: function initGroup(group) {
             var _this2 = this;
 
-            (0, _inViewport2.default)(group, { offset: -100 }, function () {
+            (0, _inViewport2.default)(group, { offset: -75 }, function () {
                 return _this2.onIsInViewport(group);
             });
         }

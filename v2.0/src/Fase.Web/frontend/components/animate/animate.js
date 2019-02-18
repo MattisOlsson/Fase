@@ -22,7 +22,7 @@ export default class Animate {
     }
 
     initGroup(group) {
-        inViewport(group, { offset: -100 }, () => this.onIsInViewport(group));
+        inViewport(group, { offset: -75 }, () => this.onIsInViewport(group));
     }
 
     onIsInViewport(group) {
