@@ -2,6 +2,7 @@ prototype/public/
 prototype/node_modules/
 prototype/.idea/
 prototype/*.html
+[Oo]bj/
 [Bb]in/
 [Dd]ebug/
 packages/
