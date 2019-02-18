@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import inViewport from 'in-viewport';
+import inViewport from '../in-viewport/in-viewport';
 
 export default class Animate {
     static get defaults() {

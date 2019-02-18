@@ -52,6 +52,7 @@ namespace Fase.Web
 
             // Register custom blocks
             App.Blocks.Register<Models.Blocks.TextAndImageBlock>();
+            App.Blocks.Register<Models.Blocks.PartnersBlock>();
 
             // Add manager resources
             var managerModule = App.Modules.Get<Piranha.Manager.Module>();
@@ -63,7 +64,8 @@ namespace Fase.Web
             var pageTypeBuilder = new Piranha.AttributeBuilder.PageTypeBuilder(api)
                 //.AddType(typeof(Models.BlogArchive))
                 .AddType(typeof(Models.StandardPage))
-                .AddType(typeof(Models.StartPage));
+                .AddType(typeof(Models.StartPage))
+                .AddType(typeof(Models.PartnersPage));
             pageTypeBuilder.Build()
                 .DeleteOrphans();
             //var postTypeBuilder = new Piranha.AttributeBuilder.PostTypeBuilder(api)

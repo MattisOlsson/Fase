@@ -51,6 +51,18 @@ namespace Fase.Web.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Gets the page with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("partners")]
+        public IActionResult Partners(Guid id)
+        {
+            var model = api.Pages.GetById<Models.PartnersPage>(id);
+
+            return View(model);
+        }
+
         ///// <summary>
         ///// Gets the post with the given id.
         ///// </summary>

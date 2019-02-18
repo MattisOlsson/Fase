@@ -1,0 +1,24 @@
+﻿@using Fase.Web.Models
+@using Piranha
+@model Fase.Web.Models.Blocks.PartnersBlock
+@inject IApi Api
+@{
+    if (!Model.PartnersPage.HasValue)
+    {
+        return;
+    }
+
+    var partnersPage = Api.Pages.GetById<PartnersPage>(Model.PartnersPage.Page.Id);
+}
+<article class="text-block partners-block animate" data-animate>
+    <div class="animate__group">
+        <h2 class="text-block__heading partners-block__heading">@(!string.IsNullOrEmpty(partnersPage.Hero.Heading) ? partnersPage.Hero.Heading.Value : partnersPage.Title)</h2>
+
+        <ul class="partners-block__list">
+            @foreach (var partner in partnersPage.Partners)
+            {
+                @Html.DisplayFor(m => partner)
+            }
+        </ul>
+    </div>
+</article>

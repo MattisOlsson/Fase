@@ -250,6 +250,10 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Nexa Bold', Helvetica, Arial; font-weight
 
 .main { position: relative; z-index: 100; }
 
+@media (max-width: 46.24em) { .hidden-xsmall { display: none !important; } }
+
+@media (min-width: 46.25em) { .hidden-small { display: none !important; } }
+
 .animate > * { position: relative; opacity: 0; bottom: -50px; -webkit-transition: bottom ease-in-out 0.5s, opacity ease-in-out 0.5s; -o-transition: bottom ease-in-out 0.5s, opacity ease-in-out 0.5s; transition: bottom ease-in-out 0.5s, opacity ease-in-out 0.5s; }
 
 .animate--onload > *:first-child { -webkit-transition-duration: 0.4s; -o-transition-duration: 0.4s; transition-duration: 0.4s; }

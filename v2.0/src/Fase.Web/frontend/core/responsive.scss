@@ -1,0 +1,13 @@
+.hidden {
+    &-xsmall {
+        @include mq($until: small) {
+            display: none !important;
+        }
+    }
+
+    &-small {
+        @include mq($from: small) {
+            display: none !important;
+        }
+    }
+}

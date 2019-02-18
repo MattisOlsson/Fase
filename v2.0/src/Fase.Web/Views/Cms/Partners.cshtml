@@ -1,12 +1,18 @@
-@model Fase.Web.Models.StandardPage
-@{
-    ViewBag.Title = Model.Title;
-}
+﻿@model Fase.Web.Models.PartnersPage
 
 <section class="hero hero--small" style="background-image: url('/static/the_sea.jpg')">
     <div class="hero__content">
         <h1 class="hero__heading">@(!string.IsNullOrEmpty(Model.Hero.Heading) ? Model.Hero.Heading.Value : Model.Title)</h1>
     </div>
 </section>
+
+<div class="text-block partners-block">
+    <ul class="partners-block__list">
+        @foreach (var partner in Model.Partners)
+        {
+            @Html.DisplayFor(m => partner)
+        }
+    </ul>
+</div>
 
 @Html.DisplayFor(m => m.Blocks)

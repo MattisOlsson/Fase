@@ -1,0 +1,6 @@
+﻿@model Fase.Web.Models.Regions.Partner
+@inject Piranha.IApi Api
+
+<li class="partners-block__item">
+    <a href="@Url.Content(Model.WebsiteUrl)" class="partners-block__link" target="_blank"><img src="@Url.Content(Model.Logo.Resize(Api, 480))" alt="@Model.Name"></a>
+</li>
