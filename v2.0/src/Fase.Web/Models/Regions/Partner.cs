@@ -7,8 +7,10 @@ namespace Fase.Web.Models.Regions
     {
         [Field]
         public StringField Name { get; set; }
+
         [Field]
         public ImageField Logo { get; set; }
+
         [Field(Title = "Website")]
         public StringField WebsiteUrl { get; set; }
     }

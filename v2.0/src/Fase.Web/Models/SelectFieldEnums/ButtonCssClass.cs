@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Fase.Web.Models
+﻿namespace Fase.Web.Models.SelectFieldEnums
 {
     public enum ButtonCssClass
     {

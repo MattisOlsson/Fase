@@ -1,19 +1,68 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Piranha;
+using Piranha.AspNetCore.Services;
 using System;
 
 namespace Fase.Web.Controllers
 {
     public class CmsController : Controller
     {
-        private readonly IApi api;
+        private readonly IApi _api;
+        private readonly IApplicationService _applicationService;
 
         /// <summary>
         /// Default constructor.
         /// </summary>
         /// <param name="api">The current api</param>
-        public CmsController(IApi api) {
-            this.api = api;
+        public CmsController(IApi api, IApplicationService applicationService) {
+            _api = api;
+            _applicationService = applicationService;
+        }
+
+        /// <summary>
+        /// Gets the page with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("page")]
+        public IActionResult Page(Guid id) {
+            var model = _api.Pages.GetById<Models.StandardPage>(id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Gets the page with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("partners")]
+        public IActionResult Partners(Guid id)
+        {
+            var model = _api.Pages.GetById<Models.PartnersPage>(id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Gets the page with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("artists")]
+        public IActionResult Artists(Guid id)
+        {
+            var model = _api.Pages.GetById<Models.ArtistListingPage>(id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Gets the startpage with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("")]
+        public IActionResult Start(Guid id) {
+            var model = _api.Pages.GetById<Models.StartPage>(id);
+
+            return View(model);
         }
 
         ///// <summary>
@@ -40,29 +89,6 @@ namespace Fase.Web.Controllers
         //    return View(model);
         //}
 
-        /// <summary>
-        /// Gets the page with the given id.
-        /// </summary>
-        /// <param name="id">The unique page id</param>
-        [Route("page")]
-        public IActionResult Page(Guid id) {
-            var model = api.Pages.GetById<Models.StandardPage>(id);
-
-            return View(model);
-        }
-
-        /// <summary>
-        /// Gets the page with the given id.
-        /// </summary>
-        /// <param name="id">The unique page id</param>
-        [Route("partners")]
-        public IActionResult Partners(Guid id)
-        {
-            var model = api.Pages.GetById<Models.PartnersPage>(id);
-
-            return View(model);
-        }
-
         ///// <summary>
         ///// Gets the post with the given id.
         ///// </summary>
@@ -73,16 +99,5 @@ namespace Fase.Web.Controllers
 
         //    return View(model);
         //}
-
-        /// <summary>
-        /// Gets the startpage with the given id.
-        /// </summary>
-        /// <param name="id">The unique page id</param>
-        [Route("")]
-        public IActionResult Start(Guid id) {
-            var model = api.Pages.GetById<Models.StartPage>(id);
-
-            return View(model);
-        }
     }
 }

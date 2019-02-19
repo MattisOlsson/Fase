@@ -47,9 +47,9 @@ namespace Fase.Web
             App.MediaTypes.Videos.Add(".webm", "video/webm");
 
             // Register select fields
-            App.Fields.RegisterSelect<Models.ButtonCssClass>();
-            App.Fields.RegisterSelect<Models.TextBlockCssClass>();
-            App.Fields.RegisterSelect<Models.HeroCssClass>();
+            App.Fields.RegisterSelect<Models.SelectFieldEnums.ButtonCssClass>();
+            App.Fields.RegisterSelect<Models.SelectFieldEnums.TextBlockCssClass>();
+            App.Fields.RegisterSelect<Models.SelectFieldEnums.HeroCssClass>();
 
             // Register custom blocks
             App.Blocks.Register<Models.Blocks.TextAndImageBlock>();
@@ -63,10 +63,10 @@ namespace Fase.Web
 
             // Build content types
             var pageTypeBuilder = new Piranha.AttributeBuilder.PageTypeBuilder(api)
-                //.AddType(typeof(Models.BlogArchive))
                 .AddType(typeof(Models.StandardPage))
                 .AddType(typeof(Models.StartPage))
-                .AddType(typeof(Models.PartnersPage));
+                .AddType(typeof(Models.PartnersPage))
+                .AddType(typeof(Models.ArtistListingPage));
             pageTypeBuilder.Build()
                 .DeleteOrphans();
             //var postTypeBuilder = new Piranha.AttributeBuilder.PostTypeBuilder(api)

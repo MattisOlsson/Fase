@@ -1,0 +1,45 @@
+@model Fase.Web.Models.ArtistListingPage
+@inject Piranha.IApi Api
+@{
+    ViewBag.Title = Model.Title;
+}
+
+@*@Html.DisplayFor(m => m.Hero)*@
+
+<div class="article">
+    @if (!string.IsNullOrEmpty(Model.PageHeading))
+    {
+        <header class="article__header">
+            <h1 class="page__heading article__heading">@Model.PageHeading</h1>
+        </header>
+    }
+
+    <article class="text-block">
+        <div class="text-block__content">
+            <ul class="profile__list profile--full animate" data-animate>
+                @foreach (var artist in Model.Artists)
+                {
+                    <li class="profile__item">
+                        <div class="profile__image-wrapper">
+                            <img class="profile__image" src="@Url.Content(artist.ProfileImage.Resize(Api, 960, 960))" alt="@artist.Fullname profilbild">
+                        </div>
+                        <div class="profile__description">
+                            <h2 class="profile__name profile__name--large">@artist.Fullname</h2>
+                            <p>
+                                Albin Myers är en väletablerad DJ/Artist som redan hunnit turnéra ett par varv runt jorden. Det stora genombrottet kom 2012 då Albin släppte sin låt "Hells Bells" på Steve Aokis skivbolag DIM MAK. Innan detta hade Albin redan hunnit samarbeta med världsartister som Avicii & David Guetta. Nu är Albin Myers aktuell med både eget skivbolag och nya produktioner. Här allra senast med hans officiella remix på Axwell /\ Ingrossos "More Than You Know". Med sin kärlek till musiken får han dansgolv att gunga till allt han spelar!
+                            </p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </article>
+
+    <footer class="article__footer">
+        <nav class="button-group">
+            <a class="button button--primary" href="https://www.tallinksilja.se/dryckeskultur" target="_blank">Boka nu</a>
+        </nav>
+    </footer>
+</div>
+
+@Html.DisplayFor(m => m.Blocks)
