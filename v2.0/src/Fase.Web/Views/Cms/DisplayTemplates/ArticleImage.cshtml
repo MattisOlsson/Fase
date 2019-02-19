@@ -1,10 +1,10 @@
 ﻿@model Fase.Web.Models.Regions.ArticleImage
 @{
-    if (!Model.ShouldRender())
+    if (Model == null || !Model.ShouldRender())
     {
         return;
     }
 }
 <div class="article__image">
-    <img src="@Url.Content(Model.Image)" alt="">
+    <img src="@Url.Content(Model.MainImage)" alt="">
 </div>

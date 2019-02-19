@@ -11,8 +11,7 @@
     font-style: normal;
 }
 
-[class^="icon--"]:before,
-[class*=" icon--"]:before {
+@mixin icon() {
     font-family: "fase-icons";
     font-style: normal;
     font-weight: normal;
@@ -28,6 +27,11 @@
     margin-left: 0.2em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon--"]:before,
+[class*=" icon--"]:before {
+    @include icon();
 }
 
 .icon--lg {

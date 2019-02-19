@@ -1,0 +1,40 @@
+@using Fase.Web.Models
+@model Fase.Web.Models.Blocks.ArtistsBlock
+@inject Piranha.IApi Api
+@{
+    var artistsPage = Api.Pages.GetById<ArtistListingPage>(Model.ArtistsPage.Id.Value);
+}
+
+<article class="@Model.GetCssClass() animate" data-animate>
+    <div class="animate__group">
+        <h2 class="text-block__heading">
+            @if (!string.IsNullOrEmpty(Model.SubHeading.Value))
+            {
+            <span>@Model.SubHeading</span>
+            }
+
+            @Html.Raw(Model.Heading)
+        </h2>
+
+        <div class="text-block__content">
+            @Html.Raw(Model.Text)
+
+            @if (Model.Image.HasValue)
+            {
+                <p>
+                    <img src="@Url.Content(Model.Image.Resize(Api, 960))" alt="">
+                </p>
+            }
+
+            <ul class="profile--medium profile__list">
+                @foreach (var artist in artistsPage.Artists)
+                {
+                    <li class="profile__item">
+                        <img class="profile__image" src="@Url.Content(artist.ProfileImage)">
+                        <h3 class="profile__name">@artist.Fullname</h3>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</article>

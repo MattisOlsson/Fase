@@ -90,4 +90,47 @@
             color: black;
         }
     }
+
+    &--inline {
+        color: $color__link;
+        background-color: transparent;
+        border: none;
+        font-family: $font__brand__bold;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $color__brand;
+        }
+
+        &:after {
+            @include icon();
+
+            @extend .icon--right-big:before;
+            margin-right: 0;
+        }
+
+        @include mq($until: small) {
+            font-size: 16px;
+            line-height: 22px;
+            padding: em(5px, 16px) em($gutter-width, 16px) em(4px, 16px);
+            border-radius: em(33px, 16px);
+        }
+
+        @include mq(small, medium) {
+            font-size: 16px;
+            line-height: 22px;
+            padding: em(9px, 16px) em($gutter-width-half, 16px) em(8px, 16px);
+            border-radius: em(60px, 20px);
+            min-width: em(200px, 20px);
+        }
+
+        @include mq(medium) {
+            font-size: 20px;
+            line-height: 28px;
+            padding: em(10px, 20px) em($gutter-width, 20px) em(9px, 20px);
+            border-radius: em(60px, 20px);
+            min-width: em(200px, 20px);
+        }
+    }
 }

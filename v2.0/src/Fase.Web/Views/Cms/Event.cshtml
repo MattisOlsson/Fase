@@ -1,14 +1,20 @@
 @model Fase.Web.Models.EventPage
+@inject Piranha.IApi Api
 @{
     ViewBag.Title = Model.Title;
 }
 
 @Html.DisplayFor(m => m.Hero)
 
-<partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
-
 <div class="article">
-    @Html.DisplayFor(m => m.Flyer)
+    @if (Model.Details.FlyerImage.HasValue)
+    {
+        <div class="article__image">
+            <img src="@Url.Content(Model.Details.FlyerImage.Resize(Api, 1024))" alt="">
+        </div>
+    }
+
+    <partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
 
     <header class="article__header">
         @if (!string.IsNullOrEmpty(Model.Details.EventType?.Value))

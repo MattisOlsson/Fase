@@ -6,6 +6,9 @@ namespace Fase.Web.Models.Regions
 {
     public class EventDetails
     {
+        [Field(Title = "Flyer image")]
+        public ImageField FlyerImage { get; set; }
+
         [Field]
         public StringField EventType { get; set; }
 

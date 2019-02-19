@@ -132,6 +132,10 @@
             }
 
             > a {
+                &:only-child {
+                    @extend .button;
+                    @extend .button--inline;
+                }
                 text-decoration: none;
 
                 > i {

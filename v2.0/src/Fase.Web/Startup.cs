@@ -54,6 +54,7 @@ namespace Fase.Web
             // Register custom blocks
             App.Blocks.Register<Models.Blocks.TextAndImageBlock>();
             App.Blocks.Register<Models.Blocks.PartnersBlock>();
+            App.Blocks.Register<Models.Blocks.ArtistsBlock>();
 
             // Add manager resources
             var managerModule = App.Modules.Get<Piranha.Manager.Module>();
