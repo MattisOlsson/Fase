@@ -31,7 +31,31 @@ namespace Fase.Web.Controllers
         }
 
         /// <summary>
-        /// Gets the page with the given id.
+        /// Gets the event listing page with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("events")]
+        public IActionResult Events(Guid id)
+        {
+            var model = _api.Pages.GetById<Models.EventListingPage>(id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Gets the event page with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("event")]
+        public IActionResult Event(Guid id)
+        {
+            var model = _api.Pages.GetById<Models.EventPage>(id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Gets the partners page with the given id.
         /// </summary>
         /// <param name="id">The unique page id</param>
         [Route("partners")]
@@ -43,7 +67,7 @@ namespace Fase.Web.Controllers
         }
 
         /// <summary>
-        /// Gets the page with the given id.
+        /// Gets the artist listing page with the given id.
         /// </summary>
         /// <param name="id">The unique page id</param>
         [Route("artists")]

@@ -1,6 +1,5 @@
 using Piranha.AttributeBuilder;
 using Piranha.Extend.Fields;
-using Piranha.Models;
 
 namespace Fase.Web.Models.Regions
 {

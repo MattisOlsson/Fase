@@ -1,4 +1,4 @@
-﻿namespace Fase.Web.Models.SelectFieldEnums
+﻿namespace Fase.Web.Models
 {
     public enum HeroCssClass
     {

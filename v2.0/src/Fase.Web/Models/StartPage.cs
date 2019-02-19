@@ -3,7 +3,6 @@ using Piranha.Extend.Fields;
 using Piranha.Models;
 using System.Collections.Generic;
 using Fase.Web.Models.Regions;
-using Fase.Web.Models.SelectFieldEnums;
 
 namespace Fase.Web.Models
 {

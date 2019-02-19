@@ -447,6 +447,26 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Nexa Bold', Helvetica, Arial; font-weight
 
 @media (min-width: 80em) { .page__heading2 { font-size: 3rem; margin: 0.3125em 0 0; } }
 
+.page__nav { max-width: 91.25em; margin: 0 auto; }
+
+@media (max-width: 46.24em) { .page__nav { padding: 0; } }
+
+@media (min-width: 46.25em) and (max-width: 61.24em) { .page__nav { padding: 0 1.25em; } }
+
+@media (min-width: 61.25em) { .page__nav { padding: 0 1.875em; } }
+
+.hero .page__nav + { margin-top: -20px !important; }
+
+.page__breadcrumbs { list-style: none; margin: 0; padding: 0; }
+
+.page__breadcrumbs__item { display: inline-block; font-size: 0.9375rem; }
+
+.page__breadcrumbs__item:after { content: '/'; display: inline-block; }
+
+.page__breadcrumbs__item:last-child:after { display: none; }
+
+.hero + .page__nav { margin-top: -40px !important; }
+
 .block { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-flow: column wrap; flex-flow: column wrap; }
 
 @media (min-width: 46.25em) { .block { padding: 0.9375em; } }

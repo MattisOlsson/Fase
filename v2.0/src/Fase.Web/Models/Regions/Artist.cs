@@ -25,6 +25,6 @@ namespace Fase.Web.Models.Regions
         [Field(Title = "Optional website")]
         public StringField WebsiteUrl { get; set; }
 
-        public string Fullname => $"{Firstname} {Lastname}";
+        public string Fullname => $"{Firstname?.Value} {Lastname?.Value}";
     }
 }

@@ -4,10 +4,12 @@
     ViewBag.Title = Model.Title;
 }
 
-@*@Html.DisplayFor(m => m.Hero)*@
+@Html.DisplayFor(m => m.Hero)
+
+<partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
 
 <div class="article">
-    @if (!string.IsNullOrEmpty(Model.PageHeading))
+    @if (!string.IsNullOrEmpty(Model.PageHeading?.Value))
     {
         <header class="article__header">
             <h1 class="page__heading article__heading">@Model.PageHeading</h1>
@@ -25,9 +27,7 @@
                         </div>
                         <div class="profile__description">
                             <h2 class="profile__name profile__name--large">@artist.Fullname</h2>
-                            <p>
-                                Albin Myers är en väletablerad DJ/Artist som redan hunnit turnéra ett par varv runt jorden. Det stora genombrottet kom 2012 då Albin släppte sin låt "Hells Bells" på Steve Aokis skivbolag DIM MAK. Innan detta hade Albin redan hunnit samarbeta med världsartister som Avicii & David Guetta. Nu är Albin Myers aktuell med både eget skivbolag och nya produktioner. Här allra senast med hans officiella remix på Axwell /\ Ingrossos "More Than You Know". Med sin kärlek till musiken får han dansgolv att gunga till allt han spelar!
-                            </p>
+                            @Html.Raw(artist.Presentation)
                         </div>
                     </li>
                 }

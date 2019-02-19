@@ -6,14 +6,18 @@ using System.Collections.Generic;
 
 namespace Fase.Web.Models
 {
-    [PageType(Id = "artist-listing-page", Title = "Artists page")]
-    [PageTypeRoute(Route = "/artists")]
+    [PageType(Title = "Artists page")]
+    [PageTypeRoute(Title = "Artists", Route = "/artists")]
     public class ArtistListingPage : Page<ArtistListingPage>
     {
         public ArtistListingPage()
         {
             Artists = new List<Artist>();
+            Hero = new Hero();
         }
+
+        [Region]
+        public Hero Hero { get; set; }
 
         [Field(Title = "Page heading")]
         public StringField PageHeading { get; set; }

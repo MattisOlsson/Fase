@@ -1,5 +1,4 @@
-﻿using Fase.Web.Models.SelectFieldEnums;
-using Piranha.AttributeBuilder;
+﻿using Piranha.AttributeBuilder;
 using Piranha.Extend;
 using Piranha.Extend.Fields;
 using System.ComponentModel.DataAnnotations;

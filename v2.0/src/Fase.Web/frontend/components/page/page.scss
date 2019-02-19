@@ -34,4 +34,47 @@
             margin: em($gutter-width-half, 48px) 0 0;
         }
     }
+
+    &__nav {
+        max-width: em($max-width);
+        margin: 0 auto;
+
+        @include mq($until: small) {
+            padding: 0;
+        }
+
+        @include mq(small, medium) {
+            padding: 0 em($gutter-width-sm);
+        }
+
+        @include mq(medium) {
+            padding: 0 em($gutter-width);
+        }
+
+        .hero & + {
+            margin-top: -20px !important;
+        }
+    }
+
+    &__breadcrumbs {
+        @include reset__list();
+
+        &__item {
+            display: inline-block;
+            font-size: 15px;
+
+            &:after {
+                content: '/';
+                display: inline-block;
+            }
+
+            &:last-child:after {
+                display: none;
+            }
+        }
+    }
+}
+
+.hero + .page__nav {
+    margin-top: -40px !important;
 }

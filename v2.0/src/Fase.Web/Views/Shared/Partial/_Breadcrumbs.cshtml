@@ -1,0 +1,21 @@
+@using Fase.Web.Models
+@using Fase.Web.Extensions
+@using Piranha
+
+<nav class="page__nav">
+    <ul class="page__breadcrumbs">
+        @foreach (var item in WebApp.Site.Sitemap.GetBreadcrumb(WebApp.PageId))
+        {
+        <li class="page__breadcrumbs__item">
+            @if (item.Id != WebApp.PageId)
+                {
+            <a href="@item.Permalink">@item.MenuTitle</a>
+                }
+                else
+                {
+            <span>@item.MenuTitle</span>
+                }
+        </li>
+        }
+    </ul>
+</nav>

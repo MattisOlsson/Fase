@@ -1,5 +1,4 @@
-﻿using Fase.Web.Models.SelectFieldEnums;
-using Piranha.AttributeBuilder;
+﻿using Piranha.AttributeBuilder;
 using Piranha.Extend.Fields;
 
 namespace Fase.Web.Models.Regions

@@ -3,8 +3,9 @@ using Piranha.Models;
 
 namespace Fase.Web.Models
 {
-    [PageType(Id = "event-listing-page", Title = "Event listing page")]
-    public class EventListingPage : ArchivePage<EventListingPage>
+    [PageType(Title = "Event listing page")]
+    [PageTypeRoute(Title = "Events", Route = "/events")]
+    public class EventListingPage : Page<EventListingPage>
     {
     }
 }
