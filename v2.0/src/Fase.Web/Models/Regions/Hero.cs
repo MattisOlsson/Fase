@@ -20,6 +20,14 @@ namespace Fase.Web.Models.Regions
         [Field]
         public SelectField<HeroCssClass> CssClass { get; set; }
 
+        public bool ShouldRender()
+        {
+            return BackgroundImage.HasValue
+                || Logo.HasValue
+                || !string.IsNullOrEmpty(Heading?.Value)
+                || !string.IsNullOrEmpty(Text?.Value);
+        }
+
         public string GetCssClass()
         {
             switch (CssClass?.Value)

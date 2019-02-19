@@ -19,11 +19,16 @@ namespace Fase.Web.Models
                 }
             };
 
+            Flyer = new ArticleImage();
+
             Details = new EventDetails();
         }
 
         [Region]
         public Hero Hero { get; set; }
+
+        [Region(Title = "Flyer")]
+        public ArticleImage Flyer { get; set; }
 
         [Region(Title = "Event details")]
         public EventDetails Details { get; set; }

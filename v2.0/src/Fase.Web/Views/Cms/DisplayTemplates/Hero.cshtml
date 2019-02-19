@@ -1,5 +1,10 @@
 ﻿@model Fase.Web.Models.Regions.Hero
 @{
+    if (!Model.ShouldRender())
+    {
+        return;
+    }
+
     string BackgroundImage()
     {
         if (Model.BackgroundImage.HasValue)

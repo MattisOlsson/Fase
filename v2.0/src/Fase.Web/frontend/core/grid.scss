@@ -23,4 +23,8 @@
     @include mq($from: medium) {
         margin: 0 -em($gutter-width-half);
     }
+
+    &--justify-center {
+        justify-content: center;
+    }
 }

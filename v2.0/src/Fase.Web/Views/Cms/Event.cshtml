@@ -8,6 +8,8 @@
 <partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
 
 <div class="article">
+    @Html.DisplayFor(m => m.Flyer)
+
     <header class="article__header">
         @if (!string.IsNullOrEmpty(Model.Details.EventType?.Value))
         {
@@ -31,4 +33,20 @@
     </header>
 
     @Html.DisplayFor(m => m.Blocks)
+
+    <footer class="article__footer animate" data-animate>
+        @if (!string.IsNullOrEmpty(Model.Details?.Information))
+        {
+            <div class="text-block__content">
+                @Html.Raw(Model.Details.Information)
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Details.BookingLinkUrl?.Value))
+        {
+            <nav class="button-group">
+                <a class="button button--primary" href="@Model.Details.BookingLinkUrl.Value" target="_blank">Boka nu</a>
+            </nav>
+        }
+    </footer>
 </div>
