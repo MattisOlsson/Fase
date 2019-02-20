@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Linq;
-using System.Web.Mvc;
+using System.Threading.Tasks;
+using Fase.Web.Extensions;
 using Fase.Web.Models;
-using Geta.EmailNotification;
+using Fase.Web.Models.FormModels;
+using Microsoft.AspNetCore.Mvc;
+using PostmarkDotNet;
 
 namespace Fase.Web.Controllers
 {
     public class EmailController : Controller
     {
-        private readonly IEmailNotificationClient _emailNotificationClient;
+        private readonly PostmarkClient _postmarkClient;
 
-        public EmailController(IEmailNotificationClient emailNotificationClient)
+        public EmailController(PostmarkClient postmarkClient)
         {
-            _emailNotificationClient = emailNotificationClient ?? throw new ArgumentNullException(nameof(emailNotificationClient));
-        }
-
-        public ActionResult Index()
-        {
-            return View();
+            _postmarkClient = postmarkClient;
         }
 
         [HttpPost]
-        public ActionResult Send(ContactFormModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Send(EmailForm model)
         {
             var response = new SendEmailResponse();
 
@@ -39,18 +38,18 @@ namespace Fase.Web.Controllers
                 return Json(response);
             }
 
-            var email = new EmailNotificationRequestBuilder()
-                .WithFrom("mattias@geta.no")
-                .WithTo("info@fase-ab.se")
-                .WithSubject(model.Subject)
-                .WithViewData("Model", model)
-                .WithViewName("Contact")
-                .Build();
-
             try
             {
-                _emailNotificationClient.Send(email);
-                response.Success = true;
+                var message = new PostmarkMessage
+                {
+                    From = "mattias@geta.no",
+                    To = "info@fase-ab.se",
+                    Subject = model.Subject,
+                    HtmlBody = await this.RenderViewToStringAsync("~/Views/Emails/Contact.cshtml", model)
+                };
+
+                var postmarkResponse = await _postmarkClient.SendMessageAsync(message);
+                response.Success = postmarkResponse.Status == PostmarkStatus.Success;
                 response.Data = model;
             }
             catch (Exception exc)
@@ -60,20 +59,6 @@ namespace Fase.Web.Controllers
             }
 
             return Json(response);
-        }
-
-        public ActionResult Contact()
-        {
-            var model = new EmailNotificationRequestBuilder()
-                .WithFrom("mattias@geta.no")
-                .WithTo("mattis.olsson@gmail.com")
-                .WithSubject("Test")
-                .WithViewData("Model", new ContactFormModel())
-                .Build();
-
-            ViewData["Model"] = new ContactFormModel();
-
-            return View(model);
         }
     }
 }
