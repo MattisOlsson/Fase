@@ -4,6 +4,9 @@
     <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
     <Configurations>Debug;Release;Production</Configurations>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="piranha.db" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
