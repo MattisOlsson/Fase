@@ -166,6 +166,7 @@ var Form = function () {
 
         this.options = (0, _extend2.default)({}, options);
         this.form = (0, _jquery2.default)(element);
+        this.confirmation = this.form.find('[data-form__confirmation]');
         this.form.on('submit', function (event) {
             return _this.submit(event);
         });
@@ -202,17 +203,20 @@ var Form = function () {
 
             _loader2.default.hide();
 
-            if (response.Success) {
-                window.location = response.Data.ReturnUrl;
+            if (response.success) {
+                this.form.addClass('form--sent');
+                this.form.find('input,textarea,select').attr('disabled', 'disabled');
             } else {
-                var modelState = response.Data;
+                this.form.removeClass('form--sent');
+                this.form.find('input,textarea,select').attr('disabled', null);
+                var modelState = response.data;
 
                 if (modelState) {
                     modelState.forEach(function (state) {
                         return _this3.handleState(state);
                     });
                 } else {
-                    window.console.log(response.Message);
+                    window.console.log(response.message);
                 }
             }
         }
@@ -225,16 +229,16 @@ var Form = function () {
     }, {
         key: 'handleState',
         value: function handleState(state) {
-            var formElement = this.form.find('[name="' + state.Name + '"]');
-            var errorElement = this.form.find('#' + state.Name + '-error');
+            var formElement = this.form.find('[name="' + state.name + '"]');
+            var errorElement = this.form.find('#' + state.name + '-error');
 
             if (errorElement.length === 0) {
-                errorElement = (0, _jquery2.default)('<div/>').attr('id', '#' + state.Name + '-error').addClass('form__error').css('visibility', 'hidden').insertBefore(formElement);
+                errorElement = (0, _jquery2.default)('<div/>').attr('id', '#' + state.name + '-error').addClass('form__error').css('visibility', 'hidden').insertBefore(formElement);
             }
 
             var formElementWidth = formElement.outerWidth(true);
 
-            errorElement.html(state.Errors.join(', ')).css({
+            errorElement.html(state.errors.join(', ')).css({
                 top: formElement.offset().top - errorElement.outerHeight(true) - 5,
                 left: formElement.offset().left + (formElementWidth - errorElement.outerWidth(true)) * 0.5,
                 visibility: 'visible'
@@ -667,7 +671,11 @@ var Navigation = function () {
         key: 'defaults',
         get: function get() {
             return {
-                isActive: false
+                isActive: false,
+                activeCssClass: 'navigation--active',
+                itemActiveCssClass: 'navigation__item--active',
+                itemExpandedCssClass: 'navigation__item--expanded',
+                itemHasChildrenCssClass: 'navigation__item--has-children'
             };
         }
     }]);
@@ -679,16 +687,40 @@ var Navigation = function () {
 
         this.options = (0, _extend2.default)({}, this.constructor.defaults, options);
         this.element = (0, _jquery2.default)(element);
+        this.menu = this.element.find('[data-navigation__menu]');
+        this.menuLinks = this.menu.find('[data-navigation__link]');
         this.button = this.element.find('[data-navigation__toggle]');
         this.button.on('click', function () {
             return _this.toggleMenu();
         });
+        this.menuLinks.on('click', function (event) {
+            return _this.onMenuLinkClick(event);
+        });
+        this.htmlElement = (0, _jquery2.default)('html');
     }
 
     (0, _createClass3.default)(Navigation, [{
         key: 'toggleMenu',
         value: function toggleMenu() {
-            this.element.toggleClass('navigation--active');
+            this.element.toggleClass(this.options.activeCssClass);
+        }
+    }, {
+        key: 'onMenuLinkClick',
+        value: function onMenuLinkClick(event) {
+            var menuItem = (0, _jquery2.default)(event.currentTarget).parent();
+            this.toggleSubMenu(menuItem);
+
+            if (this.htmlElement.hasClass('touch-device') && menuItem.hasClass(this.options.itemHasChildrenCssClass)) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+    }, {
+        key: 'toggleSubMenu',
+        value: function toggleSubMenu(menuItem) {
+            menuItem.toggleClass(this.options.itemExpandedCssClass);
         }
     }]);
     return Navigation;
@@ -749,6 +781,7 @@ var FaseApplication = function () {
 
         (0, _classCallCheck3.default)(this, FaseApplication);
 
+        this.attachGlobalEvents();
         (0, _jquery2.default)(document).ready(function () {
             return _this.init();
         });
@@ -758,6 +791,21 @@ var FaseApplication = function () {
     }
 
     (0, _createClass3.default)(FaseApplication, [{
+        key: 'attachGlobalEvents',
+        value: function attachGlobalEvents() {
+            var _this2 = this;
+
+            window.addEventListener('touchstart', function () {
+                return _this2.onTouchStart();
+            }, false);
+        }
+    }, {
+        key: 'onTouchStart',
+        value: function onTouchStart() {
+            (0, _jquery2.default)('html').addClass('touch-device');
+            window.removeEventListener('touchstart', this.onTouchStart, false);
+        }
+    }, {
         key: 'init',
         value: function init() {
             (0, _initElements2.default)('[data-header]', _header2.default);

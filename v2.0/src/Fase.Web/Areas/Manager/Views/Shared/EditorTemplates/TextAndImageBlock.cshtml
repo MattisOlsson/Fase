@@ -36,7 +36,7 @@
 
     <div class="manager-block" data-property-label="@Html.DisplayNameFor(m => m.Text)">
         @Html.HiddenFor(m => m.Text.Value, "")
-        <div id="Editor_@Guid.NewGuid()" class="text-block__content block-editor content-preview editor-area @(!string.IsNullOrWhiteSpace(Model.Text.Value) ? "empty" : "check-empty")" data-id="@Html.FieldIdFor(m => m.Text)">
+        <div id="Editor_@Guid.NewGuid()" class="text-block__content text-block__body block-editor content-preview editor-area @(!string.IsNullOrWhiteSpace(Model.Text.Value) ? "empty" : "check-empty")" data-id="@Html.FieldIdFor(m => m.Text)">
             @if (!string.IsNullOrWhiteSpace(Model.Text.Value))
             {
                 @Html.Raw(Model.Text.Value)
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="block-image text-block__content">
+    <div class="block-image text-block__content text-block__body">
         <img id="@(imageUnique)_Preview" src="@(Model.Image.Media != null ? Url.Content(Model.Image.Media.PublicUrl) : "/manager/assets/img/block-img-placeholder.png")">
         <div class="block-image-picker">
             <div class="row">

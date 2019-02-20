@@ -67,4 +67,35 @@ $form__input__padding: ($form__input__height - $form__input__line-height) * 0.5;
             @include arrow('down', white, 7px);
         }
     }
+
+    &__confirmation {
+        display: none;
+        margin: 0 auto;
+
+        @include mq($until: small) {
+            font-size: 16px;
+            line-height: 22px;
+            padding: em(11px, 16px) 0 em(11px, 16px);
+        }
+
+        @include mq($from: small, $until: medium) {
+            font-size: 18px;
+            line-height: 26px;
+            padding: em(16px, 18px) 0 em(15px, 18px);
+        }
+
+        @include mq($from: medium) {
+            font-size: 20px;
+            line-height: 28px;
+            padding: em(16px, 20px) 0 em(15px, 20px);
+        }
+    }
+
+    &--sent &__confirmation {
+        display: block;
+    }
+
+    &--sent &__submit {
+        display: none;
+    }
 }

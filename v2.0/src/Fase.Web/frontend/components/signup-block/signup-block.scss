@@ -1,0 +1,18 @@
+.signup-block {
+    position: static;
+
+    &__content {
+        margin: 0 auto;
+        max-width: em(640px);
+        position: static;
+
+        @include mq($until: medium) {
+            padding: 0 em($gutter-width-half);
+            margin-bottom: em($gutter-width-sm * 1.5);
+        }
+
+        @include mq($from: medium) {
+            margin-bottom: em($gutter-width * 1.5);
+        }
+    }
+}

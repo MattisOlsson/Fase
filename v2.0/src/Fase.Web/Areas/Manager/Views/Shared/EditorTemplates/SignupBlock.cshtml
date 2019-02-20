@@ -1,0 +1,43 @@
+﻿@using Fase.Web.Extensions
+@model Fase.Web.Models.Blocks.SignupBlock
+
+<article class="text-block signup-block">
+    <div class="manager-block" data-property-label="@Html.DisplayNameFor(m => m.Heading)">
+        @Html.HiddenFor(m => m.Heading.Value, "")
+        <h2 class="text-block__heading2 editor-area" contenteditable="true" data-id="@Html.FieldIdFor(m => m.Heading)">
+            @if (!string.IsNullOrEmpty(Model.Heading?.Value))
+            {
+                @Html.Raw(Model.Heading)
+            }
+        </h2>
+    </div>
+
+    <div class="form-group" style="margin-top: 10px">
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(m => m.EmailSubject)</label>
+            @Html.EditorFor(m => m.EmailSubject)
+        </div>
+    </div>
+
+    <form class="form signup-block__content">
+        <div class="form__row">
+            <input class="form__input" type="text" name="Name" placeholder="Namn" disabled="disabled">
+        </div>
+
+        <div class="form__row">
+            <input class="form__input" type="text" name="Company" placeholder="Bar/krog" disabled="disabled">
+        </div>
+
+        <div class="form__row">
+            <input class="form__input" type="email" name="Email" placeholder="E-post" disabled="disabled">
+        </div>
+
+        <div class="form__row">
+            <input class="form__input" type="text" name="Phone" placeholder="Telefon" disabled="disabled">
+        </div>
+
+        <div class="form__row">
+            <button class="button button--primary" type="submit" disabled="disabled">Skicka anmälan</button>
+        </div>
+    </form>
+</article>

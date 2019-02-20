@@ -1,4 +1,5 @@
-﻿using Piranha.AttributeBuilder;
+﻿using System.ComponentModel.DataAnnotations;
+using Piranha.AttributeBuilder;
 using Piranha.Extend;
 using Piranha.Extend.Fields;
 
@@ -13,6 +14,7 @@ namespace Fase.Web.Models.Blocks
         }
 
         [Field]
+        [Display(Name = "Artists page")]
         public PageField ArtistsPage { get; set; }
     }
 }

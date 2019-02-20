@@ -1,5 +1,5 @@
 @model Piranha.Extend.Blocks.ImageBlock
+@inject Piranha.IApi Api
 
-<div class="image-block">
-    <img src="@Url.Content(Model.Body)">
+<div class="image-block" style="background-image: url('@Url.Content(Model.Body.Resize(Api, 1440))')">
 </div>

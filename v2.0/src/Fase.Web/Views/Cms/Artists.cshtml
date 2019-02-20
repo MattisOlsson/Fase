@@ -17,7 +17,7 @@
     }
 
     <article class="text-block">
-        <div class="text-block__content">
+        <div class="text-block__content text-block__body">
             <ul class="profile__list profile--full animate" data-animate>
                 @foreach (var artist in Model.Artists)
                 {
@@ -35,10 +35,16 @@
         </div>
     </article>
 
-    <footer class="article__footer">
-        <nav class="button-group">
-            <a class="button button--primary" href="https://www.tallinksilja.se/dryckeskultur" target="_blank">Boka nu</a>
-        </nav>
+    <footer class="article__footer animate" data-animate>
+        @if (Model.LinkButtons.Count > 0)
+        {
+            <nav class="button-group">
+                @foreach (var button in Model.LinkButtons)
+                {
+                    <a class="@button.GetCssClass()" href="@button.GetLinkUrl()">@button.LinkText</a>
+                }
+            </nav>
+        }
     </footer>
 </div>
 

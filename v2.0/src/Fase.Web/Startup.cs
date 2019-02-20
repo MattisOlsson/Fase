@@ -1,15 +1,26 @@
 ﻿using System;
+using Fase.Web.Extensions;
+using Fase.Web.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Piranha;
 using Piranha.AspNetCore.Identity.SQLite;
+using Piranha.Extend.Blocks;
 
 namespace Fase.Web
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -25,6 +36,9 @@ namespace Fase.Web
             services.AddPiranhaIdentityWithSeed<IdentitySQLiteDb>(options => options.UseSqlite("Filename=./piranha.db"));
             services.AddPiranhaManager();
             services.AddPiranhaMemCache();
+            services.AddPostmark(_configuration);
+            services.AddMemoryCache();
+            services.AddScoped<Fingerprint>();
 
             return services.BuildServiceProvider();
         }
@@ -55,6 +69,12 @@ namespace Fase.Web
             App.Blocks.Register<Models.Blocks.TextAndImageBlock>();
             App.Blocks.Register<Models.Blocks.PartnersBlock>();
             App.Blocks.Register<Models.Blocks.ArtistsBlock>();
+            App.Blocks.Register<Models.Blocks.TeaserBlock>();
+            App.Blocks.Register<Models.Blocks.SignupBlock>();
+
+            // Remove unwanted blocks
+            App.Blocks.UnRegister<HtmlBlock>();
+            App.Blocks.UnRegister<TextBlock>();
 
             // Add manager resources
             var managerModule = App.Modules.Get<Piranha.Manager.Module>();
@@ -72,16 +92,18 @@ namespace Fase.Web
                 .AddType(typeof(Models.ArtistListingPage));
             pageTypeBuilder.Build()
                 .DeleteOrphans();
-            //var postTypeBuilder = new Piranha.AttributeBuilder.PostTypeBuilder(api)
-            //    .AddType(typeof(Models.BlogPost));
-            //postTypeBuilder.Build()
-            //    .DeleteOrphans();
+
+            if (env.IsProduction())
+            {
+            }
 
             // Register middleware
+            app.UseRedirects(_configuration);
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UsePiranha();
             app.UsePiranhaManager();
+            app.UsePiranhaSitemap();
             app.UseMvc(routes => 
             {
                 routes.MapRoute(name: "areaRoute",
@@ -91,7 +113,7 @@ namespace Fase.Web
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=home}/{action=index}/{id?}");
-            }); 
+            });
         }
     }
 }

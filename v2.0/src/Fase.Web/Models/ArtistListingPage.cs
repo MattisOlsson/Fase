@@ -12,8 +12,9 @@ namespace Fase.Web.Models
     {
         public ArtistListingPage()
         {
-            Artists = new List<Artist>();
             Hero = new Hero();
+            Artists = new List<Artist>();
+            LinkButtons = new List<LinkButton>();
         }
 
         [Region]
@@ -22,7 +23,10 @@ namespace Fase.Web.Models
         [Field(Title = "Page heading")]
         public StringField PageHeading { get; set; }
 
-        [Region(ListTitle = "Fullname", Title = "Artists")]
+        [Region(ListTitle = "Firstname", Title = "Artists")]
         public IList<Artist> Artists { get; set; }
+
+        [Region(ListTitle = "LinkText", Title = "Link buttons")]
+        public IList<LinkButton> LinkButtons { get; set; }
     }
 }

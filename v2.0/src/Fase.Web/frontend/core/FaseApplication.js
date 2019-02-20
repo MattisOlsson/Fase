@@ -8,8 +8,18 @@ import Animate from '../components/animate/animate.js';
 
 export default class FaseApplication {
     constructor() {
+        this.attachGlobalEvents();
         $(document).ready(() => this.init());
         $(window).on('load', () => this.load());
+    }
+
+    attachGlobalEvents() {
+        window.addEventListener('touchstart', () => this.onTouchStart(), false);
+    }
+
+    onTouchStart() {
+        $('html').addClass('touch-device');
+        window.removeEventListener('touchstart', this.onTouchStart, false);
     }
 
     init() {

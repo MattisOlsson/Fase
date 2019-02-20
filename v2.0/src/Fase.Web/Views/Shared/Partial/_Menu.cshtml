@@ -4,24 +4,25 @@
 @inject IApi Api
 @{
     var sitemap = WebApp.Site.Sitemap.Where(item => !item.IsHidden);
+
 }
 
 <nav class="navigation" role="navigation" data-navigation>
-    <button class="navigation__toggle" data-navigation__toggle>Menu</button>
-    <ul class="navigation__menu" role="menu">
+    <button class="navigation__toggle" data-navigation__toggle>Meny</button>
+    <ul class="navigation__menu" role="menu" data-navigation__menu>
         @foreach (var item in sitemap)
         {
-            <li class="navigation__item @((item.Id == WebApp.PageId || WebApp.Url.StartsWith(item.Permalink)).ToString("navigation__item--active")) @((item.Items.Count > 0).ToString("navigation__item--has-children"))" role="menuitem">
-                <a href="@item.Permalink" class="navigation__link">@item.MenuTitle</a>
+            <li class="navigation__item @item.IsSelected(WebApp).ToString("navigation__item--active navigation__item--expanded") @((item.Items.Count > 0).ToString("navigation__item--has-children"))" role="menuitem">
+                <a href="@item.Permalink" class="navigation__link" data-navigation__link>@item.MenuTitle</a>
                 @if (item.Items.Count > 0)
                 {
                     <ul class="navigation__sub-menu" role="menu">
-                        <li class="navigation__sub-item hidden-small" role="menuitem">
+                        <li class="navigation__sub-item navigation__sub-item--visible-touch" role="menuitem">
                             <a href="@item.Permalink" class="navigation__sub-link">@item.MenuTitle</a>
                         </li>
                         @foreach (var subItem in item.Items)
                         {
-                            <li class="navigation__sub-item" role="menuitem">
+                            <li class="navigation__sub-item @subItem.IsSelected(WebApp).ToString("navigation__sub-item--active")" role="menuitem">
                                 <a href="@subItem.Permalink" class="navigation__sub-link">@subItem.MenuTitle</a>
                             </li>
                         }

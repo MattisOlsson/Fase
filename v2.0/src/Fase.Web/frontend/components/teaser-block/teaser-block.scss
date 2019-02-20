@@ -1,0 +1,101 @@
+.teaser-block {
+    max-width: $max-width;
+    margin: 0 auto;
+
+    @include mq($until: medium) {
+        margin-bottom: em($gutter-width-sm * 2.5);
+    }
+
+    @include mq($from: medium) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: em($gutter-width * 3);
+    }
+
+    &__col {
+        margin: 0 auto;
+
+        @include mq($from: medium) {
+            padding: 0 em($gutter-width);
+            width: 50%;
+        }
+    }
+
+    &__image {
+        @include mq($until: medium) {
+            margin-bottom: em($gutter-width);
+        }
+    }
+
+    &__heading {
+        display: block;
+        margin: 0 auto;
+
+        @include mq($until: small) {
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        @include mq($from: small, $until: medium) {
+            font-size: 36px;
+            line-height: 42px;
+        }
+
+        @include mq($from: medium) {
+            font-size: 32px;
+            line-height: 38px;
+        }
+
+        > strong {
+            color: $color__brand;
+        }
+
+        > span {
+            display: block;
+            font-size: 0.6em;
+            line-height: 1;
+            color: $color__brand;
+        }
+    }
+
+    &__body {
+        @include mq($from: medium) {
+            text-align: left;
+        }
+
+        @include mq($until: medium) {
+            max-width: em(640px);
+            padding: 0 em($gutter-width-half);
+            margin-bottom: em($gutter-width-sm * 1.5);
+        }
+
+        > p,
+        > ul,
+        > ol,
+        > blockquote {
+            @include mq($until: small) {
+                font-size: 16px;
+                line-height: 22px;
+            }
+
+            @include mq($from: small) {
+                font-size: 18px;
+                line-height: 26px;
+            }
+
+            > a {
+                &:only-child {
+                    @extend .button;
+                    @extend .button--inline;
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
+                text-decoration: none;
+
+                > i {
+                    color: black;
+                }
+            }
+        }
+    }
+}

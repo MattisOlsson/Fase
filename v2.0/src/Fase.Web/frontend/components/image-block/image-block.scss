@@ -1,0 +1,18 @@
+.image-block {
+    position: relative;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    padding-bottom: percentage(1/2);
+
+    @include mq($from: medium) {
+        background-size: 100% auto;
+        padding-bottom: percentage(1/4);
+    }
+
+    > img {
+        width: 100%;
+    }
+}

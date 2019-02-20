@@ -1,0 +1,18 @@
+﻿@model Fase.Web.Models.Blocks.TeaserBlock
+@inject Piranha.IApi Api
+
+<div class="teaser-block animate" data-animate>
+    <figure class="teaser-block__col teaser-block__image">
+        @if (Model.Image.HasValue)
+        {
+            <img src="@Url.Content(Model.Image.Resize(Api, 960))" alt="">
+        }
+    </figure>
+    <article class="teaser-block__col text-block__body teaser-block__body">
+        <h2 class="teaser-block__heading">
+            @Html.Raw(Model.Heading)
+        </h2>
+
+        @Html.Raw(Model.Text)
+    </article>
+</div>

@@ -25,7 +25,7 @@
         <span class="events__item__date"><i class="icon--clock"></i> @Model.Details.StartDate.Value.Value.ToString("dddd, dd MMMM yyyy") kl. @Model.Details.StartTime</span>
         @if (!string.IsNullOrEmpty(Model.Details?.Information))
         {
-            <div class="text-block__content">
+            <div class="text-block__content text-block__body">
                 @Html.Raw(Model.Details.Information)
             </div>
         }
@@ -43,7 +43,7 @@
     <footer class="article__footer animate" data-animate>
         @if (!string.IsNullOrEmpty(Model.Details?.Information))
         {
-            <div class="text-block__content">
+            <div class="text-block__content text-block__body">
                 @Html.Raw(Model.Details.Information)
             </div>
         }

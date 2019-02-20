@@ -212,7 +212,7 @@
         }
     }
 
-    &__item--active &__sub-menu {
+    &__item--expanded &__sub-menu {
         @include mq($until: large) {
             display: block;
         }
@@ -220,6 +220,14 @@
 
     &__sub-item {
         @include navigation__item(0, 0);
+
+        &--visible-touch {
+            display: none;
+
+            html.touch-device & {
+                display: block;
+            }
+        }
     }
 
     &__sub-link {

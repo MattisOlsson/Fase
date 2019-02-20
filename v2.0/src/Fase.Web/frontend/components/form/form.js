@@ -6,6 +6,7 @@ export default class Form {
     constructor(element, options) {
         this.options = extend({}, options);
         this.form = $(element);
+        this.confirmation = this.form.find('[data-form__confirmation]');
         this.form.on('submit', (event) => this.submit(event));
     }
 
@@ -29,17 +30,20 @@ export default class Form {
     handleResponse(response) {
         Loader.hide();
 
-        if (response.Success) {
-            window.location = response.Data.ReturnUrl;
+        if (response.success) {
+            this.form.addClass('form--sent');
+            this.form.find('input,textarea,select').attr('disabled', 'disabled');
         }
         else {
-            var modelState = response.Data;
+            this.form.removeClass('form--sent');
+            this.form.find('input,textarea,select').attr('disabled', null);
+            const modelState = response.data;
 
             if (modelState) {
                 modelState.forEach((state) => this.handleState(state));
             }
             else {
-                window.console.log(response.Message);
+                window.console.log(response.message);
             }
         }
     }
@@ -50,12 +54,12 @@ export default class Form {
     }
 
     handleState(state) {
-        let formElement = this.form.find('[name="' + state.Name + '"]');
-        let errorElement = this.form.find('#' + state.Name + '-error');
+        let formElement = this.form.find('[name="' + state.name + '"]');
+        let errorElement = this.form.find('#' + state.name + '-error');
 
         if (errorElement.length === 0) {
             errorElement = $('<div/>')
-                .attr('id', '#' + state.Name + '-error')
+                .attr('id', '#' + state.name + '-error')
                 .addClass('form__error')
                 .css('visibility', 'hidden')
                 .insertBefore(formElement);
@@ -64,7 +68,7 @@ export default class Form {
         let formElementWidth = formElement.outerWidth(true);
 
         errorElement
-            .html(state.Errors.join(', '))
+            .html(state.errors.join(', '))
             .css({
                 top: formElement.offset().top - errorElement.outerHeight(true) - 5,
                 left: formElement.offset().left + ((formElementWidth - errorElement.outerWidth(true)) * 0.5),

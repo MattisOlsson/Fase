@@ -11,3 +11,13 @@
         }
     }
 }
+
+.visible {
+    &__touch-device {
+        display: none;
+
+        html.touch-device & {
+            display: initial;
+        }
+    }
+}
