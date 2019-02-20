@@ -3,5 +3,9 @@
     ViewBag.Title = Model.Title;
 }
 
-@Html.DisplayFor(m => m.Hero)
+@section Hero
+{
+    @Html.DisplayFor(m => m.Hero)
+}
+
 @Html.DisplayFor(m => m.Blocks)

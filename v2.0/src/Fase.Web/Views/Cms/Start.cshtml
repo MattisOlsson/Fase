@@ -3,47 +3,45 @@
 @{
     ViewBag.Title = Model.Title;
 }
-<section class="@Model.HeroContent.GetCssClass()" data-hero>
-    <div class="hero__video">
-        <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="metadata">
-            @foreach (var video in Model.Videos)
-            {
-                <source src="@Url.Content(video.VideoFile.Media.PublicUrl)" type="@video.VideoFile.Media.ContentType" data-src="@Url.Content(video.VideoFile.Media.PublicUrl)">
-            }
-        </video>
-    </div>
-    <article class="hero__content">
-        <div class="hero__content__inner animate animate--onload" data-animate='{ "mode": "onload" }'>
-            <div class="animate__group">
-                @if (Model.HeroContent.Logo.HasValue)
-                {
-                    <img class="hero__logo" src="@Url.Content(Model.HeroContent.Logo)" alt="Dryckeskultur 2018 logo">
-                }
-                <h2 class="hero__sub-heading">@Model.HeroContent.Heading</h2>
 
-                <div class="hero__wysiwyg">
-                    @Html.Raw(Model.HeroContent.Text)
-                </div>
-                <!--
-                <p class="hero__text hero__text--small">
-                    <strong>OBS!</strong> Vill ni ha tillgång till all underhållning (Albin Myers, John Dahlbäck, De Sotos m.fl.) så måste ni
-                    boka med bokningskoden <strong>25 H PEOPLE</strong>
-                </p>
-                -->
-            </div>
-            @if (Model.Buttons.Count > 0)
-            {
-                <div class="animate__group">
-                    <nav class="button-group">
-                        @foreach (var button in Model.Buttons)
-                        {
-                            <a class="@button.GetCssClass()" href="@button.GetLinkUrl()">@button.LinkText</a>
-                        }
-                    </nav>
-                </div>
-            }
+@section Hero
+{
+    <section class="@Model.HeroContent.GetCssClass()" data-hero>
+        <div class="hero__video">
+            <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="metadata">
+                @foreach (var video in Model.Videos)
+                {
+                    <source src="@Url.Content(video.VideoFile.Media.PublicUrl)" type="@video.VideoFile.Media.ContentType" data-src="@Url.Content(video.VideoFile.Media.PublicUrl)">
+                }
+            </video>
         </div>
-    </article>
-</section>
+        <article class="hero__content">
+            <div class="hero__content__inner animate animate--onload" data-animate='{ "mode": "onload" }'>
+                <div class="animate__group">
+                    @if (Model.HeroContent.Logo.HasValue)
+                    {
+                        <img class="hero__logo" src="@Url.Content(Model.HeroContent.Logo)" alt="Dryckeskultur 2018 logo">
+                    }
+                    <h2 class="hero__sub-heading">@Model.HeroContent.Heading</h2>
+
+                    <div class="hero__wysiwyg">
+                        @Html.Raw(Model.HeroContent.Text)
+                    </div>
+                </div>
+                @if (Model.Buttons.Count > 0)
+                {
+                    <div class="animate__group">
+                        <nav class="button-group">
+                            @foreach (var button in Model.Buttons)
+                            {
+                                <a class="@button.GetCssClass()" href="@button.GetLinkUrl()">@button.LinkText</a>
+                            }
+                        </nav>
+                    </div>
+                }
+            </div>
+        </article>
+    </section>
+}
 
 @Html.DisplayFor(m => m.Blocks)

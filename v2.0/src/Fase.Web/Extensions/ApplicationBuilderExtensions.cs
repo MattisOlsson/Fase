@@ -1,5 +1,7 @@
 ﻿using Fase.Web.Configuration;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 
@@ -28,6 +30,18 @@ namespace Fase.Web.Extensions
             options = options.AddRewrite("([\\S]+)(/v-[0-9]+/)([\\S]+)", "$1/$3", true);
 
             app.UseRewriter(options);
+        }
+
+        public static void UseStaticFilesWithCaching(this IApplicationBuilder app, IHostingEnvironment env)
+        {
+            var cachePeriod = env.IsDevelopment() ? "600" : "604800";
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={cachePeriod}");
+                }
+            });
         }
     }
 }

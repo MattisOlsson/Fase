@@ -5,47 +5,47 @@
             {
                 "From": "dryckeskultur-2018.html",
                 "To": "event/dryckeskultur-2019",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "program.html",
                 "To": "event/dryckeskultur-2019/program",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "artister.html",
                 "To": "event/dryckeskultur-2019/artister",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "skolningar-workshops-masterclasses.html",
                 "To": "event/dryckeskultur-2019/skolningar-workshops-masterclasses",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "bartender-battle.html",
                 "To": "event/dryckeskultur-2019/bartender-battle",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "ordningsregler.html",
                 "To": "event/dryckeskultur-2019/ordningsregler",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "om-oss.html",
                 "To": "om-oss",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "om-oss.html#kontakt",
                 "To": "om-oss#kontakt",
-                "StatusCode": 308
+                "StatusCode": 301
             },
             {
                 "From": "partners.html",
                 "To": "event/dryckeskultur-2019/partners",
-                "StatusCode": 308
+                "StatusCode": 301
             }
         ]
     }

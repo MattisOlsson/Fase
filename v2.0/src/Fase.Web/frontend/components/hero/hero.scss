@@ -10,22 +10,18 @@
 
     @include mq($until: small) {
         padding-bottom: 125%;
-        margin-bottom: em($gutter-width-sm * 2);
     }
 
     @include mq(small, medium) {
         padding-bottom: percentage(9/13);
-        margin-bottom: em($gutter-width * 3);
     }
 
     @include mq(medium, large) {
         padding-bottom: percentage(9/17);
-        margin-bottom: em($gutter-width * 3);
     }
 
     @include mq($from: large) {
         padding-bottom: percentage(9/18);
-        margin-bottom: em($gutter-width * 3);
     }
 
     &:after {
@@ -45,16 +41,6 @@
 
         @include mq($from: small) {
             top: 30%;
-        }
-    }
-
-    &--small {
-        @include mq($until: small) {
-            margin-bottom: em($gutter-width-sm * 2);
-        }
-
-        @include mq($from: small) {
-            margin-bottom: em($gutter-width * 2);
         }
     }
 

@@ -1,4 +1,20 @@
 .main {
     position: relative;
     z-index: $z-index__main;
+
+    @include mq($until: small) {
+        margin-top: em($gutter-width-sm * 2);
+    }
+
+    @include mq(small, medium) {
+        margin-top: em($gutter-width * 3);
+    }
+
+    @include mq(medium, large) {
+        margin-top: em($gutter-width * 3);
+    }
+
+    @include mq($from: large) {
+        margin-top: em($gutter-width * 3);
+    }
 }

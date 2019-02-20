@@ -4,7 +4,7 @@
     &__image {
         display: block;
         position: relative;
-        margin: 0 auto em($gutter-width);
+        margin: 0 auto;
         padding-top: em($header__height__small);
 
         @include mq(small) {
@@ -16,7 +16,7 @@
             background: #000 url('/static/blue-glitter.jpg') no-repeat center center;
             background-attachment: fixed;
             background-size: cover;
-            margin: 0 auto em($gutter-width * 2);
+            margin: 0 auto;
             padding-top: em($header__height__medium + $gutter-width);
             padding-bottom: em($gutter-width);
 

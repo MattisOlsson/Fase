@@ -3,6 +3,7 @@ using Fase.Web.Extensions;
 using Fase.Web.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -52,6 +53,30 @@ namespace Fase.Web
             }
 
             // Initialize Piranha
+            InitializePiranha(api);
+
+            // Register middleware
+            app.UseRedirects(_configuration);
+            app.UseStaticFilesWithCaching(env);
+            app.UseAuthentication();
+            app.UsePiranha();
+            app.UsePiranhaManager();
+            app.UsePiranhaSitemap();
+            app.UseMvc(routes => 
+            {
+                routes.MapRoute(name: "areaRoute",
+                    template: "{area:exists}/{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" });
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=home}/{action=index}/{id?}");
+            });
+        }
+
+        private void InitializePiranha(IApi api)
+        {
+            // Initialize Piranha
             App.Init();
 
             // Configure cache level
@@ -92,28 +117,6 @@ namespace Fase.Web
                 .AddType(typeof(Models.ArtistListingPage));
             pageTypeBuilder.Build()
                 .DeleteOrphans();
-
-            if (env.IsProduction())
-            {
-            }
-
-            // Register middleware
-            app.UseRedirects(_configuration);
-            app.UseStaticFiles();
-            app.UseAuthentication();
-            app.UsePiranha();
-            app.UsePiranhaManager();
-            app.UsePiranhaSitemap();
-            app.UseMvc(routes => 
-            {
-                routes.MapRoute(name: "areaRoute",
-                    template: "{area:exists}/{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" });
-
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=home}/{action=index}/{id?}");
-            });
         }
     }
 }

@@ -1,6 +1,12 @@
 ﻿@model Fase.Web.Models.PartnersPage
+@{
+    ViewBag.Title = Model.Title;
+}
 
-@Html.DisplayFor(m => m.Hero)
+@section Hero
+    {
+    @Html.DisplayFor(m => m.Hero)
+}
 
 <div class="text-block partners-block">
     <ul class="partners-block__list">

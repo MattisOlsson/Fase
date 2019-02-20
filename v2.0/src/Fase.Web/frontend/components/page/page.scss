@@ -37,11 +37,11 @@
 
     &__nav {
         max-width: em($max-width);
-        margin: 0 auto;
+        margin: em($gutter-width-half) auto 0;
         text-align: left;
 
         @include mq($until: small) {
-            padding: 0;
+            padding: 0 em($gutter-width-half);
         }
 
         @include mq(small, medium) {
@@ -70,10 +70,4 @@
             }
         }
     }
-}
-
-.hero + .page__nav,
-.article__image + .page__nav {
-    margin-top: -40px !important;
-    margin-bottom: 30px;
 }

@@ -4,9 +4,10 @@
     ViewBag.Title = Model.Title;
 }
 
-@Html.DisplayFor(m => m.Hero)
+@section Hero
+    {
+    @Html.DisplayFor(m => m.Hero)
 
-<div class="article">
     @if (Model.Details.FlyerImage.HasValue)
     {
         <div class="article__image">
@@ -15,7 +16,9 @@
     }
 
     <partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
+}
 
+<div class="article">
     <header class="article__header">
         @if (!string.IsNullOrEmpty(Model.Details.EventType?.Value))
         {

@@ -4,9 +4,12 @@
     ViewBag.Title = Model.Title;
 }
 
-@Html.DisplayFor(m => m.Hero)
+@section Hero
+{
+    @Html.DisplayFor(m => m.Hero)
 
-<partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
+    <partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
+}
 
 <div class="article">
     @if (!string.IsNullOrEmpty(Model.PageHeading?.Value))

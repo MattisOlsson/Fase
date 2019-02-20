@@ -1,8 +1,16 @@
 ﻿<html>
 <head>
     <meta charset="utf-8">
-    <title>Dryckeskultur 2019 - FASE: A new kind of event</title>
+    <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="@Fingerprint.Tag("/public/index.css")">
+    <link href="https://fonts.googleapis.com/css?family=Arizonia|Roboto:400,400i,700,700i" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <environment include="Production">
         <script>
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -12,15 +20,6 @@
             })(window, document, 'script', 'dataLayer', 'GTM-NS6QPN2');
         </script>
     </environment>
-    <link rel="stylesheet" href="@Fingerprint.Tag("/public/index.css")">
-    <link href="https://fonts.googleapis.com/css?family=Arizonia|Roboto:400,400i,700,700i" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <meta property="og:image" content="@($"{Context.Request.Scheme}://{Context.Request.Host}")/static/dryckeskultur.jpg">
 </head>
 <body>
     <environment include="Production">
@@ -28,6 +27,7 @@
             <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS6QPN2" height="0" width="0" style="display: none; visibility: hidden"></iframe>
         </noscript>
     </environment>
+
     <header class="header header--transparent" data-header>
         <div class="header__container">
             <a href="/" class="header__home"><img class="header__logo" src="/static/logo.png"></a>
@@ -36,63 +36,13 @@
         </div>
     </header>
 
+    @RenderSection("Hero", false)
+
     <main class="main" role="main">
         @RenderBody()
     </main>
 
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="row footer__row">
-                <form asp-controller="Email" asp-action="Send" method="post" class="footer__column form form--invert" data-form>
-                    <h4 class="footer__heading">Kontakta oss</h4>
-
-                    <div class="form__row">
-                        <input class="form__input" type="text" name="Name" placeholder="Namn">
-                    </div>
-
-                    <div class="form__row">
-                        <input class="form__input" type="email" name="Email" placeholder="E-post">
-                    </div>
-
-                    <div class="form__row">
-                        <input class="form__input" type="text" name="Phone" placeholder="Telefon">
-                    </div>
-
-                    <div class="form__row">
-                        <textarea class="form__textarea" name="Message" placeholder="Meddelande"></textarea>
-                    </div>
-
-                    <div class="form__row">
-                        <button class="button button--primary button--primary-invert" type="submit">Skicka</button>
-                    </div>
-
-                    <input type="hidden" name="Subject" value="Kontakt från dryckeskultur.com">
-                </form>
-
-                <div class="footer__column footer__address">
-                    <h4 class="footer__heading">Här hittar du oss</h4>
-                    <p>
-                        <strong>Postadress:</strong><br>
-                        Råbyvägen 23<br>
-                        754 22 Uppsala
-                    </p>
-                    <p>
-                        <strong>Telefonnummer:</strong><br>
-                        <a href="tel:+46706271187">+46 (0)70-627 11 87</a>
-                    </p>
-                    <p>
-                        <strong>E-post:</strong><br>
-                        <a href="mailto:info@fase-ab.se">info@fase-ab.se</a>
-                    </p>
-                    <ul class="social-links">
-                        <li class="social-links__item"><a class="icon--facebook" href="https://www.facebook.com/fairandsquareevent/" target="_blank"><span>Facebook</span></a></li>
-                        <li class="social-links__item"><a class="icon--instagram" href="https://www.instagram.com/fasekultur/" target="_blank"><span>Instagram</span></a></li>
-                        <li class="social-links__item"><a class="icon--twitter" href="https://twitter.com/fasekultur/" target="_blank"><span>Twitter</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <partial name="Partial/_Footer.cshtml" />
 
     <script src="@Fingerprint.Tag("/public/index.js")"></script>
 </body>

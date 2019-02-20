@@ -4,7 +4,6 @@
     &__content {
         margin: 0 auto;
         max-width: em(640px);
-        position: static;
 
         @include mq($until: medium) {
             padding: 0 em($gutter-width-half);

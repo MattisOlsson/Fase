@@ -1,42 +1,40 @@
 ﻿@using Fase.Web.Extensions
 @model Fase.Web.Models.Blocks.SignupBlock
 
-<article class="text-block signup-block animate" data-animate>
-    <div>
-        @if (!string.IsNullOrEmpty(Model.Heading?.Value))
-        {
-            <h2 class="text-block__heading2">
-                @Html.Raw(Model.Heading)
-            </h2>
-        }
+<article class="text-block signup-block">
+    @if (!string.IsNullOrEmpty(Model.Heading?.Value))
+    {
+        <h2 class="text-block__heading2">
+            @Html.Raw(Model.Heading)
+        </h2>
+    }
 
-        <div class="signup-block__content">
-            <form asp-controller="Email" asp-action="Send" method="post" class="form text-block__body" data-form>
-                <div class="form__row">
-                    <input class="form__input" type="text" name="Name" placeholder="Namn">
-                </div>
+    <div class="signup-block__content">
+        <form asp-controller="Email" asp-action="Send" method="post" class="form text-block__body" data-form>
+            <div class="form__row">
+                <input class="form__input" type="text" name="Name" placeholder="Namn">
+            </div>
 
-                <div class="form__row">
-                    <input class="form__input" type="text" name="Company" placeholder="Bar/krog">
-                </div>
+            <div class="form__row">
+                <input class="form__input" type="text" name="Company" placeholder="Bar/krog">
+            </div>
 
-                <div class="form__row">
-                    <input class="form__input" type="email" name="Email" placeholder="E-post">
-                </div>
+            <div class="form__row">
+                <input class="form__input" type="email" name="Email" placeholder="E-post">
+            </div>
 
-                <div class="form__row">
-                    <input class="form__input" type="text" name="Phone" placeholder="Telefon">
-                </div>
+            <div class="form__row">
+                <input class="form__input" type="text" name="Phone" placeholder="Telefon">
+            </div>
 
-                <div class="form__row">
-                    <button class="form__submit button button--primary" type="submit">Skicka anmälan</button>
-                    <p class="form__confirmation" data-form__confirmation>
-                        Tack för din anmälan!
-                    </p>
-                </div>
+            <div class="form__row">
+                <button class="form__submit button button--primary" type="submit">Skicka anmälan</button>
+                <p class="form__confirmation" data-form__confirmation>
+                    Tack för din anmälan!
+                </p>
+            </div>
 
-                <input type="hidden" name="Subject" value="@Model.EmailSubject?.Value">
-            </form>
-        </div>
+            <input type="hidden" name="Subject" value="@Model.EmailSubject?.Value">
+        </form>
     </div>
 </article>
