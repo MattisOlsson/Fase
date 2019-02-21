@@ -5,26 +5,27 @@ import Header from '../components/header/header.js';
 import Navigation from '../components/navigation/navigation.js';
 import Form from '../components/form/form.js';
 import Animate from '../components/animate/animate.js';
+import root from 'window-or-global';
 
-export default class FaseApplication {
+const onTouchStart = () => {
+    root.removeEventListener('touchstart', onTouchStart, false);
+    $('html').addClass('touch-device');
+};
+
+class FaseApplication {
     constructor() {
         this.attachGlobalEvents();
-        $(document).ready(() => this.init());
-        $(window).on('load', () => this.load());
+        $(root.document).ready(() => this.init());
+        $(root).on('load', () => this.load());
     }
 
     attachGlobalEvents() {
-        window.addEventListener('touchstart', () => this.onTouchStart(), false);
-    }
-
-    onTouchStart() {
-        $('html').addClass('touch-device');
-        window.removeEventListener('touchstart', this.onTouchStart, false);
+        root.addEventListener('touchstart', onTouchStart, false);
     }
 
     init() {
         initElements('[data-header]', Header);
-        initElements('[data-navigation]', Navigation, {
+        this.navigations = initElements('[data-navigation]', Navigation, {
             isActive: false
         });
 
@@ -36,3 +37,6 @@ export default class FaseApplication {
         initElements('[data-animate]', Animate);
     }
 }
+
+const app = new FaseApplication();
+export default app;

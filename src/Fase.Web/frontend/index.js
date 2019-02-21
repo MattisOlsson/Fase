@@ -1,3 +1,2 @@
-import FaseApplication from './core/FaseApplication.js';
-
-window.FaseApplication = new FaseApplication();
+import app from './core/FaseApplication.js';
+export default app;

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es6",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "jsx": "react",
+        "noLib": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "lib": [
+            "dom",
+            "scripthost",
+            "esnext"
+        ],
+        "baseUrl": "."
+    },
+    "exclude": [
+        "bin",
+        "bower_components",
+        "jspm_packages",
+        "node_modules",
+        "obj",
+        "platforms"
+    ]
+}

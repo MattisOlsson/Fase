@@ -1,3 +1,2 @@
-import FaseManager from './core/FaseManager.js';
-
-window.FaseManager = new FaseManager();
+import app from './core/FaseManager.js';
+export default app;

@@ -1,0 +1,6 @@
+{
+  "plugins": {
+    "postcss-utilities": {},
+    "autoprefixer": { "browsers": ["last 5 versions", "> 1%", "ie 9", "ie 8"] }
+  }
+}

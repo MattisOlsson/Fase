@@ -1,13 +1,17 @@
 ﻿import $ from 'jquery';
 import initElements from './utils/init-elements.js';
 import ManagerBlock from '../components/manager-block/manager-block.js';
+import root from 'window-or-global';
 
-export default class FaseManager {
+class FaseManager {
     constructor() {
-        $(document).ready(() => this.init());
+        $(root.document).ready(() => this.init());
     }
 
     init() {
-        initElements(document, ManagerBlock);
+        initElements(root.document, ManagerBlock);
     }
 }
+
+const app = new FaseManager();
+export default app;

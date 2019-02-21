@@ -10,6 +10,5 @@ export default class AnchorLink {
 
     onClick() {
         let target = $(document).find(this.element.attr('href'));
-        window.console.log(target.offset());
     }
 }

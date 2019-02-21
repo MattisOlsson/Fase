@@ -27,7 +27,7 @@ namespace Fase.Web.Extensions
             }
 
             // Fingerprint
-            options = options.AddRewrite("([\\S]+)(/v-[0-9]+/)([\\S]+)", "$1/$3", true);
+            options = options.AddRewrite("([\\S]+)(/v[0-9]+/)([\\S]+)", "$1/$3", true);
 
             app.UseRewriter(options);
         }
