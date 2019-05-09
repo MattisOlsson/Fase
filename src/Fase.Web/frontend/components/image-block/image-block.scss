@@ -1,18 +1,24 @@
 .image-block {
+    @include block-margin;
     position: relative;
-    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
-    padding-bottom: percentage(1/2);
+    padding-bottom: percentage(9/16);
 
     @include mq($from: medium) {
+        background-attachment: fixed;
         background-size: 100% auto;
         padding-bottom: percentage(1/4);
     }
 
     > img {
         width: 100%;
+    }
+
+    + .text-block--grey,
+    + .partners-block {
+        @include block-margin(-1, margin-top);
     }
 }

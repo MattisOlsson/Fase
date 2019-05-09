@@ -1,0 +1,11 @@
+﻿@model Fase.Web.Models.EventSchedulePage
+
+<div class="partners-block">
+    <h2 class="text-block__heading partners-block__heading">@Model.Hero.Heading</h2>
+    <ol class="events__list">
+        @foreach (var item in Model.Items)
+        {
+            @Html.DisplayFor(m => item)
+        }
+    </ol>
+</div>

@@ -1,0 +1,33 @@
+﻿@model Fase.Web.Models.Regions.ScheduleItem
+
+<li class="events__item">
+    <div class="events__item__wrapper">
+        @if (Model.ListingImage.HasValue)
+        {
+            <p class="events__item__intro">
+                <img class="events__item__image" src="@Url.Content(Model.ListingImage.Resize(Api, 640))" alt="">
+            </p>
+        }
+        <h2 class="events__item__heading"><i class="icon--calendar"></i> @Html.Raw(Model.Heading)</h2>
+        <span class="events__item__date">
+            @if (!string.IsNullOrEmpty(Model.Time?.Value))
+            {
+                <i class="icon--clock"></i> @Model.Time<br>
+            }
+            @if (!string.IsNullOrEmpty(Model.Location?.Value))
+            {
+                <i class="icon--location"></i> @Model.Location
+            }
+        </span>
+        <div class="text-block__content text-block__body">
+            @if (!string.IsNullOrEmpty(Model.Intro?.Value))
+            {
+                <p class="events__item__disclaimer">
+                    @Html.Raw(Model.Intro.Value)
+                </p>
+            }
+
+            @Html.Raw(Model.Description)
+        </div>
+    </div>
+</li>

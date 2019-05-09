@@ -1,0 +1,20 @@
+@model Fase.Web.Models.EventSchedulePage
+@{
+    ViewBag.Title = Model.Title;
+}
+
+@section Hero
+{
+    @Html.DisplayFor(m => m.Hero)
+
+    <partial name="~/Views/Shared/Partial/_Breadcrumbs.cshtml" />
+}
+
+<ol class="events__list">
+    @foreach (var item in Model.Items)
+    {
+        @Html.DisplayFor(m => item)
+    }
+</ol>
+
+@Html.DisplayFor(m => m.Blocks)

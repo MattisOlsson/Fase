@@ -13,7 +13,6 @@ namespace Fase.Web.Models.Regions
         public StringField EventType { get; set; }
 
         [Field(Title = "Start date")]
-        [Required]
         public DateField StartDate { get; set; }
 
         [Field(Title = "Start time")]

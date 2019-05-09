@@ -1,0 +1,9 @@
+@mixin block-margin($multiplier: 1, $property: margin-bottom) {
+    @include mq($until: small) {
+        #{$property}: em($gutter-width-sm * 2.5) * $multiplier;
+    }
+
+    @include mq($from: small) {
+        #{$property}: em($gutter-width * 3) * $multiplier;
+    }
+}

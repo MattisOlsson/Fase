@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="@Fingerprint.Tag("/public/index.css")">
     <link href="https://fonts.googleapis.com/css?family=Arizonia|Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -38,7 +39,7 @@
 
     @RenderSection("Hero", false)
 
-    <main class="main" role="main">
+    <main class="main @ViewBag.MainCssClass" role="main">
         @RenderBody()
     </main>
 

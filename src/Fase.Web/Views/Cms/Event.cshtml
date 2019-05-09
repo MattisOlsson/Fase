@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Fase.Web.Models.EventPage
 @inject Piranha.IApi Api
 @{
@@ -25,7 +26,7 @@
             <p class="events__item__intro">@Model.Details.EventType</p>
         }
         <h1 class="page__heading article__heading"><i class="icon--calendar"></i> @Model.Title</h1>
-        <span class="events__item__date"><i class="icon--clock"></i> @Model.Details.StartDate.Value.Value.ToString("dddd, dd MMMM yyyy") kl. @Model.Details.StartTime</span>
+        <span class="events__item__date"><i class="icon--clock"></i> @Model.Details.StartDate.Value.Value.ToString("dddd, dd MMMM yyyy", CultureInfo.GetCultureInfo("sv-SE")) kl. @Model.Details.StartTime</span>
         @if (!string.IsNullOrEmpty(Model.Details?.Information))
         {
             <div class="text-block__content text-block__body">

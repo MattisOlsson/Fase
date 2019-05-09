@@ -1,5 +1,4 @@
 .main {
-    position: relative;
     z-index: $z-index__main;
 
     @include mq($until: small) {
@@ -16,5 +15,9 @@
 
     @include mq($from: large) {
         margin-top: em($gutter-width * 3);
+    }
+
+    &--no-margin {
+        margin-top: 0;
     }
 }

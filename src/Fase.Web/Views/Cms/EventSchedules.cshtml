@@ -1,0 +1,17 @@
+@model Fase.Web.Models.ViewModels.EventScheduleListingView
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.MainCssClass = "main--no-margin";
+}
+
+@section Hero
+{
+    @Html.DisplayFor(m => m.Hero)
+}
+
+@foreach (var schedule in Model.Schedules)
+{
+    @Html.DisplayFor(m => schedule)
+}
+
+@Html.DisplayFor(m => m.Blocks)

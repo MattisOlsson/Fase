@@ -3,14 +3,17 @@
 
 <article class="@Model.GetCssClass() animate" data-animate>
     <div class="animate__group">
-        <h2 class="text-block__heading">
-            @if (!string.IsNullOrEmpty(Model.SubHeading.Value))
-            {
-                <span>@Model.SubHeading</span>
-            }
+        @if (!string.IsNullOrEmpty(Model.Heading?.Value))
+        {
+            <h2 class="text-block__heading">
+                @if (!string.IsNullOrEmpty(Model.SubHeading.Value))
+                {
+                    <span>@Model.SubHeading</span>
+                }
 
-            @Html.Raw(Model.Heading)
-        </h2>
+                @Html.Raw(Model.Heading)
+            </h2>
+        }
 
         <div class="text-block__content text-block__body">
             @Html.Raw(Model.Text)

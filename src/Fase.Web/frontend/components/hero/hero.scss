@@ -81,16 +81,16 @@
         }
 
         @include mq($from: small, $until: medium) {
-            font-size: 48px;
-            line-height: 54px;
-            margin: 0 auto em(5px, 48px);
+            font-size: 40px;
+            line-height: 48px;
+            margin: 0 auto em(5px, 40px);
         }
 
         @include mq($from: medium) {
-            margin: 0 auto em($gutter-width-half, 64px);
-            font-size: 64px;
-            line-height: 70px;
+            font-size: 48px;
+            line-height: 56px;
             letter-spacing: 1px;
+            margin: 0 auto em($gutter-width-half, 48px);
         }
     }
 
@@ -200,7 +200,7 @@
 
     &__logo {
         display: block;
-        margin: 0 auto;
+        margin: 0 auto em(5px);
         max-height: em(280px);
 
         @include mq($until: small) {
@@ -341,8 +341,13 @@
     }
 
     &--video {
-        min-height: 100vh;
+        height: 100vh;
         padding-bottom: 0;
+
+        @include mq($from: medium) {
+            height: auto;
+            min-height: 100vh;
+        }
     }
 
     .button {

@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
@@ -24,6 +25,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Geta.EmailNotification.AspNetCore">
+      <HintPath>..\..\lib\Geta.EmailNotification.AspNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Geta.EmailNotification.Postmark">
+      <HintPath>..\..\lib\Geta.EmailNotification.Postmark.dll</HintPath>
+    </Reference>
+    <Reference Include="Geta.EmailNotification.Shared">
+      <HintPath>..\..\lib\Geta.EmailNotification.Shared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Areas\Manager\Views\Shared\EditorTemplates\ArtistsBlock.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -34,6 +47,12 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Cms\DisplayTemplates\TeaserBlock.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Cms\EventSchedules.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Cms\EventSchedule.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

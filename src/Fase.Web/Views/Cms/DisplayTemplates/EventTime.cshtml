@@ -1,0 +1,7 @@
+﻿@using Microsoft.EntityFrameworkCore.ChangeTracking.Internal
+@model Piranha.Extend.Fields.StringField
+
+@if (!string.IsNullOrEmpty(Model.Value))
+{
+    <text>kl. @Model.Value</text>
+}

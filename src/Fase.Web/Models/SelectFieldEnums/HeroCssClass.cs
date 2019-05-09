@@ -2,9 +2,9 @@
 {
     public enum HeroCssClass
     {
+        Content,
         Small,
         Medium,
-        Content,
         Video
     }
 }

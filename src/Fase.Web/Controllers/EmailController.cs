@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Fase.Web.Extensions;
 using Fase.Web.Models;
 using Fase.Web.Models.FormModels;
+using Geta.EmailNotification.AspNetCore;
+using Geta.EmailNotification.Shared;
 using Microsoft.AspNetCore.Mvc;
-using PostmarkDotNet;
 
 namespace Fase.Web.Controllers
 {
     public class EmailController : Controller
     {
-        private readonly PostmarkClient _postmarkClient;
+        private readonly IAsyncEmailNotificationClient _emailNotificationClient;
+        private readonly IEmailNotificationRequestFactory _emailNotificationRequestFactory;
 
-        public EmailController(PostmarkClient postmarkClient)
+        public EmailController(IAsyncEmailNotificationClient emailNotificationClient, IEmailNotificationRequestFactory emailNotificationRequestFactory)
         {
-            _postmarkClient = postmarkClient;
+            _emailNotificationClient = emailNotificationClient;
+            _emailNotificationRequestFactory = emailNotificationRequestFactory;
         }
 
         [HttpPost]
@@ -40,16 +42,17 @@ namespace Fase.Web.Controllers
 
             try
             {
-                var message = new PostmarkMessage
-                {
-                    From = "mattias@geta.no",
-                    To = "info@fase-ab.se",
-                    Subject = model.Subject,
-                    HtmlBody = await this.RenderViewToStringAsync("~/Views/Emails/Contact.cshtml", model)
-                };
+                var email = _emailNotificationRequestFactory.CreateEmailBuilder()
+                    .WithFrom("mattias@geta.no")
+                    .WithTo("info@fase-ab.se")
+                    .WithSubject(model.Subject)
+                    .WithViewName("Contact")
+                    .WithViewModel(model)
+                    .Build();
 
-                var postmarkResponse = await _postmarkClient.SendMessageAsync(message);
-                response.Success = postmarkResponse.Status == PostmarkStatus.Success;
+                var emailResponse = await _emailNotificationClient.SendAsync(email);
+
+                response.Success = emailResponse.IsSent;
                 response.Data = model;
             }
             catch (Exception exc)

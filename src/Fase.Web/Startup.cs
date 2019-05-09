@@ -1,9 +1,12 @@
 ﻿using System;
 using Fase.Web.Extensions;
 using Fase.Web.Infrastructure;
+using Fase.Web.Repositories;
+using Geta.EmailNotification.AspNetCore;
+using Geta.EmailNotification.Postmark;
+using Geta.EmailNotification.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,7 +42,13 @@ namespace Fase.Web
             services.AddPiranhaMemCache();
             services.AddPostmark(_configuration);
             services.AddMemoryCache();
-            services.AddScoped<Fingerprint>();
+            services.AddScoped<IExtendedPageRepository, ExtendedPageRepository>();
+            services.AddSingleton<Fingerprint>();
+            services.AddEmailNotification(_configuration);
+            services
+                .AddScoped<IPostmarkMessageFactory, PostmarkMessageFactory>()
+                .AddScoped<IAsyncEmailNotificationClient, PostmarkEmailNotificationClient>()
+                .AddScoped<IEmailNotificationClient, PostmarkEmailNotificationClient>();
 
             return services.BuildServiceProvider();
         }
@@ -83,6 +92,7 @@ namespace Fase.Web
             App.CacheLevel = Piranha.Cache.CacheLevel.Basic;
 
             // Add custom media types
+            App.MediaTypes.Images.Add(".gif", "image/gif");
             App.MediaTypes.Videos.Add(".webm", "video/webm");
 
             // Register select fields
@@ -114,7 +124,9 @@ namespace Fase.Web
                 .AddType(typeof(Models.PartnersPage))
                 .AddType(typeof(Models.EventListingPage))
                 .AddType(typeof(Models.EventPage))
-                .AddType(typeof(Models.ArtistListingPage));
+                .AddType(typeof(Models.ArtistListingPage))
+                .AddType(typeof(Models.EventScheduleListingPage))
+                .AddType(typeof(Models.EventSchedulePage));
             pageTypeBuilder.Build()
                 .DeleteOrphans();
         }

@@ -2,21 +2,26 @@
 using Piranha;
 using Piranha.AspNetCore.Services;
 using System;
+using Fase.Web.Models;
+using Fase.Web.Models.ViewModels;
+using Fase.Web.Repositories;
 
 namespace Fase.Web.Controllers
 {
     public class CmsController : Controller
     {
         private readonly IApi _api;
-        private readonly IApplicationService _applicationService;
+        private readonly IExtendedPageRepository _extendedPageRepository;
 
         /// <summary>
         /// Default constructor.
         /// </summary>
         /// <param name="api">The current api</param>
-        public CmsController(IApi api, IApplicationService applicationService) {
+        /// <param name="extendedPageRepository"></param>
+        public CmsController(IApi api, IExtendedPageRepository extendedPageRepository)
+        {
             _api = api;
-            _applicationService = applicationService;
+            _extendedPageRepository = extendedPageRepository;
         }
 
         /// <summary>
@@ -74,6 +79,37 @@ namespace Fase.Web.Controllers
         public IActionResult Artists(Guid id)
         {
             var model = _api.Pages.GetById<Models.ArtistListingPage>(id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Gets the startpage with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("eventschedules")]
+        public IActionResult EventSchedules(Guid id)
+        {
+            var page = _api.Pages.GetById<Models.EventScheduleListingPage>(id);
+            var model = new EventScheduleListingView
+            {
+                Title = page.Title,
+                Hero = page.Hero,
+                Blocks = page.Blocks,
+                Schedules = _extendedPageRepository.GetChildren<EventSchedulePage>(id)
+            };
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Gets the startpage with the given id.
+        /// </summary>
+        /// <param name="id">The unique page id</param>
+        [Route("eventschedule")]
+        public IActionResult EventSchedule(Guid id)
+        {
+            var model = _api.Pages.GetById<Models.EventSchedulePage>(id);
 
             return View(model);
         }

@@ -2,14 +2,29 @@
     &__list {
         @include reset__list;
         margin: 0 auto;
-        padding: em($gutter-width);
-        max-width: em(960px);
+        padding: em($gutter-width) 0;
     }
 
     &__item {
-        margin: 0;
-        padding: 0 0 em($gutter-width * 2);
+        padding: em($gutter-width * 1.5) 0 em($gutter-width);
         text-align: center;
+
+        @include mq($from: small) {
+            padding: em($gutter-width * 2) 0 em($gutter-width * 1.5);
+        }
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:nth-child(2n+0) {
+            background-color: $color__grey__light;
+        }
+
+        &__wrapper {
+            margin: 0 auto;
+            max-width: em(960px);
+        }
 
         &__image {
             max-width: em(200px);
