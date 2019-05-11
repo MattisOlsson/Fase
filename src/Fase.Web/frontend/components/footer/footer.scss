@@ -2,6 +2,11 @@
     background-color: #000;
     color: #fff;
     padding: em($gutter-width) 0;
+    margin-top: em($gutter-width);
+
+    @include mq($from: small) {
+        margin-top: em($gutter-width * 2);
+    }
 
     &__container {
         margin: 0 auto;

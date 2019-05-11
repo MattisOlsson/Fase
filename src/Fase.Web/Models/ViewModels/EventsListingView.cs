@@ -11,6 +11,7 @@ namespace Fase.Web.Models.ViewModels
 
         public readonly EventListingPage Page;
 
-        public IEnumerable<EventPage> Events { get; set; }
+        public IEnumerable<EventPage> UpcomingEvents { get; set; }
+        public IEnumerable<EventPage> EarlierEvents { get; set; }
     }
 }

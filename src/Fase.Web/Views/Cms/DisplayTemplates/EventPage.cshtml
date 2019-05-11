@@ -1,0 +1,16 @@
+﻿@model Fase.Web.Models.EventPage
+
+<li class="events__item">
+    <div class="events__item__wrapper">
+        <h2 class="events__item__heading">
+            <i class="icon--calendar"></i>
+            <a class="events__item__link" href="@Url.Content(Model.Permalink)">@Model.Title <i class="icon--right-big"></i></a>
+        </h2>
+        <span class="events__item__date">
+            <i class="icon--clock"></i> @Html.DisplayFor(m => m.Details.StartDate) @Html.DisplayFor(m => m.Details.StartTime)
+        </span>
+        <div class="text-block__content text-block__body">
+            @Html.Raw(Model.Details.Information)
+        </div>
+    </div>
+</li>

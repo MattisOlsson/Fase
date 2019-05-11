@@ -45,10 +45,11 @@ namespace Fase.Web.Controllers
         public async Task<IActionResult> Events(Guid id)
         {
             var page = _api.Pages.GetById<EventListingPage>(id);
-            var events = await _extendedPageRepository.GetChildrenAsync<EventPage>(id);
+            var events = (await _extendedPageRepository.GetChildrenAsync<EventPage>(id)).ToList();
             var model = new EventsListingView(page)
             {
-                Events = events.Where(x => x.StartDate.HasValue && x.EndDate.HasValue && x.EndDate.Value > DateTime.Now)
+                UpcomingEvents = events.Where(x => x.StartDate.HasValue && x.EndDate.HasValue && x.EndDate.Value > DateTime.Now).OrderBy(x => x.StartDate),
+                EarlierEvents = events.Where(x => x.EndDate.HasValue && x.EndDate.Value < DateTime.Now).OrderByDescending(x => x.EndDate)
             };
 
             return View(model);

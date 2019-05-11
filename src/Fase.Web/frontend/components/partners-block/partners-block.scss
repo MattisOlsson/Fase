@@ -13,12 +13,12 @@
 
         @include mq($from: small, $until: medium) {
             margin-bottom: em($gutter-width * 2, 36px);
-            padding: em($gutter-width-sm * 2, 36px) em($gutter-width-sm, 36px);
+            padding: em($gutter-width-sm * 1.5, 36px) em($gutter-width-sm, 36px);
         }
 
         @include mq($from: medium) {
             margin-bottom: em($gutter-width * 2, 46px);
-            padding: em($gutter-width * 2, 46px) em($gutter-width, 46px);
+            padding: em($gutter-width * 1.5, 46px) em($gutter-width, 46px);
         }
 
         &:after {
@@ -34,6 +34,21 @@
             @include mq($from: medium) {
                 @include arrow('down', $color__brand, 40px);
                 bottom: -29px;
+            }
+        }
+
+        &--discrete {
+            background-color: $color__grey__light;
+            color: black;
+
+            &:after {
+                @include mq($until: medium) {
+                    @include arrow('down', $color__grey__light, 30px);
+                }
+
+                @include mq($from: medium) {
+                    @include arrow('down', $color__grey__light, 40px);
+                }
             }
         }
     }
