@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Piranha;
-using Piranha.AspNetCore.Services;
 using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Fase.Web.Models;
 using Fase.Web.Models.ViewModels;
 using Fase.Web.Repositories;
+using Piranha.Services;
 
 namespace Fase.Web.Controllers
 {
@@ -30,7 +32,7 @@ namespace Fase.Web.Controllers
         /// <param name="id">The unique page id</param>
         [Route("page")]
         public IActionResult Page(Guid id) {
-            var model = _api.Pages.GetById<Models.StandardPage>(id);
+            var model = _api.Pages.GetById<StandardPage>(id);
 
             return View(model);
         }
@@ -40,9 +42,14 @@ namespace Fase.Web.Controllers
         /// </summary>
         /// <param name="id">The unique page id</param>
         [Route("events")]
-        public IActionResult Events(Guid id)
+        public async Task<IActionResult> Events(Guid id)
         {
-            var model = _api.Pages.GetById<Models.EventListingPage>(id);
+            var page = _api.Pages.GetById<EventListingPage>(id);
+            var events = await _extendedPageRepository.GetChildrenAsync<EventPage>(id);
+            var model = new EventsListingView(page)
+            {
+                Events = events.Where(x => x.StartDate.HasValue && x.EndDate.HasValue && x.EndDate.Value > DateTime.Now)
+            };
 
             return View(model);
         }
@@ -54,7 +61,7 @@ namespace Fase.Web.Controllers
         [Route("event")]
         public IActionResult Event(Guid id)
         {
-            var model = _api.Pages.GetById<Models.EventPage>(id);
+            var model = _api.Pages.GetById<EventPage>(id);
 
             return View(model);
         }
@@ -66,7 +73,7 @@ namespace Fase.Web.Controllers
         [Route("partners")]
         public IActionResult Partners(Guid id)
         {
-            var model = _api.Pages.GetById<Models.PartnersPage>(id);
+            var model = _api.Pages.GetById<PartnersPage>(id);
 
             return View(model);
         }
@@ -78,7 +85,7 @@ namespace Fase.Web.Controllers
         [Route("artists")]
         public IActionResult Artists(Guid id)
         {
-            var model = _api.Pages.GetById<Models.ArtistListingPage>(id);
+            var model = _api.Pages.GetById<ArtistListingPage>(id);
 
             return View(model);
         }
@@ -88,15 +95,15 @@ namespace Fase.Web.Controllers
         /// </summary>
         /// <param name="id">The unique page id</param>
         [Route("eventschedules")]
-        public IActionResult EventSchedules(Guid id)
+        public async Task<IActionResult> EventSchedules(Guid id)
         {
-            var page = _api.Pages.GetById<Models.EventScheduleListingPage>(id);
+            var page = _api.Pages.GetById<EventScheduleListingPage>(id);
             var model = new EventScheduleListingView
             {
                 Title = page.Title,
                 Hero = page.Hero,
                 Blocks = page.Blocks,
-                Schedules = _extendedPageRepository.GetChildren<EventSchedulePage>(id)
+                Schedules = await _extendedPageRepository.GetChildrenAsync<EventSchedulePage>(id)
             };
 
             return View(model);
@@ -120,7 +127,7 @@ namespace Fase.Web.Controllers
         /// <param name="id">The unique page id</param>
         [Route("")]
         public IActionResult Start(Guid id) {
-            var model = _api.Pages.GetById<Models.StartPage>(id);
+            var model = _api.Pages.GetById<StartPage>(id);
 
             return View(model);
         }

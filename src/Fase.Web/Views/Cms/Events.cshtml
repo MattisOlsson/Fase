@@ -1,11 +1,80 @@
-@model Fase.Web.Models.EventListingPage
+@model Fase.Web.Models.ViewModels.EventsListingView
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = Model.Page.Title;
 }
 
 @section Hero
-{
-    @Html.DisplayFor(m => m.Hero)
+    {
+    @Html.DisplayFor(m => m.Page.Hero)
 }
 
-@Html.DisplayFor(m => m.Blocks)
+@*<ol class="events__list">
+
+        <li class="events__item">
+            <div class="events__item__wrapper">
+                <h2 class="events__item__heading"><i class="icon--calendar"></i> Tänk utanför glaset</h2>
+                <span class="events__item__date">
+                    <i class="icon--clock"></i> Utresa kl 20:00 - 21:30<br>
+                    <i class="icon--location"></i> Café Moonlight
+                </span>
+                <div class="text-block__content text-block__body">
+                    <p class="events__item__disclaimer">
+                        Bobby &amp; Dumbo har jobbat tillsammans bakom baren i över 10 år i både Sverige och världen över. De driver idag Zigges Garage och Barcore AB.
+                    </p>
+
+                    <p>Vi kommer att visa er våra olika serveringar, som sträcker sig utanför det klassiska grogg-glaset. Vi visar er skillnaden på att jobba effektivt och tänka igenom varje steg när ni jobbar! Det finns alltid utrymme för utveckling och förbättring.</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="events__item">
+            <div class="events__item__wrapper">
+                <h2 class="events__item__heading"><i class="icon--calendar"></i> Bourbon Workshop</h2>
+                <span class="events__item__date">
+                    <i class="icon--clock"></i> 20:00 - 21:00<br>
+                    <i class="icon--location"></i> Konferensrum BRUSSELS, 20 platser
+                </span>
+                <div class="text-block__content text-block__body">
+
+                    <p>Krögarparet Whiskey och Rob från Saddle &amp; Sabre, Årets Whiskeybar 2011, kör en introduktion i Bourbonwhiskey på Dryckeskultur.</p>
+                    <p>Missa inte detta tillfälle att få lite mer kännedom om amerikansk whiskey!</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="events__item">
+            <div class="events__item__wrapper">
+                <h2 class="events__item__heading"><i class="icon--calendar"></i> Destillat och mat i kombination!</h2>
+                <span class="events__item__date">
+                    <i class="icon--clock"></i> 20:30 - 21:30<br>
+                    <i class="icon--location"></i> Konferensrum STOCKHOLM, 28 platser
+                </span>
+                <div class="text-block__content text-block__body">
+
+                    <p>7 olika destillat med små smakbitar.</p>
+                    <p>Genomgång av olika typer av destillat, vodka, gins , aquavit, snapsar och whisky.</p>
+                </div>
+            </div>
+        </li>
+    </ol>*@
+<ol class="events__list">
+    @foreach (var eventPage in Model.Events)
+    {
+        <li class="events__item">
+            <div class="events__item__wrapper">
+                <h2 class="events__item__heading">
+                    <i class="icon--calendar"></i>
+                    <a class="events__item__link" href="@Url.Content(eventPage.Permalink)">@eventPage.Title <i class="icon--right-big"></i></a>
+                </h2>
+                <span class="events__item__date">
+                    <i class="icon--clock"></i> @Html.DisplayFor(m => eventPage.Details.StartDate) @Html.DisplayFor(m => eventPage.Details.StartTime)
+                </span>
+                <div class="text-block__content text-block__body">
+                    @Html.Raw(eventPage.Details.Information)
+                </div>
+            </div>
+        </li>
+    }
+</ol>
+
+@Html.DisplayFor(m => m.Page.Blocks)

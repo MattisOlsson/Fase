@@ -1,6 +1,7 @@
 ﻿using Piranha.AttributeBuilder;
 using Piranha.Extend.Fields;
 using System.ComponentModel.DataAnnotations;
+using Fase.Web.Configuration;
 
 namespace Fase.Web.Models.Regions
 {
@@ -16,12 +17,14 @@ namespace Fase.Web.Models.Regions
         public DateField StartDate { get; set; }
 
         [Field(Title = "Start time")]
+        [UIHint(FaseUiHint.EventTime)]
         public StringField StartTime { get; set; }
 
         [Field(Title = "End date")]
         public DateField EndDate { get; set; }
 
         [Field(Title = "End time")]
+        [UIHint(FaseUiHint.EventTime)]
         public StringField EndTime { get; set; }
 
         [Field]

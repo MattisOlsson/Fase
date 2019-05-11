@@ -36,10 +36,11 @@ namespace Fase.Web
             services.AddPiranhaApplication();
             services.AddPiranhaFileStorage();
             services.AddPiranhaImageSharp();
+            services.AddPiranha();
             services.AddPiranhaEF(options => options.UseSqlite("Filename=./piranha.db"));
             services.AddPiranhaIdentityWithSeed<IdentitySQLiteDb>(options => options.UseSqlite("Filename=./piranha.db"));
             services.AddPiranhaManager();
-            services.AddPiranhaMemCache();
+            services.AddPiranhaMemoryCache();
             services.AddPostmark(_configuration);
             services.AddMemoryCache();
             services.AddScoped<IExtendedPageRepository, ExtendedPageRepository>();
@@ -62,7 +63,7 @@ namespace Fase.Web
             }
 
             // Initialize Piranha
-            InitializePiranha(api);
+            InitializePiranha(api, env);
 
             // Register middleware
             app.UseRedirects(_configuration);
@@ -83,13 +84,13 @@ namespace Fase.Web
             });
         }
 
-        private void InitializePiranha(IApi api)
+        private void InitializePiranha(IApi api, IHostingEnvironment env)
         {
             // Initialize Piranha
-            App.Init();
+            App.Init(api);
 
             // Configure cache level
-            App.CacheLevel = Piranha.Cache.CacheLevel.Basic;
+            App.CacheLevel = Piranha.Cache.CacheLevel.Full;
 
             // Add custom media types
             App.MediaTypes.Images.Add(".gif", "image/gif");

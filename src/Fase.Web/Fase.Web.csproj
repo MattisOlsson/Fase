@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
     <Configurations>Debug;Release;Production</Configurations>
   </PropertyGroup>
@@ -11,15 +11,20 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
-    <PackageReference Include="Piranha" Version="5.3.1" />
-    <PackageReference Include="Piranha.AspNetCore" Version="5.3.1" />
-    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="5.3.0" />
-    <PackageReference Include="Piranha.AttributeBuilder" Version="5.3.0" />
-    <PackageReference Include="Piranha.ImageSharp" Version="5.3.0-rc1" />
-    <PackageReference Include="Piranha.Local.FileStorage" Version="5.3.0" />
-    <PackageReference Include="Piranha.Manager" Version="5.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Language" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Piranha" Version="6.1.0" />
+    <PackageReference Include="Piranha.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Piranha.AspNetCore.Identity" Version="6.1.0" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="6.1.0" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="6.1.0" />
+    <PackageReference Include="Piranha.Data.EF" Version="6.1.0" />
+    <PackageReference Include="Piranha.ImageSharp" Version="6.1.0-rc1" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="6.1.0" />
+    <PackageReference Include="Piranha.Manager" Version="6.1.0" />
     <PackageReference Include="Postmark" Version="4.0.1" />
     <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
   </ItemGroup>

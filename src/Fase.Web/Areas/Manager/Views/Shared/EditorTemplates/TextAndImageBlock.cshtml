@@ -8,30 +8,12 @@
 <div id="@(blockUnique)_Preview" class="@Model.GetCssClass()">
     <div class="manager-block" data-property-label="@Html.DisplayNameFor(m => m.SubHeading)">
         @Html.HiddenFor(m => m.SubHeading.Value, "")
-        <h3 class="text-block__heading2 editor-area" contenteditable="true" data-id="@Html.FieldIdFor(m => m.SubHeading)">
-            @if (!string.IsNullOrEmpty(Model.SubHeading.Value))
-            {
-                @Model.SubHeading
-            }
-            else
-            {
-                <text></text>
-            }
-        </h3>
+        <h3 class="text-block__heading2 editor-area" contenteditable="true" data-id="@Html.FieldIdFor(m => m.SubHeading)">@if (!string.IsNullOrEmpty(Model.SubHeading.Value)){@Model.SubHeading}else{<text></text>}</h3>
     </div>
 
     <div class="manager-block" data-property-label="@Html.DisplayNameFor(m => m.Heading)">
         @Html.HiddenFor(m => m.Heading.Value, "")
-        <h2 class="text-block__heading editor-area" contenteditable="true" data-id="@Html.FieldIdFor(m => m.Heading)">
-            @if (!string.IsNullOrEmpty(Model.Heading.Value))
-            {
-                @Model.Heading
-            }
-            else
-            {
-                <text></text>
-            }
-        </h2>
+        <h2 class="text-block__heading editor-area" contenteditable="true" data-id="@Html.FieldIdFor(m => m.Heading)">@if (!string.IsNullOrEmpty(Model.Heading.Value)){@Model.Heading}else{<text></text>}</h2>
     </div>
 
     <div class="manager-block" data-property-label="@Html.DisplayNameFor(m => m.Text)">

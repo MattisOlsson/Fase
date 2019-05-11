@@ -26,7 +26,7 @@
             <p class="events__item__intro">@Model.Details.EventType</p>
         }
         <h1 class="page__heading article__heading"><i class="icon--calendar"></i> @Model.Title</h1>
-        <span class="events__item__date"><i class="icon--clock"></i> @Model.Details.StartDate.Value.Value.ToString("dddd, dd MMMM yyyy", CultureInfo.GetCultureInfo("sv-SE")) kl. @Model.Details.StartTime</span>
+        <span class="events__item__date"><i class="icon--clock"></i> @Html.DisplayFor(m => m.Details.StartDate) @Html.DisplayFor(m => m.Details.StartTime)</span>
         @if (!string.IsNullOrEmpty(Model.Details?.Information))
         {
             <div class="text-block__content text-block__body">
@@ -45,13 +45,6 @@
     @Html.DisplayFor(m => m.Blocks)
 
     <footer class="article__footer animate" data-animate>
-        @if (!string.IsNullOrEmpty(Model.Details?.Information))
-        {
-            <div class="text-block__content text-block__body">
-                @Html.Raw(Model.Details.Information)
-            </div>
-        }
-
         @if (!string.IsNullOrEmpty(Model.Details.BookingLinkUrl?.Value))
         {
             <nav class="button-group">

@@ -1,4 +1,5 @@
-﻿using Fase.Web.Models.Regions;
+﻿using System;
+using Fase.Web.Models.Regions;
 using Piranha.AttributeBuilder;
 using Piranha.Extend.Fields;
 using Piranha.Models;
@@ -27,5 +28,9 @@ namespace Fase.Web.Models
 
         [Region(Title = "Event details")]
         public EventDetails Details { get; set; }
+
+        public DateTime? StartDate => Details.StartDate.Value;
+
+        public DateTime? EndDate => Details.EndDate.Value ?? Details.StartDate.Value;
     }
 }
