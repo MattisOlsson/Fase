@@ -107,6 +107,7 @@ namespace Fase.Web
             App.Blocks.Register<Models.Blocks.ArtistsBlock>();
             App.Blocks.Register<Models.Blocks.TeaserBlock>();
             App.Blocks.Register<Models.Blocks.SignupBlock>();
+            App.Blocks.Register<Models.Blocks.EventScheduleBlock>();
 
             // Remove unwanted blocks
             App.Blocks.UnRegister<HtmlBlock>();

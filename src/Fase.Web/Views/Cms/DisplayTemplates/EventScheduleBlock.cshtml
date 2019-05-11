@@ -1,0 +1,15 @@
+﻿@using Fase.Web.Models
+@using Piranha
+@using Piranha.Services
+@model Fase.Web.Models.Blocks.EventScheduleBlock
+@inject IApi Api
+@{
+    if (!Model.SchedulePage.HasValue)
+    {
+        return;
+    }
+
+    var schedulePage = Api.Pages.GetById<EventSchedulePage>(Model.SchedulePage.Page.Id);
+}
+
+@Html.DisplayFor(m => schedulePage)

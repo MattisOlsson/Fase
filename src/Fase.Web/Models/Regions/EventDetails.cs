@@ -10,7 +10,7 @@ namespace Fase.Web.Models.Regions
         [Field(Title = "Flyer image")]
         public ImageField FlyerImage { get; set; }
 
-        [Field]
+        [Field(Title = "Event type")]
         public StringField EventType { get; set; }
 
         [Field(Title = "Start date")]
