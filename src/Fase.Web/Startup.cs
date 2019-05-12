@@ -108,6 +108,7 @@ namespace Fase.Web
             App.Blocks.Register<Models.Blocks.TeaserBlock>();
             App.Blocks.Register<Models.Blocks.SignupBlock>();
             App.Blocks.Register<Models.Blocks.EventScheduleBlock>();
+            App.Blocks.Register<Models.Blocks.ContactBlock>();
 
             // Remove unwanted blocks
             App.Blocks.UnRegister<HtmlBlock>();
@@ -128,7 +129,9 @@ namespace Fase.Web
                 .AddType(typeof(Models.EventPage))
                 .AddType(typeof(Models.ArtistListingPage))
                 .AddType(typeof(Models.EventScheduleListingPage))
-                .AddType(typeof(Models.EventSchedulePage));
+                .AddType(typeof(Models.EventSchedulePage))
+                .AddType(typeof(Models.ContactPage));
+
             pageTypeBuilder.Build()
                 .DeleteOrphans();
         }

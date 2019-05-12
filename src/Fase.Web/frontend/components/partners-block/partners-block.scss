@@ -18,7 +18,7 @@
 
         @include mq($from: medium) {
             margin-bottom: em($gutter-width * 2, 46px);
-            padding: em($gutter-width * 1.5, 46px) em($gutter-width, 46px);
+            padding: em($gutter-width, 46px) em($gutter-width, 46px);
         }
 
         &:after {
@@ -32,8 +32,8 @@
             }
 
             @include mq($from: medium) {
-                @include arrow('down', $color__brand, 40px);
-                bottom: -29px;
+                @include arrow('down', $color__brand, 36px);
+                bottom: -24px;
             }
         }
 

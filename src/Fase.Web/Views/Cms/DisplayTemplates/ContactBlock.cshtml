@@ -1,0 +1,36 @@
+﻿@using Fase.Web.Models
+@using Piranha.Services
+@model Fase.Web.Models.Blocks.ContactBlock
+@{
+    if (!Model.ContactPage.Id.HasValue)
+    {
+        return;
+    }
+
+    var contactPage = Api.Pages.GetById<ContactPage>(Model.ContactPage.Id.Value);
+
+    if (contactPage == null)
+    {
+        return;
+    }
+}
+
+<div class="animate" data-animate>
+    <span id="kontakt" class="anchor"></span>
+    <h2 class="text-block__heading partners-block__heading">@contactPage.Title</h2>
+    <div class="text-block profile--medium">
+        <ul class="profile__list">
+            @foreach (var contact in contactPage.Contacts)
+            {
+                <li class="profile__item">
+                    <img class="profile__image" src="@Url.Content(contact.ProfileImage.Resize(Api, 580, 580))">
+                    <h3 class="profile__name">@($"{contact.FirstName.Value} {contact.LastName.Value}")</h3>
+                    <p class="profile__text">
+                        <a href="mailto:@Html.Raw(contact.Email)"><i class="icon--mail icon--lg"></i> @contact.Email</a>
+                        <a href="tel:@Html.Raw(contact.Phone)"><i class="icon--phone icon--lg"></i> @Html.Raw(contact.Phone)</a>
+                    </p>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
