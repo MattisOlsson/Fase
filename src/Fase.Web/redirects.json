@@ -4,32 +4,32 @@
         "Redirects": [
             {
                 "From": "dryckeskultur-2018.html",
-                "To": "event/dryckeskultur-2019",
+                "To": "event/dryckeskultur-2018",
                 "StatusCode": 301
             },
             {
                 "From": "program.html",
-                "To": "event/dryckeskultur-2019/program",
+                "To": "event/dryckeskultur-2018/program",
                 "StatusCode": 301
             },
             {
                 "From": "artister.html",
-                "To": "event/dryckeskultur-2019/artister",
+                "To": "event/dryckeskultur-2018/artister",
                 "StatusCode": 301
             },
             {
                 "From": "skolningar-workshops-masterclasses.html",
-                "To": "event/dryckeskultur-2019/skolningar-workshops-masterclasses",
+                "To": "event/dryckeskultur-2018/program",
                 "StatusCode": 301
             },
             {
                 "From": "bartender-battle.html",
-                "To": "event/dryckeskultur-2019/bartender-battle",
+                "To": "event/dryckeskultur-2018",
                 "StatusCode": 301
             },
             {
                 "From": "ordningsregler.html",
-                "To": "event/dryckeskultur-2019/ordningsregler",
+                "To": "event/dryckeskultur-2018/ordningsregler",
                 "StatusCode": 301
             },
             {
@@ -44,7 +44,7 @@
             },
             {
                 "From": "partners.html",
-                "To": "event/dryckeskultur-2019/partners",
+                "To": "partners",
                 "StatusCode": 301
             }
         ]

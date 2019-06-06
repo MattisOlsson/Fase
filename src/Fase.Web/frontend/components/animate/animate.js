@@ -21,7 +21,9 @@ export default class Animate {
             this.groups.each((_, group) => this.initGroup(group));
         }
         else if (this.options.mode === 'onload') {
-            root.setTimeout(() => this.groups.addClass(this.options.groupActiveCssClass), 250);
+            root.setTimeout(() => {
+                this.groups.addClass(this.options.groupActiveCssClass);
+            }, 250);
         }
     }
 

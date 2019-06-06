@@ -2,6 +2,7 @@
 import initElements from './utils/init-elements.js';
 import AnchorLink from '../components/anchor/anchor-link.js';
 import Header from '../components/header/header.js';
+import Hero from '../components/hero/hero.js';
 import Navigation from '../components/navigation/navigation.js';
 import Form from '../components/form/form.js';
 import Animate from '../components/animate/animate.js';
@@ -25,6 +26,7 @@ class FaseApplication {
 
     init() {
         initElements('[data-header]', Header);
+        initElements('[data-hero]', Hero);
         this.navigations = initElements('[data-navigation]', Navigation, {
             isActive: false
         });

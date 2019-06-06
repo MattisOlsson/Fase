@@ -8,15 +8,15 @@
 {
     <section class="@Model.HeroContent.GetCssClass()" data-hero>
         <div class="hero__video">
-            <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="metadata">
+            <video class="hero__video__player" id="start-video" muted="muted" playsinline="playsinline" autoplay="autoplay" loop="loop" preload="auto" data-hero__video>
                 @foreach (var video in Model.Videos)
                 {
-                    <source src="@Url.Content(video.VideoFile.Media.PublicUrl)" type="@video.VideoFile.Media.ContentType" data-src="@Url.Content(video.VideoFile.Media.PublicUrl)">
+                    <source type="@video.VideoFile.Media.ContentType" data-src="@Url.Content(video.VideoFile.Media.PublicUrl)">
                 }
             </video>
         </div>
         <article class="hero__content">
-            <div class="hero__content__inner animate animate--onload" data-animate='{ "mode": "onload" }'>
+            <div class="hero__content__inner animate animate--onload" data-hero__content__inner>
                 <div class="animate__group">
                     @if (Model.HeroContent.Logo.HasValue)
                     {
@@ -41,6 +41,7 @@
                 }
             </div>
         </article>
+        <div class="hero__loader hero__loader--semi-active" data-hero__loader></div>
     </section>
 }
 

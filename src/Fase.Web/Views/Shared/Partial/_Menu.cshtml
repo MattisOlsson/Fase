@@ -12,15 +12,17 @@
     <ul class="navigation__menu" role="menu" data-navigation__menu>
         @foreach (var item in sitemap)
         {
+            var subItems = item.Items.Where(x => !x.IsHidden).ToList();
+
             <li class="navigation__item @item.IsSelected(WebApp).ToString("navigation__item--active navigation__item--expanded") @((item.Items.Count > 0).ToString("navigation__item--has-children"))" role="menuitem">
                 <a href="@item.Permalink" class="navigation__link" data-navigation__link>@item.MenuTitle</a>
-                @if (item.Items.Count > 0)
+                @if (subItems.Count > 0)
                 {
                     <ul class="navigation__sub-menu" role="menu">
                         <li class="navigation__sub-item navigation__sub-item--visible-touch" role="menuitem">
                             <a href="@item.Permalink" class="navigation__sub-link">@item.MenuTitle</a>
                         </li>
-                        @foreach (var subItem in item.Items)
+                        @foreach (var subItem in subItems)
                         {
                             <li class="navigation__sub-item @subItem.IsSelected(WebApp).ToString("navigation__sub-item--active")" role="menuitem">
                                 <a href="@subItem.Permalink" class="navigation__sub-link">@subItem.MenuTitle</a>

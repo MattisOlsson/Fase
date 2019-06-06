@@ -47,6 +47,8 @@
     @if ($fade == in) {
         $fade-iteration-count: infinite;
     }
+    content: '';
+    display: block;
     height: $size;
     width: $size;
     border: $border-width solid $border-color;
