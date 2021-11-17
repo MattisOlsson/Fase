@@ -29,7 +29,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
-    <PackageReference Include="Piranha" Version="6.1.0" />
+    <PackageReference Include="Piranha" Version="10.0.0" />
     <PackageReference Include="Piranha.AspNetCore" Version="6.1.0" />
     <PackageReference Include="Piranha.AspNetCore.Identity" Version="6.1.0" />
     <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="6.1.0" />
