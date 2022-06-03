@@ -33,7 +33,7 @@
         "eslint-plugin-standard": "^4.0.0",
         "jquery": "^3.4.1",
         "jquery-ajax-unobtrusive": "^3.2.4",
-        "jquery-validation": "^1.17.0",
+        "jquery-validation": "^1.19.4",
         "jquery-validation-unobtrusive": "^3.2.10",
         "mini-css-extract-plugin": "^0.4.2",
         "modularized-normalize-scss": "^4.0.0",
